@@ -32,7 +32,7 @@ public class EntittyTest {
 	public static XSSFSheet ReadExcel() throws IOException
 	{
 		//String workingDir = System.getProperty("user.dir");
-		fis = new FileInputStream("C:\\Users\\Mayuri Gaikwad\\Desktop\\Secreterial\\TestData\\Scretrial.xlsx");
+		fis = new FileInputStream("C:\\Users\\trainee\\Desktop\\AvaSec\\Secretarial-Project\\TestData\\Scretrial.xlsx");
 		
 		workbook = new XSSFWorkbook(fis);
 		sheet = workbook.getSheetAt(0);					//Retrieving second sheet of Workbook
@@ -44,7 +44,7 @@ public class EntittyTest {
 	void setBrowser() throws Exception
 	{
 		
-		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri Gaikwad\\Desktop\\Secreterial\\Report\\Secretrial.html",true);
+		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\trainee\\Desktop\\AvaSec\\Secretarial-Project\\Report\\Secretrial.html",true);
 		test = extent.startTest("Verify OpenBrowser");
 		
 		
@@ -83,8 +83,20 @@ public class EntittyTest {
 		extent.endTest(test);
 		extent.flush();
 	}
+	/*
+	@Test(priority = 2)
+	void BusinessActivityClick() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Business Activity  ");
+		
+		Methods.BusinessActivityClick(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
-	//@Test(priority = 2)
+	
+//	@Test(priority = 3)
 	void AddNew() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity -Edit - Business Activity -Add New ");
@@ -95,7 +107,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 3)
+	//@Test(priority = 4)
 	void validationofsave() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity -Edit - Business Activity -Add New - To check validation of save button without entering a data");
@@ -106,7 +118,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 4)
+//	@Test(priority = 5)
 	void validationofedit() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity - Business Activity -Edit");
@@ -117,7 +129,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-	//@Test(priority = 5)
+	//@Test(priority = 6)
 	void CheckInvaliddata() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity - Business Activity -Edit - Check Invalid Data");
@@ -128,7 +140,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 6)
+//	@Test(priority = 7)
 	void DeleteBusinessActivity() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity - Business Activity - Delete");
@@ -139,6 +151,8 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
+	
+	
 	//@Test(priority = 7) Not Completed
 	void CheckFilterWork() throws InterruptedException, IOException
 	{
@@ -148,23 +162,46 @@ public class EntittyTest {
 		
 		extent.endTest(test);
 		extent.flush();
-	}
+	}*/
 	
 //	@Test(priority = 8)
-	void AddNewDocuments() throws InterruptedException, IOException
+	void BusinessActivityValidation() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Entity -Edit - Documents-Add New ");
+		test = extent.startTest("Entity - Business Activity -Add New - withOut Selecting 'Main Activity Code' dropdown");
 		
-		Methods.DocumentsADD(driver,test);
+		Methods.BusinessActivityValidation(driver,test);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
 	
+	
 //	@Test(priority = 9)
+	void DocumentClick() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents ");
+		
+		Methods.DocumentClick(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 10)
+	void DocumentsADDMOA() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New - Selecting MOA");
+		
+		Methods.DocumentsADDMOA(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 11)
 	void WithoutDocument() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Entity -Edit - Documents-Add New - Without Document ");
+		test = extent.startTest("Entity -Edit - Documents-Add New -Type MOA - Without Document ");
 		
 		Methods.WithoutDocument(driver,test);
 		
@@ -172,49 +209,287 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 10)
-	void DocumentsAE() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Entity -Edit - Documents-Add New  ");
-		
-		Methods.DocumentsAE(driver,test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 11)
-	void DocumentDownload() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Entity -Edit - Documents-Download  ");
-		
-		Methods.DocumentDownload(driver,test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
 //	@Test(priority = 12)
-	void DocumentView() throws InterruptedException, IOException
+	void DocumentsADDMOAAE() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Entity -Edit - Documents-View  ");
+		test = extent.startTest("Entity -Edit - Documents-Add New - with existing data ");
 		
-		Methods.DocumentView(driver,test);
+		Methods.DocumentsADDMOAAE(driver,test);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
 	
-//	@Test(priority = 13)
+//	@Test(priority = 13)//start
+	void ViewMOA() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-view-MOA ");
+		
+		Methods.ViewMOA(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 14)
+	void DownloadMOA() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Download - MOA ");
+		
+		Methods.DownloadMOA(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 15)
+	void DeleteMOA() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Delete - MOA ");
+		
+		Methods.DeleteMOA(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}	
+	
+	//@Test(priority = 16)
+	void AddNewDocuments() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New - Selecting AOA");
+		
+		Methods.DocumentsADD(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 17)
+	void DocumentsADDExisting() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New -AOA - with existing data ");
+		
+		Methods.DocumentsADDExisting(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 18)
+	void ViewAOA() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-View - AOA");
+		
+		Methods.ViewAOA(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 19)
+	void DownloadAOA() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Download -AOA ");
+		
+		Methods.DownloadAOA(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 20)
 	void DocumentDelete() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Entity -Edit - Documents-Delete  ");
+		test = extent.startTest("Entity -Edit - Documents-Delete - AOA ");
 		
-		Methods.DocumentDelete(driver,test);
+		Methods.DeleteAOA(driver,test);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+//	@Test(priority = 21)
+	void WithoutDocumentAOA() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New -Type AOA - Without Document ");
+		
+		Methods.WithoutDocumentAOA(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 22)
+	void DocumentsADDCOI() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New - Selecting COI ");
+		
+		Methods.DocumentsADDCOI(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 23)
+	void WithoutDocumentCOI() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New -Type COI - Without Document ");
+		
+		Methods.WithoutDocumentCOI(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+/*	
+	@Test(priority = 24)
+	void DocumentsADDCOIExisting() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New -COI - with existing data ");
+		
+		Methods.DocumentsADDCOIExisting(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 25)
+	void ViewCOI() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-View - COI");
+		
+		Methods.ViewCOI(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 26)
+	void DownloadCOI() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Download -COI ");
+		
+		Methods.DownloadCOI(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 27)
+	void DeleteCOI() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Delete - COI ");
+		
+		Methods.DeleteCOI(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+	@Test(priority = 28)
+	void DocumentsADDPolicy() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New - Selecting Policy ");
+		
+		Methods.DocumentsADDPolicy(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 29)
+	void WithoutDocumentPolicy() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New -Type Policy - Without Document ");
+		
+		Methods.WithoutDocumentPolicy(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 30)
+	void DocumentsADDPolicyAE() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New -Policy - with existing data ");
+		
+		Methods.DocumentsADDPolicyAE(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+	@Test(priority = 31)
+	void ViewPolicy() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents- Policies -View ");
+		
+		Methods.ViewPolicy(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 32)
+	void DownloadCOI() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Policies -Download  ");
+		
+		Methods.DownloadPolicy(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 33)
+	void DeletePolicy() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Policies - Delete  ");
+		
+		Methods.DeletePolicy(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	*/
+//	@Test(priority = 34)
+	void DocumentsADDLicenseRegi() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New - Selecting Licence/Registration  ");
+		
+		Methods.DocumentsADDLicenseRegi(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 35)
+	void DocumentsADDLicenseRegiInvalid() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New - Selecting Licence/Registration :- Invalid data ");
+		
+		Methods.DocumentsADDLicenseRegiInvalid(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	//@Test(priority = 14)
 	void BankDetailAddnew() throws InterruptedException, IOException

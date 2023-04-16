@@ -6,7 +6,7 @@
       <class name="secretrialTestCase.EntittyTest">
         <methods>
           <include name="setBrowser"/>
-          <include name="ShareholdingValidationEmpty"/>
+          <include name="DocumentsADDLicenseRegiInvalid"/>
         </methods>
       </class> <!-- secretrialTestCase.EntittyTest -->
     </classes>
