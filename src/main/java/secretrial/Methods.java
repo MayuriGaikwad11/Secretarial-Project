@@ -1406,6 +1406,181 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Locator.ClickDashboard(driver).click();
 	 }
 	
+	public static void DocumentsADDLicenseRegiED(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	//Locator.Entity(driver).click();
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.LicenseRegistration(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.LicenseNo(driver).sendKeys("13"); // Writing Task title
+	Thread.sleep(4000);
+	Locator.LastRenewDate(driver).sendKeys("13/04/2023");
+	Thread.sleep(3000);
+	
+	Locator.UpcomingRenewDate(driver).sendKeys("20/04/2023");
+	Thread.sleep(3000);
+	
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
+	Thread.sleep(4000);
+	
+	Thread.sleep(3000);
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a  Licence/Registration option Type :- " +msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void ViewLicenseRegi(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	//Locator.Entity(driver).click();
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.LICENSE_REGISTRATION(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.ViewLICENSE_REGISTRATION(driver).click();
+	Thread.sleep(2000);
+	String	msg1=Locator.ViewMsg(driver).getText();
+ if(msg1.equalsIgnoreCase("Viewer")) {
+	 test.log(LogStatus.PASS,  " document Type LICENSE_REGISTRATION :- View  successfully.");
+ }
+	Locator.Viewclose(driver).click();
+	Thread.sleep(3000);
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	
+	public static void DownloadLicenseRegi(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	//Locator.Entity(driver).click();
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.LICENSE_REGISTRATION(driver).click();
+	Thread.sleep(4000);
+	
+	Thread.sleep(1000);
+	File dir = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+	
+	Thread.sleep(500);
+	Locator.DownloadLicense(driver).click();		//Exporting (Downloading) file
+	
+	Thread.sleep(3000);//C://Users//jiya//Downloads//
+	File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+	
+	Thread.sleep(3000);
+	if (dirContents.length < allFilesNew.length) {
+		test.log(LogStatus.PASS,  "  File downloaded successfully.");
+	} else {
+		test.log(LogStatus.FAIL, "  File does not downloaded.");
+	}
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void DeleteLicenseRegi(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	//Locator.Entity(driver).click();
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.LICENSE_REGISTRATION(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.DocDeleteLICENSE(driver).click();
+	Thread.sleep(2000);
+	String Msg=Locator.DocDeletemsg(driver).getText();
+	Thread.sleep(3000);
+	test.log(LogStatus.PASS, Msg);
+	Thread.sleep(1000);
+	Locator.DocDeleteYes(driver).click();
+	Thread.sleep(2000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
 	
 	public static void DocumentsADDLicenseRegiInvalid(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
 	 {
@@ -1453,7 +1628,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	
 	WebElement ViewButton = driver.findElement(locator);	
 	Thread.sleep(3000);
-	ViewButton.sendKeys("C:\\Users\\trainee\\Downloads\\4_13_2023 4_33_27 PM.zip");
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
 	Thread.sleep(4000);
 	
 	Thread.sleep(3000);
@@ -1474,7 +1649,398 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Locator.ClickDashboard(driver).click();
 	 }
 	
+	public static void DocumentsADDAnnualReport(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
 	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	//Locator.Entity(driver).click();
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.AnnualReport(driver).click();
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	row0 = sheet.getRow(18);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	int No = (int) c1.getNumericCellValue();
+	Locator.LicenseNo(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(4000);
+	Locator.LastRenewDate(driver).sendKeys("13/04/2023");
+	Thread.sleep(3000);
+	
+	Locator.FY(driver).click();
+	Thread.sleep(1000);
+	Locator.FY2223(driver).click();
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(15);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Description(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+
+	Locator.StartTime(driver).click();
+	Thread.sleep(1000);
+	Locator.StartTime8(driver).click();
+	Thread.sleep(3000);
+
+	Locator.EndTime(driver).click();
+	Thread.sleep(1000);
+	Locator.EndTime8(driver).click();
+	Thread.sleep(3000);
+
+	
+	
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
+	Thread.sleep(4000);
+	
+	
+	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[10]");
+	
+	
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton1 = driver.findElement(locator1);	
+	Thread.sleep(4000);
+JavascriptExecutor jse=(JavascriptExecutor)driver;
+Thread.sleep(2000);
+jse.executeScript("arguments[0].click();", ViewButton1);
+	
+Thread.sleep(4000);
+	
+	String	msg1=Locator.SaveDocMsg(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a Annual Report option Type :- " +msg1);
+		Thread.sleep(3000);
+	Locator.Close(driver).click();
+	Thread.sleep(3000);
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(300,0)");						//Scrolling down window by 1000 px.
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void DocumentsADDAnnualReportED(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	//Locator.Entity(driver).click();
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.AnnualReport(driver).click();
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	
+	Locator.LicenseNo(driver).sendKeys("17"); // Writing Task title
+	Thread.sleep(4000);
+	Locator.LastRenewDate(driver).sendKeys("13/04/2023");
+	Thread.sleep(3000);
+	
+	Locator.FY(driver).click();
+	Thread.sleep(1000);
+	Locator.FY2223(driver).click();
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(15);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Description(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+
+	Locator.StartTime(driver).click();
+	Thread.sleep(1000);
+	Locator.StartTime8(driver).click();
+	Thread.sleep(3000);
+
+	Locator.EndTime(driver).click();
+	Thread.sleep(1000);
+	Locator.EndTime8(driver).click();
+	Thread.sleep(3000);
+
+	
+	
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
+	Thread.sleep(4000);
+	
+	
+	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[10]");
+	
+	
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton1 = driver.findElement(locator1);	
+	Thread.sleep(4000);
+JavascriptExecutor jse=(JavascriptExecutor)driver;
+Thread.sleep(2000);
+jse.executeScript("arguments[0].click();", ViewButton1);
+	
+Thread.sleep(4000);
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a Annual Report option Type :- " +msg1);
+		Thread.sleep(3000);
+	Locator.Close(driver).click();
+	Thread.sleep(3000);
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(300,0)");						//Scrolling down window by 1000 px.
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void DocumentsADDAnnualReportWD(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	//Locator.Entity(driver).click();
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.AnnualReport(driver).click();
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	
+	Locator.LicenseNo(driver).sendKeys("17"); // Writing Task title
+	Thread.sleep(4000);
+	Locator.LastRenewDate(driver).sendKeys("13/04/2023");
+	Thread.sleep(3000);
+	
+	Locator.FY(driver).click();
+	Thread.sleep(1000);
+	Locator.FY2223(driver).click();
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(15);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Description(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+
+	Locator.StartTime(driver).click();
+	Thread.sleep(1000);
+	Locator.StartTime8(driver).click();
+	Thread.sleep(3000);
+
+	Locator.EndTime(driver).click();
+	Thread.sleep(1000);
+	Locator.EndTime8(driver).click();
+	Thread.sleep(3000);
+	
+	
+	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[10]");
+	
+	
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton1 = driver.findElement(locator1);	
+	Thread.sleep(4000);
+JavascriptExecutor jse=(JavascriptExecutor)driver;
+Thread.sleep(2000);
+jse.executeScript("arguments[0].click();", ViewButton1);
+	
+Thread.sleep(4000);
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a Annual Report option Type :- " +msg1);
+		Thread.sleep(3000);
+	Locator.Close(driver).click();
+	Thread.sleep(3000);
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(300,0)");						//Scrolling down window by 1000 px.
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	
+	
+	public static void ViewAnnualReport(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	//Locator.Entity(driver).click();
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.Annual(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.ViewAnnual(driver).click();
+	Thread.sleep(2000);
+	String	msg1=Locator.ViewMsg(driver).getText();
+if(msg1.equalsIgnoreCase("Viewer")) {
+	 test.log(LogStatus.PASS,  " document Type Annual Report :- View  successfully.");
+}
+	Locator.Viewclose(driver).click();
+	Thread.sleep(3000);
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	
+	public static void DownloadAnnualReport(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	//Locator.Entity(driver).click();
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.Annual(driver).click();
+	Thread.sleep(4000);
+	
+	Thread.sleep(1000);
+	File dir = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+	
+	Thread.sleep(500);
+	Locator.DownloadAR(driver).click();		//Exporting (Downloading) file
+	
+	Thread.sleep(3000);//C://Users//jiya//Downloads//
+	File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+	
+	Thread.sleep(3000);
+	if (dirContents.length < allFilesNew.length) {
+		test.log(LogStatus.PASS,  "  File downloaded successfully.");
+	} else {
+		test.log(LogStatus.FAIL, "  File does not downloaded.");
+	}
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void DeleteAnnualReport(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	//Locator.Entity(driver).click();
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.Annual(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.DocDeleteAR(driver).click();
+	Thread.sleep(2000);
+	String Msg=Locator.DocDeletemsg(driver).getText();
+	Thread.sleep(3000);
+	test.log(LogStatus.PASS, Msg);
+	Thread.sleep(1000);
+	Locator.DocDeleteYes(driver).click();
+	Thread.sleep(2000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
 	
 	
 	
@@ -1623,6 +2189,75 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Locator.ClickDashboard(driver).click();
 	 }
 	
+	public static void WithoutDocumentLicense(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(4000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.LicenseRegistration(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,   msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void DocumentsADDClose(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	//Locator.Entity(driver).click();
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	Locator.Documents(driver).click();
+	Thread.sleep(4000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	if(Locator.Close(driver).isEnabled()) {
+		Locator.Close(driver).click();
+		Thread.sleep(3000);
+		
+		test.log(LogStatus.PASS,  " close or exit button is working Successfully");
+	}else {
+		test.log(LogStatus.FAIL,  "close or exit button is not working");
+	}
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
 	
 	
 	
@@ -2643,6 +3278,125 @@ String text=Locator.searchText(driver).getText();
 		Locator.ClickDashboard(driver).click();
 		 Thread.sleep(1000);
 	 }
+	
+	public static void BranchDetailsClick(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	if(Locator.BranchDetails(driver).isEnabled()) {
+		Locator.BranchDetails(driver).click();
+		test.log(LogStatus.PASS, " Branch Details  tab is clickable ");
+	}else {
+		test.log(LogStatus.FAIL, " Branch Details  tab is not clickable");
+		
+	}
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	public static void AddNewBranchDetails(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.AddNewBD(driver).click();
+		Thread.sleep(3000);
+	
+	Thread.sleep(1000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	
+	row0 = sheet.getRow(20);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Name(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	Locator.Status(driver).click();
+	Thread.sleep(1000);
+	Locator.ACtive(driver).click();
+	Thread.sleep(3000);
+	Locator.BranchType(driver).click();
+	Thread.sleep(1000);
+	Locator.HeadOffice(driver).click();
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(21);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.ContactPerson(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	
+	row0 = sheet.getRow(22);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	int No = (int) c1.getNumericCellValue();
+	Locator.ContactNumber(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(4000);
+	
+	row0 = sheet.getRow(23);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.EmailBD(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	row0 = sheet.getRow(24);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.AddressBD(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	
+	Locator.State(driver).click();
+	Thread.sleep(1000);
+	Locator.Maharashtra(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.City(driver).click();
+	Thread.sleep(1000);
+	Locator.Ahmadnagar(driver).click();
+	Thread.sleep(3000);
+	Locator.ClickSave(driver).click();
+	Thread.sleep(3000);
+String Msg=	Locator.ClickSaveMsg(driver).getText();
+	Thread.sleep(3000);
+	if(Msg.equalsIgnoreCase("Saved successfully")) {
+		test.log(LogStatus.PASS, Msg);
+	}else {
+		test.log(LogStatus.FAIL, Msg);
+	}
+	
+	Locator.CloseBranchD(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
 	
 	
 	

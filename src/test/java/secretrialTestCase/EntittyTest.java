@@ -32,7 +32,7 @@ public class EntittyTest {
 	public static XSSFSheet ReadExcel() throws IOException
 	{
 		//String workingDir = System.getProperty("user.dir");
-		fis = new FileInputStream("C:\\Users\\trainee\\Desktop\\AvaSec\\Secretarial-Project\\TestData\\Scretrial.xlsx");
+		fis = new FileInputStream("C:\\Users\\Mayuri\\Desktop\\AvaSec\\Secretarial-Project\\TestData\\Scretrial.xlsx");
 		
 		workbook = new XSSFWorkbook(fis);
 		sheet = workbook.getSheetAt(0);					//Retrieving second sheet of Workbook
@@ -44,7 +44,7 @@ public class EntittyTest {
 	void setBrowser() throws Exception
 	{
 		
-		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\trainee\\Desktop\\AvaSec\\Secretarial-Project\\Report\\Secretrial.html",true);
+		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri\\Desktop\\AvaSec\\Secretarial-Project\\Report\\Secretrial.html",true);
 		test = extent.startTest("Verify OpenBrowser");
 		
 		
@@ -475,13 +475,149 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
+//	@Test(priority = 36)//start
+	void WithoutDocumentLicense() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New - Selecting Licence/Registration :- Without Document ");
+		
+		Methods.WithoutDocumentLicense(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 37)
+	void DocumentsADDLicenseRegiED() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New -Licence/Registration  - with existing data ");
+		
+		Methods.DocumentsADDLicenseRegiED(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 38)
+	void ViewLicenseRegi() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents- LICENSE_REGISTRATION -View ");
+		
+		Methods.ViewLicenseRegi(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 39)
+	void DownloadLicenseRegi() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-LICENSE_REGISTRATION -Download  ");
+		
+		Methods.DownloadLicenseRegi(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 40)
+	void DeleteLicenseRegi() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-LICENSE_REGISTRATION - Delete  ");
+		
+		Methods.DeleteLicenseRegi(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 	
+	//@Test(priority = 41)
+	void DocumentsADDAnnualReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New - Selecting  Annual Report ");
+		
+		Methods.DocumentsADDAnnualReport(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
+//	@Test(priority = 42)
+	void DocumentsADDAnnualReportED() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New - Annual Reportn  - with existing data ");
+		
+		Methods.DocumentsADDAnnualReportED(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
+//	@Test(priority = 43)
+	void DocumentsADDAnnualReportWD() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New - Annual Report :- Without Document ");
+		
+		Methods.DocumentsADDAnnualReportWD(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
+//	@Test(priority = 44)
+	void ViewAnnualReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents- Annual report -View ");
+		
+		Methods.ViewAnnualReport(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
+	//@Test(priority = 45)
+	void DownloadAnnualReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Annual report -Download  ");
+		
+		Methods.DownloadAnnualReport(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
+//	@Test(priority = 46)
+	void DeleteAnnualReport() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Annual report - Delete  ");
+		
+		Methods.DeleteAnnualReport(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 47)
+	void DocumentsADDClose() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Documents-Add New - Close   ");
+		
+		Methods.DocumentsADDClose(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 48)
+	void BranchDetailsClick() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Branch Details   ");
+		
+		Methods.BranchDetailsClick(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 	
 	
