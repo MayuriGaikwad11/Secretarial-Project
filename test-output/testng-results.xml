@@ -2,23 +2,23 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-04-17T16:02:54 IST" name="Default suite" finished-at="2023-04-17T16:03:39 IST" duration-ms="44315">
+  <suite started-at="2023-04-18T16:02:45 IST" name="Default suite" finished-at="2023-04-18T16:03:35 IST" duration-ms="49777">
     <groups>
     </groups>
-    <test started-at="2023-04-17T16:02:54 IST" name="Default test" finished-at="2023-04-17T16:03:39 IST" duration-ms="44315">
+    <test started-at="2023-04-18T16:02:45 IST" name="Default test" finished-at="2023-04-18T16:03:35 IST" duration-ms="49777">
       <class name="secretrialTestCase.EntittyTest">
-        <test-method is-config="true" signature="setBrowser()[pri:0, instance:secretrialTestCase.EntittyTest@16293aa2]" started-at="2023-04-17T16:02:54 IST" name="setBrowser" finished-at="2023-04-17T16:03:07 IST" duration-ms="12291" status="PASS">
+        <test-method is-config="true" signature="setBrowser()[pri:0, instance:secretrialTestCase.EntittyTest@16293aa2]" started-at="2023-04-18T16:02:45 IST" name="setBrowser" finished-at="2023-04-18T16:02:52 IST" duration-ms="7378" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method signature="Login()[pri:1, instance:secretrialTestCase.EntittyTest@16293aa2]" started-at="2023-04-17T16:03:07 IST" name="Login" finished-at="2023-04-17T16:03:19 IST" duration-ms="12648" status="PASS">
+        <test-method signature="Login()[pri:1, instance:secretrialTestCase.EntittyTest@16293aa2]" started-at="2023-04-18T16:02:52 IST" name="Login" finished-at="2023-04-18T16:03:04 IST" duration-ms="11916" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="BranchDetailsClick()[pri:48, instance:secretrialTestCase.EntittyTest@16293aa2]" started-at="2023-04-17T16:03:19 IST" name="BranchDetailsClick" finished-at="2023-04-17T16:03:39 IST" duration-ms="19304" status="PASS">
+        <test-method signature="AddNewBranchDetailsClose()[pri:59, instance:secretrialTestCase.EntittyTest@16293aa2]" started-at="2023-04-18T16:03:04 IST" name="AddNewBranchDetailsClose" finished-at="2023-04-18T16:03:35 IST" duration-ms="30387" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- BranchDetailsClick -->
+        </test-method> <!-- AddNewBranchDetailsClose -->
       </class> <!-- secretrialTestCase.EntittyTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

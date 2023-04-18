@@ -475,7 +475,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 36)//start
+//	@Test(priority = 36)
 	void WithoutDocumentLicense() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity -Edit - Documents-Add New - Selecting Licence/Registration :- Without Document ");
@@ -618,6 +618,130 @@ public class EntittyTest {
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+//	@Test(priority = 49)
+	void AddNewBranchDetails() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Branch Details - Add New -With Valid Data  ");
+		
+		Methods.AddNewBranchDetails(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 50)
+	void AddNewBranchDetailsinvalidData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Branch Details - Add New - With Invalid Data ");
+		
+		Methods.AddNewBranchDetailsinvalidData(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 51)
+	void AddNewBranchDetailsMandatoryfield() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Branch Details - Add New - With 2 Mandatory field ");
+		
+		Methods.AddNewBranchDetailsMandatoryfield(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 52)
+	void AddNewBranchDetailsWithOutData() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Branch Details - Add New - WithOut Data ");
+		
+		Methods.AddNewBranchDetailsWithOutData(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 53)
+	void EditBranchDetails() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Branch Details - Edit ");
+		
+		Methods.EditBranchDetails(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 54)
+	void UploadBranchDetails() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Branch Details - Upload Document -With Valid Extention ");
+		
+		Methods.UploadBranchDetails(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 55)
+	void UploadBranchDetailsInvalid() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Branch Details - Upload Document - With Invalid Extention  ");
+		
+		Methods.UploadBranchDetailsInvalid(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 56)
+	void UploadBranchDetailsMulvalid() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Branch Details - Upload Document - With  multiple valid file extensions upload  ");
+		
+		Methods.UploadBranchDetailsMulvalid(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 57)
+	void UploadBranchDetailsMulInvalid() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Branch Details - Upload Document - With  multiple invalid file extensions upload  ");
+		
+		Methods.UploadBranchDetailsMulInvalid(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 58)//19/04/2023
+	void UploadBranchDetailsWF() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Branch Details - Upload Document - WithOut Document  ");
+		
+		Methods.UploadBranchDetailsWF(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 59)
+	void AddNewBranchDetailsClose() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Branch Details - Add New -Close  ");
+		
+		Methods.AddNewBranchDetailsClose(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
+	
 	
 	
 	

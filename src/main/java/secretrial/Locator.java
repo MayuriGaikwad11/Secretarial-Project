@@ -1226,9 +1226,92 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	
 	public static WebElement CloseBranchD(WebDriver driver)		//Method for closing Message Popup
 	{
-		secretrial = driver.findElement(By.xpath("(//*[@class='k-button k-bare k-button-icon k-window-action'])[44]"));
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-button k-bare k-button-icon k-window-action'])[28]"));
 		return secretrial;
 	}
+	
+	public static WebElement ClickSaveMsgInvalid(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='vsEntityBranchPage']/ul"));
+		return secretrial;
+	}
+	
+	public static WebElement EditBranchD(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Edit k-grid-edit hoverCircle k-grid-button'])[15]"));
+		return secretrial;
+	}
+	
+	public static WebElement UploadBranchD(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@class='k-grid-Upload k-grid-upload hoverCircle k-grid-button']"));
+		return secretrial;
+	}
+	
+	public static WebElement SelectFile(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@class='k-button k-upload-button']"));
+		return secretrial;
+	}
+	
+	public static WebElement UploadBD(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmAgendaDocumentUpload']/div/div/div[2]/p[2]/button"));
+		return secretrial;
+	}
+	
+	public static WebElement UploadMsg(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmAgendaDocumentUpload']/div[1]/div/div/label"));
+		return secretrial;                        
+	}
+	
+	public static WebElement UploadMsg1(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmAgendaDocumentUpload']/div[1]/div/div/lable"));
+		return secretrial;                        
+	}
+	
+	public static WebElement UploadClose(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-button k-bare k-button-icon k-window-action'])[19]"));
+		return secretrial;
+	}
+	
+	public static WebElement InvalidUploadMsg(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmAgendaDocumentUpload']/div/div/div[2]/div/ul/li/span[3]/span[2]"));
+		return secretrial;
+	}
+	
+	public static WebElement InvalidUploadMsg1(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmAgendaDocumentUpload']/div/div/div[2]/div/ul/li[2]/span[3]/span[2]"));
+		return secretrial;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

@@ -3328,8 +3328,10 @@ String text=Locator.searchText(driver).getText();
 		Thread.sleep(3000);
 		Locator.AddNewBD(driver).click();
 		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeMyCompliances"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(3000);
 	
-	Thread.sleep(1000);
 	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
 	int row = 0;
 	Thread.sleep(500);
@@ -3383,12 +3385,13 @@ String text=Locator.searchText(driver).getText();
 	Thread.sleep(3000);
 String Msg=	Locator.ClickSaveMsg(driver).getText();
 	Thread.sleep(3000);
-	if(Msg.equalsIgnoreCase("Saved successfully")) {
+	if(Msg.equalsIgnoreCase("Details Save Successfully")) {
 		test.log(LogStatus.PASS, Msg);
 	}else {
 		test.log(LogStatus.FAIL, Msg);
 	}
-	
+	driver.switchTo().parentFrame();
+	Thread.sleep(1000);
 	Locator.CloseBranchD(driver).click();
 	Thread.sleep(3000);
 	
@@ -3397,6 +3400,542 @@ String Msg=	Locator.ClickSaveMsg(driver).getText();
 	Thread.sleep(1000);
 	Locator.ClickDashboard(driver).click();
 	}
+	
+	public static void AddNewBranchDetailsinvalidData(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.AddNewBD(driver).click();
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeMyCompliances"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(3000);
+	
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	
+	row0 = sheet.getRow(20);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Name(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	Locator.Status(driver).click();
+	Thread.sleep(1000);
+	Locator.ACtive(driver).click();
+	Thread.sleep(3000);
+	Locator.BranchType(driver).click();
+	Thread.sleep(1000);
+	Locator.HeadOffice(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ContactPerson(driver).sendKeys("123$"); // Writing Task title
+	Thread.sleep(2000);
+	
+	
+	Locator.ContactNumber(driver).sendKeys("11111111"); // Writing Task title
+	Thread.sleep(4000);
+	
+	
+	Locator.EmailBD(driver).sendKeys("123@"); // Writing Task title
+	Thread.sleep(2000);
+	row0 = sheet.getRow(24);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.AddressBD(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	
+	Locator.State(driver).click();
+	Thread.sleep(1000);
+	Locator.Maharashtra(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.City(driver).click();
+	Thread.sleep(1000);
+	Locator.Ahmadnagar(driver).click();
+	Thread.sleep(3000);
+	Locator.ClickSave(driver).click();
+	Thread.sleep(3000);
+String Msg=	Locator.ClickSaveMsgInvalid(driver).getText();
+	Thread.sleep(3000);
+	
+		test.log(LogStatus.PASS, Msg);
+	
+	driver.switchTo().parentFrame();
+	Thread.sleep(1000);
+	Locator.CloseBranchD(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	public static void AddNewBranchDetailsMandatoryfield(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.AddNewBD(driver).click();
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeMyCompliances"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(3000);
+	
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	
+	row0 = sheet.getRow(20);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Name(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	Locator.Status(driver).click();
+	Thread.sleep(1000);
+	Locator.ACtive(driver).click();
+	Thread.sleep(3000);
+	Locator.BranchType(driver).click();
+	Thread.sleep(1000);
+	Locator.HeadOffice(driver).click();
+	Thread.sleep(3000);
+	
+	
+	
+	Locator.ClickSave(driver).click();
+	Thread.sleep(3000);
+String Msg=	Locator.ClickSaveMsgInvalid(driver).getText();
+	Thread.sleep(3000);
+	
+		test.log(LogStatus.PASS,"Message Displayed :-  "+ Msg);
+	
+	driver.switchTo().parentFrame();
+	Thread.sleep(1000);
+	Locator.CloseBranchD(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	public static void AddNewBranchDetailsWithOutData(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.AddNewBD(driver).click();
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeMyCompliances"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(4000);
+	
+	
+	Locator.ClickSave(driver).click();
+	Thread.sleep(3000);
+String Msg=	Locator.ClickSaveMsgInvalid(driver).getText();
+	Thread.sleep(3000);
+	
+		test.log(LogStatus.PASS,"Message Displayed :-  "+ Msg);
+	
+	driver.switchTo().parentFrame();
+	Thread.sleep(1000);
+	Locator.CloseBranchD(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	public static void AddNewBranchDetailsClose(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.AddNewBD(driver).click();
+		Thread.sleep(3000);
+		
+		if(Locator.CloseBranchD(driver).isEnabled()) {
+			Locator.CloseBranchD(driver).click();
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS," close or exit button is working");
+			
+		}else {
+			test.log(LogStatus.PASS," close or exit button is not working");
+		}
+
+		Thread.sleep(3000);
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	
+	public static void EditBranchDetails(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.EditBranchD(driver).click();
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeMyCompliances"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(3000);
+	
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	Locator.Name(driver).clear();
+	Thread.sleep(2000);
+	row0 = sheet.getRow(25);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Name(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(3000);
+	
+	Locator.ClickSave(driver).click();
+	Thread.sleep(3000);
+String Msg=	Locator.ClickSaveMsg(driver).getText();
+	Thread.sleep(3000);
+	
+		test.log(LogStatus.PASS,"Message Displayed :-  "+ Msg);
+	
+	driver.switchTo().parentFrame();
+	Thread.sleep(1000);
+	Locator.CloseBranchD(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	public static void UploadBranchDetails(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.UploadBranchD(driver).click();
+		Thread.sleep(3000);
+		By locator = By.xpath("//*[@id='files']");
+
+		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		Thread.sleep(4000);
+		
+		WebElement ViewButton = driver.findElement(locator);	
+		Thread.sleep(3000);
+		ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\Committee Composition (5).pdf");
+	//	Locator.SelectFile(driver).sendKeys("C:\\Users\\Mayuri\\Downloads\\Committee Composition (5).pdf");
+		Thread.sleep(3000);
+		Locator.UploadBD(driver).click();
+		Thread.sleep(3000);
+String Msg=	Locator.UploadMsg(driver).getText();
+	Thread.sleep(3000);
+	if(Msg.equalsIgnoreCase("File Upload successfully")) {
+		test.log(LogStatus.PASS,"Message Displayed :-  "+ Msg);
+	}else {
+		test.log(LogStatus.FAIL,"Message Displayed :-  "+ Msg);
+	}
+	
+	Thread.sleep(1000);
+	Locator.UploadClose(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	
+	public static void UploadBranchDetailsInvalid(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.UploadBranchD(driver).click();
+		Thread.sleep(3000);
+		By locator = By.xpath("//*[@id='files']");
+
+		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		Thread.sleep(4000);
+		
+		WebElement ViewButton = driver.findElement(locator);	
+		Thread.sleep(3000);
+		ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 1_09_07 PM.zip");
+	
+		
+		Thread.sleep(3000);
+String Msg=	Locator.InvalidUploadMsg(driver).getText();
+	Thread.sleep(3000);
+	if(Msg.equalsIgnoreCase("File type not allowed.")) {
+		test.log(LogStatus.PASS,"Message Displayed :-  "+ Msg);
+	}else {
+		test.log(LogStatus.FAIL,"Message Displayed :-  "+ Msg);
+	}
+	
+	Thread.sleep(1000);
+	Locator.UploadClose(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	public static void UploadBranchDetailsMulInvalid(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.UploadBranchD(driver).click();
+		Thread.sleep(3000);
+		By locator = By.xpath("//*[@id='files']");
+
+		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		Thread.sleep(4000);
+		
+		WebElement ViewButton = driver.findElement(locator);	
+		Thread.sleep(3000);
+		ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 1_09_07 PM.zip");
+		Thread.sleep(3000);
+		By locator1 = By.xpath("//*[@id='files']");
+
+		wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
+		Thread.sleep(4000);
+		
+		WebElement ViewButton1 = driver.findElement(locator1);	
+		Thread.sleep(3000);
+		ViewButton1.sendKeys("C:\\Users\\Mayuri\\Downloads\\Secretrial.html");
+		Thread.sleep(3000);
+String Msg=	Locator.InvalidUploadMsg(driver).getText();
+	Thread.sleep(3000);
+	
+	String Msg1=Locator.InvalidUploadMsg1(driver).getText();
+	Thread.sleep(3000);
+	if(Msg.equalsIgnoreCase("File type not allowed.") && Msg1.equalsIgnoreCase("File type not allowed.")) {
+		test.log(LogStatus.PASS,"multiple invalid file extensions upload Same  Message Displayed :-  1)"+ Msg+", 2)"+Msg1);
+	}else {
+		test.log(LogStatus.FAIL,"Message Displayed :-  "+ Msg);
+	}
+	
+	Thread.sleep(1000);
+	Locator.UploadClose(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	public static void UploadBranchDetailsMulvalid(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.UploadBranchD(driver).click();
+		Thread.sleep(3000);
+		By locator = By.xpath("//*[@id='files']");
+
+		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		Thread.sleep(4000);
+		
+		WebElement ViewButton = driver.findElement(locator);	
+		Thread.sleep(3000);
+		ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\Committee Composition (5).pdf");
+		Thread.sleep(3000);
+		By locator1 = By.xpath("//*[@id='files']");
+
+		wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
+		Thread.sleep(4000);
+		
+		WebElement ViewButton1 = driver.findElement(locator1);	
+		Thread.sleep(3000);
+		ViewButton1.sendKeys("C:\\Users\\Mayuri\\Downloads\\Committee Composition (5).pdf");
+		Thread.sleep(3000);
+		
+		Locator.UploadBD(driver).click();
+		Thread.sleep(3000);
+		String Msg=	Locator.UploadMsg(driver).getText();
+		Thread.sleep(3000);
+		if(Msg.equalsIgnoreCase("File Upload successfully")) {
+			test.log(LogStatus.PASS,"Message Displayed :-  "+ Msg);
+		}else {
+			test.log(LogStatus.FAIL,"Message Displayed :-  "+ Msg);
+		}
+	Thread.sleep(1000);
+	Locator.UploadClose(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	
+	public static void UploadBranchDetailsWF(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.UploadBranchD(driver).click();
+		Thread.sleep(3000);
+		
+		Locator.UploadBD(driver).click();
+		Thread.sleep(4000);
+		String Msg=	Locator.UploadMsg1(driver).getText();
+		Thread.sleep(3000);
+		if(Msg.equalsIgnoreCase("Please select file to upload")) {
+			test.log(LogStatus.PASS,"Message Displayed :-  "+ Msg);
+		}else {
+			test.log(LogStatus.FAIL,"Message Displayed :-  "+ Msg);
+		}
+	Thread.sleep(1000);
+	Locator.UploadClose(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
 	
 	
 	
