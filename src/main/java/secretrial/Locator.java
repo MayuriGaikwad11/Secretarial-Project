@@ -453,7 +453,7 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	
 	public static WebElement  EditBD(WebDriver driver)		//Method for closing Message Popup
 	{
-		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Edit k-grid-edit hoverCircle k-grid-button'])[14]"));
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Edit k-grid-edit hoverCircle k-grid-button'])[16]"));
 		return secretrial;
 	}
 	

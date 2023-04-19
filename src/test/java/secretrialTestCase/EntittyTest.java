@@ -740,21 +740,22 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
+//	@Test(priority = 60)
+	void BankDetailsClick() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Bank Details  ");
+		
+		Methods.BankDetailsClick(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//@Test(priority = 14)
+//	@Test(priority = 61)
 	void BankDetailAddnew() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Entity -Edit - Bank Details-Add New  ");
+		test = extent.startTest("Entity -Edit - Bank Details-Add New -with valid data ");
 		
 		Methods.BankDetailAddnew(driver,test,workbook);
 		
@@ -762,17 +763,95 @@ public class EntittyTest {
 		extent.flush();
 	}
 
-	
-	//@Test(priority = 15)
+//	@Test(priority = 62)
 	void BankDetailInvalid() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Entity -Edit - Bank Details-Add Bank details with Invalid data  ");
+		test = extent.startTest("Entity -Edit - Bank Details-Add New - with Invalid account number  ");
 		
 		Methods.BankDetailInvalid(driver,test,workbook);
 		
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+//	@Test(priority = 63)
+	void BankDetailInvalidBName() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Bank Details-Add New - with Invalid Bank Name  ");
+		
+		Methods.BankDetailInvalidBName(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 64)
+	void BankDetailInvalidIFC() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Bank Details-Add New - with Invalid IFSC ");
+		
+		Methods.BankDetailInvalidIFC(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 65)
+	void WithOutBankDetails() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Bank Details- add bank details without filling out required fields.");
+		
+		Methods.WithOutBankDetails(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 66)
+	void BankDetailEdit() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Bank Details -Edit");
+		
+		Methods.BankDetailEdit(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 67)
+	void BankDetailEditInvalid() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Bank Details -Edit - Invalid Data");
+		
+		Methods.BankDetailEditInvalid(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 68)
+	void BankDetailDelete() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Bank Details -Delete");
+		
+		Methods.BankDetailDelete(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 69)
+	void BankDetailDeleteCan() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Edit - Bank Details -Delete - cancel");
+		
+		Methods.BankDetailDeleteCan(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
 	
 //	@Test(priority = 16)
 	void BankDetailInvalidSC() throws InterruptedException, IOException
@@ -785,61 +864,9 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 17)
-	void WithOutBankDetails() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Entity -Edit - Bank Details- add bank details without filling out required fields.");
-		
-		Methods.WithOutBankDetails(driver,test,workbook);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
+
 	
-//	@Test(priority = 18)
-	void BankDetailEdit() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Entity -Edit - Bank Details");
-		
-		Methods.BankDetailEdit(driver,test,workbook);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 19)
-	void BankDetailEditInvalid() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Entity -Edit - Bank Details -Edit - Invalid Data");
-		
-		Methods.BankDetailEditInvalid(driver,test,workbook);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-//	@Test(priority = 20)
-	void BankDetailDelete() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Entity -Edit - Bank Details -Delete");
-		
-		Methods.BankDetailDelete(driver,test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
-	//@Test(priority = 21)
-	void BankDetailDeleteCan() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Entity -Edit - Bank Details -Delete - cancel");
-		
-		Methods.BankDetailDeleteCan(driver,test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
-	
+
 	//@Test(priority = 22) //not Completed
 	void EntityView() throws InterruptedException, IOException
 	{

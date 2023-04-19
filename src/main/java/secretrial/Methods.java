@@ -2260,7 +2260,35 @@ if(msg1.equalsIgnoreCase("Viewer")) {
 	 }
 	
 	
+	public static void BankDetailsClick(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
 	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	if(Locator.BankDetails(driver).isEnabled()) {
+		Locator.BankDetails(driver).click();
+		test.log(LogStatus.PASS, " Bank Details  tab is clickable ");
+	}else {
+		test.log(LogStatus.FAIL, "Bank Details  tab is not clickable");
+		
+	}
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
 	
 	
 	
@@ -2310,6 +2338,60 @@ if(msg1.equalsIgnoreCase("Viewer")) {
 	
 	String	msg1=Locator.SaveBDMsg(driver).getText();
 	test.log(LogStatus.PASS,  "Bank Details -Add New - " +msg1);
+
+Locator.CloseBD(driver).click();
+Thread.sleep(1000);
+Locator.ClosePopEntity(driver).click();
+Thread.sleep(1000);
+Locator.ClickDashboard(driver).click();
+	
+	 }
+	
+	public static void BankDetailInvalidBName(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.BankDetails(driver).click();
+	Thread.sleep(3000);
+	Locator.New(driver).click();
+	Thread.sleep(3000);
+	
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	row0 = sheet.getRow(4);
+	c1 = row0.getCell(1); // Selected cell (4 row,1 column) 
+	int No = (int) c1.getNumericCellValue();
+	Locator.AccountNo(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(1000);
+	Locator.TypeOfAccount(driver).click();
+	Thread.sleep(1000);
+	Locator.Savingsaccount(driver).click();
+	Thread.sleep(1000);
+	row0 = sheet.getRow(8);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.NameofBank(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(1000);
+	
+	Locator.OpeningDate(driver).sendKeys("03/04/2023");
+	Thread.sleep(1000);
+	Locator.SaveBD(driver).click();
+	Thread.sleep(1000);
+	
+	String	msg1=Locator.InvalidMsg(driver).getText();
+	test.log(LogStatus.PASS,  msg1);
 
 Locator.CloseBD(driver).click();
 Thread.sleep(1000);
@@ -2374,6 +2456,68 @@ Thread.sleep(1000);
 Locator.ClickDashboard(driver).click();
 	
 	 }
+	
+	public static void BankDetailInvalidIFC(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.BankDetails(driver).click();
+	Thread.sleep(3000);
+	Locator.New(driver).click();
+	Thread.sleep(3000);
+	
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	row0 = sheet.getRow(4);
+	c1 = row0.getCell(1); // Selected cell (4 row,1 column) 
+	int No = (int) c1.getNumericCellValue();
+	Locator.AccountNo(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(1000);
+	
+	row0 = sheet.getRow(5);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.NameofBank(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(1000);
+	
+	row0 = sheet.getRow(10);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.IFSC(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(1000);
+	Locator.TypeOfAccount(driver).click();
+	Thread.sleep(1000);
+	Locator.Savingsaccount(driver).click();
+	Thread.sleep(1000);
+	
+	
+	Locator.OpeningDate(driver).sendKeys("03/04/2023");
+	Thread.sleep(1000);
+	Locator.SaveBD(driver).click();
+	Thread.sleep(1000);
+	
+	String	msg1=Locator.InvalidMsg(driver).getText();
+	test.log(LogStatus.PASS,  msg1);
+
+Locator.CloseBD(driver).click();
+Thread.sleep(1000);
+Locator.ClosePopEntity(driver).click();
+Thread.sleep(1000);
+Locator.ClickDashboard(driver).click();
+	
+	 }
+	
 
 	public static void BankDetailInvalidSC(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
 	 {
@@ -2463,7 +2607,7 @@ Locator.ClickDashboard(driver).click();
 	Thread.sleep(3000);
 	String	msg3=Locator.InvalidMsg3(driver).getText();
 	Thread.sleep(3000);
-	test.log(LogStatus.PASS,  "Add New - " +msg +", "+msg1+", "+ msg2 +", "+msg3);
+	test.log(LogStatus.PASS,  "message Display " +msg +", "+msg1+", "+ msg2 +", "+msg3);
 	Thread.sleep(2000);
 Locator.CloseBD(driver).click();
 Thread.sleep(1000);
@@ -2488,18 +2632,27 @@ Locator.ClickDashboard(driver).click();
 	Locator.EntityEdit(driver).click();
 	Thread.sleep(2000);
 	Locator.BankDetails(driver).click();
+//	Thread.sleep(5000);
+//	Locator.EditBD(driver).click();
 	Thread.sleep(3000);
-	Locator.EditBD(driver).click();
-	Thread.sleep(3000);
+	By locator = By.xpath("(//*[@class='k-grid-Edit k-grid-edit hoverCircle k-grid-button'])[19]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
 	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+JavascriptExecutor jse=(JavascriptExecutor)driver;
+jse.executeScript("arguments[0].click();", ViewButton);
+	Thread.sleep(4000);
 	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
 	int row = 0;
 	Thread.sleep(500);
 	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
 	Cell c1 = null;
-	
+	Thread.sleep(4000);
 	Locator.NameofBank(driver).clear();
-	Thread.sleep(1000);
+	Thread.sleep(2000);
 	row0 = sheet.getRow(9);
 	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
 	Locator.NameofBank(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
@@ -2535,8 +2688,18 @@ Locator.ClickDashboard(driver).click();
 	Thread.sleep(2000);
 	Locator.BankDetails(driver).click();
 	Thread.sleep(3000);
-	Locator.EditBD(driver).click();
+//	Locator.EditBD(driver).click();
 	Thread.sleep(3000);
+	By locator = By.xpath("(//*[@class='k-grid-Edit k-grid-edit hoverCircle k-grid-button'])[18]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+JavascriptExecutor jse=(JavascriptExecutor)driver;
+jse.executeScript("arguments[0].click();", ViewButton);
+	Thread.sleep(4000);
 	
 	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
 	int row = 0;
