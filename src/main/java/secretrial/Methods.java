@@ -2,6 +2,7 @@ package secretrial;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.List;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -641,6 +642,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(1000);
 	Locator.ClickDashboard(driver).click();
 	 }
+	
 	
 	
 	public static void DownloadMOA(WebDriver driver, ExtentTest test) throws InterruptedException
@@ -2813,7 +2815,7 @@ Locator.ClickDashboard(driver).click();
 		test.log(LogStatus.PASS,  "view Entity details Successfully");
 		}*/
 	//Thread.sleep(3000);
-	By locator = By.xpath("(//*[@class='k-icon k-i-close'])[54]");
+	By locator = By.cssSelector("a[class='k-button k-bare k-button-icon k-window-action']");
 
 	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	Thread.sleep(4000);
@@ -2828,6 +2830,857 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Locator.ClickDashboard(driver).click();
 	 Thread.sleep(1000);
 	 }
+	
+	public static void PublicLimitedSelect(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(3000);
+	Locator.AddNewEP(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.EntityType(driver).click();
+	Thread.sleep(3000);
+	if(Locator.PublicLimitedSelect(driver).isEnabled()) {
+		Thread.sleep(3000);
+		Locator.PublicLimitedSelect(driver).click();
+		Thread.sleep(3000);
+		test.log(LogStatus.PASS,  "The 'Public Limited Company' entity  selected from dropdown");
+	}else {
+		test.log(LogStatus.FAIL,  "The 'Public Limited Company' entity Not selected from dropdown");
+	}
+	Thread.sleep(3000);
+	
+	Thread.sleep(3000);
+	Locator.CloseEntity(driver).click();
+	
+	Thread.sleep(3000);
+
+	Locator.ClickDashboard(driver).click();
+	 Thread.sleep(1000);
+	 }
+	
+public static void selectOptionFromDropDown_bs(List<WebElement> options, String value) {
+		
+		for(WebElement option:options) {
+			if(option.getText().equals(value)) {
+				option.click();
+				break;
+			}
+		}
+	}
+	
+	public static void PublicLimitedAdd(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(3000);
+	Locator.AddNewEP(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.EntityType(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.PublicLimitedSelect(driver).click();
+		
+	Thread.sleep(3000);
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	row0 = sheet.getRow(27);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	
+	Locator.EntityName(driver).sendKeys(c1.getStringCellValue());
+	Thread.sleep(4000);
+	
+	row0 = sheet.getRow(28);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	
+	Locator.CINEntity(driver).sendKeys(c1.getStringCellValue());
+	Thread.sleep(4000);
+	
+	Locator.CalendorIcon(driver).click();
+	Thread.sleep(2000);
+	Locator.Date(driver).click();
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(29);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	
+	Locator.PAN(driver).sendKeys(c1.getStringCellValue());
+	Thread.sleep(4000);
+	
+	Locator.Roc(driver).click();
+	Thread.sleep(4000);
+	
+	List<WebElement>roc = driver.findElements(By.xpath("//ul[@id='ddlRocJuris_listbox']//li"));
+	selectOptionFromDropDown_bs(roc, "Mumbai");
+	
+	
+	
+	Locator.CompanyCategory(driver).click();
+	Thread.sleep(2000);
+	List<WebElement>comCat = driver.findElements(By.xpath("//ul[@id='ddlComCategary_listbox']//li"));
+	selectOptionFromDropDown_bs(comCat, "Company limited by shares");
+	
+	row0 = sheet.getRow(30);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	
+	Locator.EmailE(driver).sendKeys(c1.getStringCellValue());
+	Thread.sleep(4000);
+	
+	Locator.FinancialYear(driver).click();
+	Thread.sleep(2000);
+	List<WebElement>finYr = driver.findElements(By.xpath("//ul[@id='FY_listbox']//li"));
+	selectOptionFromDropDown_bs(finYr, "1 Apr - 31 Mar");
+	
+	row0 = sheet.getRow(31);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	
+	Locator.AddressE(driver).sendKeys(c1.getStringCellValue());
+	Thread.sleep(4000);
+	
+	Locator.StateE(driver).click();
+	Thread.sleep(2000);
+	List<WebElement>state = driver.findElements(By.xpath("(//ul[@id='stateId_listbox'])[2]//li"));
+	selectOptionFromDropDown_bs(state, "Maharashtra");
+	
+	Locator.CityE(driver).click();
+	Thread.sleep(2000);
+	List<WebElement>city = driver.findElements(By.xpath("//ul[@id='ddlreg_cityId_listbox']//li"));
+	selectOptionFromDropDown_bs(city, "Mumbai");
+	Locator.SaveE(driver).click();
+	Thread.sleep(3000);
+	try {
+	
+String msg=	Locator.SaveEMsg(driver).getText();
+if(msg.equalsIgnoreCase("Entity Saved Successfully")) {
+	test.log(LogStatus.PASS, msg );
+}else {
+	test.log(LogStatus.FAIL, msg );
+}
+	}catch(Exception  e) {
+		String msg=	Locator.SaveEMsg1(driver).getText();
+		test.log(LogStatus.PASS, msg );
+		
+	}
+Thread.sleep(4000);
+Locator.CloseEntity(driver).click();
+	Thread.sleep(3000);
+
+	Locator.ClickDashboard(driver).click();
+	 Thread.sleep(1000);
+	 }
+	
+	public static void PublicLimitedAddWith2man(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(3000);
+	Locator.AddNewEP(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.EntityType(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.PublicLimitedSelect(driver).click();
+		
+	Thread.sleep(3000);
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	row0 = sheet.getRow(27);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	
+	Locator.EntityName(driver).sendKeys(c1.getStringCellValue());
+	Thread.sleep(4000);
+	
+	row0 = sheet.getRow(28);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	
+	Locator.CINEntity(driver).sendKeys(c1.getStringCellValue());
+	Thread.sleep(4000);
+	
+	Locator.SaveE(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String msg=	Locator.InvalidMsgeDate(driver).getText();
+	String msg1=	Locator.InvalidMsgePan(driver).getText();
+      Thread.sleep(1000);
+	String msg2=	Locator.InvalidMsgeEmail(driver).getText();
+	Thread.sleep(1000);
+	String msg3=	Locator.InvalidMsgeRoc(driver).getText();
+	Thread.sleep(1000);
+	String msg4=	Locator.InvalidMsgeFY(driver).getText();
+	Thread.sleep(1000);
+	String msg5=	Locator.InvalidMsgeAddress(driver).getText();
+	Thread.sleep(1000);
+	String msg6=	Locator.InvalidMsgeState(driver).getText();
+	Thread.sleep(1000);
+	String msg7=	Locator.InvalidMsgecity(driver).getText();
+	Thread.sleep(1000);
+	Thread.sleep(4000);
+	
+//	Locator.SaveE(driver).click();
+	Thread.sleep(3000);
+	
+
+	test.log(LogStatus.PASS,"Message Display ; -"+ msg+ ", "+ msg1+", "+msg2+", "+msg3+", "+msg4+", "+msg5+", "+msg6+", "+msg7);
+	
+Thread.sleep(4000);
+Locator.CloseEntity(driver).click();
+	Thread.sleep(3000);
+
+	Locator.ClickDashboard(driver).click();
+	 Thread.sleep(1000);
+	 }
+	
+	public static void PublicLimitedAddWithoutdata(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(3000);
+	Locator.AddNewEP(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.EntityType(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.PublicLimitedSelect(driver).click();
+		
+	Thread.sleep(3000);
+	Locator.SaveE(driver).click();
+	Thread.sleep(3000);
+	
+	String msg8=	Locator.InvalidMsgName(driver).getText();
+	Thread.sleep(1000);
+	String msg9=	Locator.InvalidMsgeCIN(driver).getText();
+	Thread.sleep(1000);
+	Thread.sleep(4000);
+	String msg=	Locator.InvalidMsgeDate(driver).getText();
+	Thread.sleep(1000);
+	String msg1=	Locator.InvalidMsgePan(driver).getText();
+     Thread.sleep(1000);
+	String msg2=	Locator.InvalidMsgeEmail(driver).getText();
+	Thread.sleep(1000);
+	String msg3=	Locator.InvalidMsgeRoc(driver).getText();
+	Thread.sleep(1000);
+	String msg4=	Locator.InvalidMsgeFY(driver).getText();
+	Thread.sleep(1000);
+	String msg5=	Locator.InvalidMsgeAddress(driver).getText();
+	Thread.sleep(1000);
+	String msg6=	Locator.InvalidMsgeState(driver).getText();
+	Thread.sleep(1000);
+	String msg7=	Locator.InvalidMsgecity(driver).getText();
+	Thread.sleep(1000);
+	Thread.sleep(4000);
+	
+//	Locator.SaveE(driver).click();
+	Thread.sleep(3000);
+	
+
+	test.log(LogStatus.PASS,"Message Display ; -"+ msg+ ", "+ msg1+", "+msg2+", "+msg3+", "+msg4+", "+msg5+", "+msg6+", "+msg7+", "+msg8+", "+msg9);
+	
+Thread.sleep(4000);
+Locator.CloseEntity(driver).click();
+	Thread.sleep(3000);
+
+	Locator.ClickDashboard(driver).click();
+	 Thread.sleep(1000);
+	 }
+	
+	public static void PublicLimitedAddClose(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(3000);
+	Locator.AddNewEP(driver).click();
+	Thread.sleep(4000);
+
+if(Locator.CloseEntity(driver).isEnabled())	{
+Thread.sleep(4000);
+Locator.CloseEntity(driver).click();
+	Thread.sleep(3000);
+	test.log(LogStatus.PASS,  "Close Button Working Successfully");
+	
+}
+	Locator.ClickDashboard(driver).click();
+	 Thread.sleep(1000);
+	 }
+	
+	public static void PublicLimitedEdit(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(4000);
+	
+	
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	
+	Thread.sleep(3000);
+	Locator.EntityName(driver).clear();
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	row0 = sheet.getRow(27);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	
+	Locator.EntityName(driver).sendKeys(c1.getStringCellValue());
+	Thread.sleep(4000);
+	
+	Locator.SaveE(driver).click();
+	Thread.sleep(4000);
+	String msg=	Locator.UpdateMsg(driver).getText();
+	if(msg.equalsIgnoreCase("Entity updated successfully")) {
+		test.log(LogStatus.PASS, msg );
+	}else {
+		test.log(LogStatus.FAIL, msg );
+	}
+	Locator.CloseEntity(driver).click();
+	Thread.sleep(3000);
+	Locator.ClickDashboard(driver).click();
+	 Thread.sleep(1000);
+	 }
+	
+	public static void PublicLimitedEditInvalid(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(4000);
+	
+	
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	
+	Thread.sleep(3000);
+	Locator.EntityName(driver).clear();
+	Thread.sleep(3000);
+	
+	Locator.EntityName(driver).sendKeys("$s");
+	Thread.sleep(4000);
+	
+	Locator.SaveE(driver).click();
+	Thread.sleep(4000);
+	String msg=	Locator.InvalidMsgName(driver).getText();
+	
+		test.log(LogStatus.PASS, msg );
+
+	Locator.CloseEntity(driver).click();
+	Thread.sleep(3000);
+	Locator.ClickDashboard(driver).click();
+	 Thread.sleep(1000);
+	 }
+	
+	public static void PublicLimitedEditClose(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(4000);
+	
+	
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	
+	
+	
+	if(Locator.CloseEntity(driver).isEnabled())	{
+		Thread.sleep(4000);
+		Locator.CloseEntity(driver).click();
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS,  " Edit - Close Button Working Successfully");
+			
+		}
+	
+	Thread.sleep(3000);
+	Locator.ClickDashboard(driver).click();
+	 Thread.sleep(1000);
+	 }
+	
+	
+	public static void PublicLimitedAddInvalid(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(3000);
+	Locator.AddNewEP(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.EntityType(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.PublicLimitedSelect(driver).click();
+		
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	Locator.Roc(driver).click();
+	Thread.sleep(4000);
+	
+	List<WebElement>roc = driver.findElements(By.xpath("//ul[@id='ddlRocJuris_listbox']//li"));
+	selectOptionFromDropDown_bs(roc, "Mumbai");
+	
+	Locator.EntityName(driver).sendKeys("$NAME");
+	Thread.sleep(4000);
+	
+	
+	Locator.CINEntity(driver).sendKeys("2");
+	Thread.sleep(4000);
+	
+	Locator.DateBox(driver).sendKeys("12/04");
+	Thread.sleep(2000);
+	
+	Locator.PAN(driver).sendKeys("234");
+	Thread.sleep(4000);
+	
+	
+	
+	
+	Locator.CompanyCategory(driver).click();
+	Thread.sleep(2000);
+	List<WebElement>comCat = driver.findElements(By.xpath("//ul[@id='ddlComCategary_listbox']//li"));
+	selectOptionFromDropDown_bs(comCat, "Company limited by shares");
+	
+	
+	Locator.EmailE(driver).sendKeys("ABC@");
+	Thread.sleep(4000);
+	
+	Locator.FinancialYear(driver).click();
+	Thread.sleep(2000);
+	List<WebElement>finYr = driver.findElements(By.xpath("//ul[@id='FY_listbox']//li"));
+	selectOptionFromDropDown_bs(finYr, "1 Apr - 31 Mar");
+	Thread.sleep(4000);
+	String msg=	Locator.InvalidMsgName(driver).getText();
+	String msg1=	Locator.InvalidMsgeCIN(driver).getText();
+	Thread.sleep(1000);
+	String msg2=	Locator.InvalidMsgeDate(driver).getText();
+	Thread.sleep(1000);
+	String msg3=	Locator.InvalidMsgePan(driver).getText();
+	Thread.sleep(1000);
+	String msg4=	Locator.InvalidMsgeEmail(driver).getText();
+	Thread.sleep(1000);
+	Thread.sleep(4000);
+	row0 = sheet.getRow(31);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	
+	Locator.AddressE(driver).sendKeys(c1.getStringCellValue());
+	Thread.sleep(4000);
+	
+	Locator.StateE(driver).click();
+	Thread.sleep(2000);
+	List<WebElement>state = driver.findElements(By.xpath("(//ul[@id='stateId_listbox'])[2]//li"));
+	selectOptionFromDropDown_bs(state, "Maharashtra");
+	
+	Locator.CityE(driver).click();
+	Thread.sleep(2000);
+	List<WebElement>city = driver.findElements(By.xpath("//ul[@id='ddlreg_cityId_listbox']//li"));
+	selectOptionFromDropDown_bs(city, "Mumbai");
+
+
+	test.log(LogStatus.PASS,"Message Display ; -"+ msg+ ", "+ msg1+", "+msg2+", "+msg3+", "+msg4);
+	Locator.SaveE(driver).click();
+	Thread.sleep(3000);
+Thread.sleep(4000);
+Locator.CloseEntity(driver).click();
+	Thread.sleep(3000);
+
+	Locator.ClickDashboard(driver).click();
+	 Thread.sleep(1000);
+	 }
+	
+	public static void PLBusinessActivityClick(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+//	Locator.Entity(driver).click();
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(4000);
+	
+	
+	Locator.EntityEdit(driver).click();
+	
+	Thread.sleep(2000);
+	if(Locator.BusinessActivity(driver).isEnabled()) {
+		Locator.BusinessActivity(driver).click();
+		test.log(LogStatus.PASS, " Business Activity  tab is clickable ");
+	}else {
+		test.log(LogStatus.FAIL, " Business Activity  tab is not clickable");
+		
+	}
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	public static void PLBusinessActivity(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(4000);
+
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.BusinessActivity(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNew(driver).click();
+	Thread.sleep(1000);
+	Locator.MainActivityCode(driver).click();
+	Thread.sleep(1000);
+	Locator.Agricultureforestryfishing(driver).click();
+	Thread.sleep(1000);
+	Locator.BusinessActivity1(driver).click();
+	Thread.sleep(1000);
+	Locator.Productionofcropsandanimals(driver).click();
+	Thread.sleep(1000);
+	Locator.Save(driver).click();
+	Thread.sleep(1000);
+	
+	
+	String msg = Locator.SaveMsg(driver).getText();
+	if (msg.equalsIgnoreCase("Record Save Successfully")) {
+		test.log(LogStatus.PASS,  msg);
+	} else {
+		test.log(LogStatus.FAIL, msg);
+	}
+	Locator.ClosePop(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+
+	public static void  PLBusinessActivityValidation(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(4000);
+	
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.BusinessActivity(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNew(driver).click();
+	Thread.sleep(1000);
+	
+	Locator.BusinessActivity1(driver).click();
+	Thread.sleep(1000);
+String Msg=	Locator.ValidationBA(driver).getText();
+	Thread.sleep(1000);
+	if(Msg.equalsIgnoreCase("No data found.")) {
+		
+		test.log(LogStatus.PASS,  "Business activity' dropdown is not Activated" );
+	} else {
+		test.log(LogStatus.FAIL, "Business activity' dropdown is  Activated" );
+	}
+	Locator.BusinessActivity1(driver).click();
+	Thread.sleep(1000);
+
+	Locator.Save(driver).click();
+	Thread.sleep(1000);
+	
+	
+	
+	Locator.ClosePop(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	
+	public static void PLvalidationofsave(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(4000);
+	
+	
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.BusinessActivity(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNew(driver).click();
+	Thread.sleep(1000);
+	
+	Locator.Save(driver).click();
+	Thread.sleep(1000);
+	
+	
+	String msg = Locator.SaveMsg(driver).getText();
+	if (msg.equalsIgnoreCase("Record Save Successfully")) {
+		test.log(LogStatus.FAIL,  "Business Activity -Add New -" +msg);
+	} else {
+		test.log(LogStatus.PASS, " Business Activity -Add New -" +msg);
+	}
+	Locator.ClosePop(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	public static void PLvalidationofedit(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.BusinessActivity(driver).click();
+	Thread.sleep(4000);
+	Locator.EditPL(driver).get(1).click();
+
+     Thread.sleep(4000);
+	
+	Locator.BusinessActivity1(driver).click();
+	Thread.sleep(1000);
+	Locator.ExtractionofCrudePetroleumNaturalgas(driver).click();
+	Thread.sleep(1000);
+	Locator.Save(driver).click();
+	Thread.sleep(1000);
+	
+	
+	String msg = Locator.SaveMsg(driver).getText();
+	if (msg.equalsIgnoreCase("Record Updated Successfully")) {
+		test.log(LogStatus.PASS,  msg);
+	} else {
+		test.log(LogStatus.FAIL, msg);
+	}
+	Locator.ClosePop(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	
+	 }
+	
+	public static void PLCheckInvaliddata(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.BusinessActivity(driver).click();
+	
+	Thread.sleep(4000);
+	Locator.EditPL(driver).get(1).click();
+Thread.sleep(4000);
+	
+	Locator.Percentage(driver).sendKeys("e");
+	Thread.sleep(1000);
+	
+	Locator.Save(driver).click();
+	Thread.sleep(1000);
+	
+	String msg = Locator.SaveMsg(driver).getText();
+	if (msg.equalsIgnoreCase("Record Updated Successfully")) {
+		test.log(LogStatus.FAIL,  "Business Activity -Edit - " +msg);
+	} else {
+		test.log(LogStatus.PASS, " Business Activity -Edit -" +msg);
+	}
+	Locator.ClosePop(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	
+	 }
+	
+	public static void PLDeleteBusinessActivity(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.BusinessActivity(driver).click();
+	Thread.sleep(1000);
+	Locator.DeleteBA(driver).click();
+	Thread.sleep(2000);
+	//Locator.YesBA(driver).click();
+	By locator = By.xpath("//*[@id='yesBA']");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+JavascriptExecutor jse=(JavascriptExecutor)driver;
+jse.executeScript("arguments[0].click();", ViewButton);
+	Thread.sleep(4000);
+	Thread.sleep(1000);
+	String Msg=driver.switchTo().alert().getText();
+	Thread.sleep(1000);
+	test.log(LogStatus.PASS,  "Delete Business Activity :- " +Msg);
+	driver.switchTo().alert().accept();
+	Thread.sleep(1000);
+	
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLBusinessActivityADDNewClose(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.BusinessActivity(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.AddNew(driver).click();
+	Thread.sleep(1000);
+	if(Locator.ClosePop(driver).isEnabled()) {
+	Locator.ClosePop(driver).click();
+	Thread.sleep(1000);
+	test.log(LogStatus.PASS,  "close or exit button is working ");
+	}
+	
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	
 	
 	public static void EntityMoreOption(WebDriver driver, ExtentTest test) throws InterruptedException
 	 {
@@ -4099,7 +4952,2259 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	Locator.ClickDashboard(driver).click();
 	}
 	
+	public static void PLDocumentClick(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
 	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(4000);
+
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	if(Locator.Documents(driver).isEnabled()) {
+		Locator.Documents(driver).click();
+		test.log(LogStatus.PASS, " Document  tab is clickable ");
+	}else {
+		test.log(LogStatus.FAIL, " Document  tab is not clickable");
+		
+	}
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	public static void PLDocumentsADDMOA(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(4000);
+
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.TypeMOA(driver).click();
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	
+	row0 = sheet.getRow(15);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Description(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+//	Locator.Description(driver).sendKeys("ABCD");
+	Thread.sleep(3000);
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 1_21_45 PM.zip");
+	Thread.sleep(4000);
+	
+	//Locator.Upload(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report  (1).xlsx");
+	Thread.sleep(3000);
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a MOA option Type :- " +msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLWithoutDocument(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(4000);
+	
+	
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,   msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDocumentsADDMOAAE(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.TypeMOA(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.Description(driver).sendKeys("ABCD");
+	Thread.sleep(3000);
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 1_21_45 PM.zip");
+	Thread.sleep(4000);
+	
+	//Locator.Upload(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report  (1).xlsx");
+	Thread.sleep(3000);
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,  " To check whether user is able to add existing data or not. (For Type MOA) " +msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLViewMOA(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.ClickTriangle(driver).click();
+	Thread.sleep(4000);
+	Locator.Filter(driver).click();
+	Thread.sleep(5000);
+	Locator.CheckBoxMoa(driver).click();
+	Thread.sleep(4000);
+	Locator.ClickFiter(driver).click();
+	Thread.sleep(5000);
+	Locator.View(driver).click();
+	Thread.sleep(2000);
+	String	msg1=Locator.ViewMsg(driver).getText();
+    if(msg1.equalsIgnoreCase("Viewer")) {
+   	 test.log(LogStatus.PASS,  " document Type MOA :- View  successfully.");
+    }
+	Locator.Viewclose(driver).click();
+	Thread.sleep(3000);
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDownloadMOA(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.ClickTriangle(driver).click();
+	Thread.sleep(4000);
+	Locator.Filter(driver).click();
+	Thread.sleep(5000);
+	Locator.CheckBoxMoa(driver).click();
+	Thread.sleep(4000);
+	Locator.ClickFiter(driver).click();
+	Thread.sleep(5000);
+	Thread.sleep(1000);
+	File dir = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+	
+	Thread.sleep(500);
+	Locator.Download(driver).click();		//Exporting (Downloading) file
+	
+	Thread.sleep(3000);//C://Users//jiya//Downloads//
+	File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+	
+	Thread.sleep(3000);
+	if (dirContents.length < allFilesNew.length) {
+		test.log(LogStatus.PASS,  "  File downloaded successfully.");
+	} else {
+		test.log(LogStatus.FAIL, "  File does not downloaded.");
+	}
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDeleteMOA(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.ClickTriangle(driver).click();
+	Thread.sleep(4000);
+	Locator.Filter(driver).click();
+	Thread.sleep(5000);
+	Locator.CheckBoxMoa(driver).click();
+	Thread.sleep(4000);
+	Locator.ClickFiter(driver).click();
+	Thread.sleep(5000);
+	Locator.DocDelete(driver).click();
+	Thread.sleep(2000);
+	String Msg=Locator.DocDeletemsg(driver).getText();
+	Thread.sleep(3000);
+	test.log(LogStatus.PASS, Msg);
+	Thread.sleep(1000);
+	Locator.DocDeleteYes(driver).click();
+	Thread.sleep(2000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDocumentsADD(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(1000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.TypeAOA(driver).click();
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	
+	row0 = sheet.getRow(16);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Description(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
+	Thread.sleep(4000);
+	
+	
+	Thread.sleep(3000);
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg(driver).getText();
+		test.log(LogStatus.PASS,  msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLWithoutDocumentAOA(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(4000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.TypeAOA(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,   msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDocumentsADDExisting(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(1000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.TypeAOA(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.Description(driver).sendKeys("ABCD");
+	Thread.sleep(3000);
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
+	Thread.sleep(4000);
+	
+	
+	Thread.sleep(3000);
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,"To check whether user is able to add existing data or not. (For Type AOA) " + msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	Thread.sleep(1000);
+	 }
+	
+	public static void PLViewAOA(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.ClickTriangle(driver).click();
+	Thread.sleep(4000);
+	Locator.Filter(driver).click();
+	Thread.sleep(5000);
+	Locator.CheckBoxAoa(driver).click();
+	Thread.sleep(4000);
+	Locator.ClickFiter(driver).click();
+	Thread.sleep(5000);
+	Locator.View(driver).click();
+	Thread.sleep(2000);
+	String	msg1=Locator.ViewMsg(driver).getText();
+   if(msg1.equalsIgnoreCase("Viewer")) {
+  	 test.log(LogStatus.PASS,  " document Type AOA :- View  successfully.");
+   }
+	Locator.Viewclose(driver).click();
+	Thread.sleep(3000);
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	
+	public static void PLDownloadAOA(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.ClickTriangle(driver).click();
+	Thread.sleep(4000);
+	Locator.Filter(driver).click();
+	Thread.sleep(5000);
+	Locator.CheckBoxAoa(driver).click();
+	Thread.sleep(4000);
+	Locator.ClickFiter(driver).click();
+	Thread.sleep(5000);
+	Thread.sleep(1000);
+	File dir = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+	
+	Thread.sleep(500);
+	Locator.Download(driver).click();		//Exporting (Downloading) file
+	
+	Thread.sleep(3000);//C://Users//jiya//Downloads//
+	File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+	
+	Thread.sleep(3000);
+	if (dirContents.length < allFilesNew.length) {
+		test.log(LogStatus.PASS,  "  File downloaded successfully.");
+	} else {
+		test.log(LogStatus.FAIL, "  File does not downloaded.");
+	}
+	
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDeleteAOA(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.ClickTriangle(driver).click();
+	Thread.sleep(4000);
+	Locator.Filter(driver).click();
+	Thread.sleep(5000);
+	Locator.CheckBoxAoa(driver).click();
+	Thread.sleep(4000);
+	Locator.ClickFiter(driver).click();
+	Thread.sleep(5000);
+	Locator.DocDelete(driver).click();
+	Thread.sleep(2000);
+	String Msg=Locator.DocDeletemsg(driver).getText();
+	Thread.sleep(3000);
+	test.log(LogStatus.PASS, Msg);
+	Thread.sleep(1000);
+	Locator.DocDeleteYes(driver).click();
+	Thread.sleep(2000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDocumentsADDCOI(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.TypeCOI(driver).click();
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	
+	row0 = sheet.getRow(15);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Description(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+
+	Thread.sleep(3000);
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
+	Thread.sleep(4000);
+	
+	Thread.sleep(3000);
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a COI option Type :- " +msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLWithoutDocumentCOI(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(4000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.TypeCOI(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,   msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDocumentsADDCOIExisting(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.TypeCOI(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.Description(driver).sendKeys("ABCD");
+	Thread.sleep(2000);
+
+	Thread.sleep(3000);
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
+	Thread.sleep(4000);
+	
+	Thread.sleep(3000);
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a COI option Type :- " +msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLViewCOI(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.ClickTriangle(driver).click();
+	Thread.sleep(4000);
+	Locator.Filter(driver).click();
+	Thread.sleep(5000);
+	Locator.CheckBoxCOI(driver).click();
+	Thread.sleep(4000);
+	Locator.ClickFiter(driver).click();
+	Thread.sleep(5000);
+	Locator.View(driver).click();
+	Thread.sleep(2000);
+	String	msg1=Locator.ViewMsg(driver).getText();
+  if(msg1.equalsIgnoreCase("Viewer")) {
+ 	 test.log(LogStatus.PASS,  " document Type AOA :- View  successfully.");
+  }
+	Locator.Viewclose(driver).click();
+	Thread.sleep(3000);
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	
+	public static void PLDownloadCOI(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.ClickTriangle(driver).click();
+	Thread.sleep(4000);
+	Locator.Filter(driver).click();
+	Thread.sleep(5000);
+	Locator.CheckBoxCOI(driver).click();
+	Thread.sleep(4000);
+	Locator.ClickFiter(driver).click();
+	Thread.sleep(5000);
+	Thread.sleep(1000);
+	File dir = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+	
+	Thread.sleep(500);
+	Locator.Download(driver).click();		//Exporting (Downloading) file
+	
+	Thread.sleep(3000);//C://Users//jiya//Downloads//
+	File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+	
+	Thread.sleep(3000);
+	if (dirContents.length < allFilesNew.length) {
+		test.log(LogStatus.PASS,  "  File downloaded successfully.");
+	} else {
+		test.log(LogStatus.FAIL, "  File does not downloaded.");
+	}
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDeleteCOI(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.ClickTriangle(driver).click();
+	Thread.sleep(4000);
+	Locator.Filter(driver).click();
+	Thread.sleep(5000);
+	Locator.CheckBoxCOI(driver).click();
+	Thread.sleep(4000);
+	Locator.ClickFiter(driver).click();
+	Thread.sleep(5000);
+	Locator.DocDelete(driver).click();
+	Thread.sleep(2000);
+	String Msg=Locator.DocDeletemsg(driver).getText();
+	Thread.sleep(3000);
+	test.log(LogStatus.PASS, Msg);
+	Thread.sleep(1000);
+	Locator.DocDeleteYes(driver).click();
+	Thread.sleep(2000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDocumentsADDPolicy(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.TypePolicy(driver).click();
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	row0 = sheet.getRow(17);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Description(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+
+	Thread.sleep(3000);
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
+	Thread.sleep(4000);
+	
+	Thread.sleep(3000);
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a Policy option Type :- " +msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLWithoutDocumentPolicy(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(4000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.TypePolicy(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,   msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDocumentsADDPolicyAE(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.TypePolicy(driver).click();
+	Thread.sleep(3000);
+	
+	Thread.sleep(3000);
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
+	Thread.sleep(4000);
+	
+	Thread.sleep(3000);
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a Policy option Type :- " +msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLViewPolicy(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.ClickPolicies(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.ViewPolicy(driver).click();
+	Thread.sleep(2000);
+	String	msg1=Locator.ViewMsg(driver).getText();
+ if(msg1.equalsIgnoreCase("Viewer")) {
+	 test.log(LogStatus.PASS,  " document Type AOA :- View  successfully.");
+ }
+	Locator.Viewclose(driver).click();
+	Thread.sleep(3000);
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	
+	public static void PLDownloadPolicy(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.ClickPolicies(driver).click();
+	Thread.sleep(4000);
+	
+	Thread.sleep(1000);
+	File dir = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+	
+	Thread.sleep(500);
+	Locator.DownloadPolicy(driver).click();		//Exporting (Downloading) file
+	
+	Thread.sleep(3000);//C://Users//jiya//Downloads//
+	File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+	
+	Thread.sleep(3000);
+	if (dirContents.length < allFilesNew.length) {
+		test.log(LogStatus.PASS,  "  File downloaded successfully.");
+	} else {
+		test.log(LogStatus.FAIL, "  File does not downloaded.");
+	}
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDeletePolicy(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.ClickPolicies(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.DocDeletePolicy(driver).click();
+	Thread.sleep(2000);
+	String Msg=Locator.DocDeletemsg(driver).getText();
+	Thread.sleep(3000);
+	test.log(LogStatus.PASS, Msg);
+	Thread.sleep(1000);
+	Locator.DocDeleteYes(driver).click();
+	Thread.sleep(2000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDocumentsADDLicenseRegi(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.LicenseRegistration(driver).click();
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	row0 = sheet.getRow(18);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	int No = (int) c1.getNumericCellValue();
+	Locator.LicenseNo(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(4000);
+	Locator.LastRenewDate(driver).sendKeys("13/04/2023");
+	Thread.sleep(3000);
+	
+	Locator.UpcomingRenewDate(driver).sendKeys("20/04/2023");
+	Thread.sleep(3000);
+	
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
+	Thread.sleep(4000);
+	
+	Thread.sleep(3000);
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a  Licence/Registration option Type :- " +msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDocumentsADDLicenseRegiInvalid(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.LicenseRegistration(driver).click();
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	row0 = sheet.getRow(18);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	int No = (int) c1.getNumericCellValue();
+	Locator.LicenseNo(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(4000);
+	Locator.LastRenewDate(driver).sendKeys("20/04/2023");
+	Thread.sleep(3000);
+	
+	Locator.UpcomingRenewDate(driver).sendKeys("13/04/2023");
+	Thread.sleep(3000);
+	
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
+	Thread.sleep(4000);
+	
+	Thread.sleep(3000);
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	try {
+	String	msg1=Locator.SaveDocMsg(driver).getText();
+	if(msg1.equalsIgnoreCase("Record saved successfully")) {
+		test.log(LogStatus.FAIL,  "Try to entering Last Renewal date is Greater than Next renewal Date :- " +msg1);
+	}else {
+		test.log(LogStatus.PASS,  "Try to entering Last Renewal date is Greater than Next renewal Date :-  " +msg1);
+	}
+	}catch(Exception e) {
+		
+		String	msg1=Locator.SaveDocMsg1(driver).getText();
+		if(msg1.equalsIgnoreCase("Record already exist")) {
+			test.log(LogStatus.FAIL,  "Try to entering Last Renewal date is Greater than Next renewal Date :- " +msg1);
+		}else {
+			test.log(LogStatus.PASS,  "Try to entering Last Renewal date is Greater than Next renewal Date :-  " +msg1);
+		}
+		
+	}
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLWithoutDocumentLicense(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(4000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.LicenseRegistration(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,   msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDocumentsADDLicenseRegiED(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.LicenseRegistration(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.LicenseNo(driver).sendKeys("17"); // Writing Task title
+	Thread.sleep(4000);
+	Locator.LastRenewDate(driver).sendKeys("13/04/2023");
+	Thread.sleep(3000);
+	
+	Locator.UpcomingRenewDate(driver).sendKeys("20/04/2023");
+	Thread.sleep(3000);
+	
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
+	Thread.sleep(4000);
+	
+	Thread.sleep(3000);
+	Locator.SaveDoc(driver).click();
+	Thread.sleep(3000);
+	
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a  Licence/Registration option Type :- " +msg1);
+	
+	Locator.Close(driver).click();
+	Thread.sleep(1000);
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLViewLicenseRegi(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.LICENSE_REGISTRATION(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.ViewLICENSE_REGISTRATION1(driver).click();
+	Thread.sleep(2000);
+	String	msg1=Locator.ViewMsg(driver).getText();
+if(msg1.equalsIgnoreCase("Viewer")) {
+	 test.log(LogStatus.PASS,  " document Type LICENSE_REGISTRATION :- View  successfully.");
+}
+	Locator.Viewclose(driver).click();
+	Thread.sleep(3000);
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	
+	public static void PLDownloadLicenseRegi(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.LICENSE_REGISTRATION(driver).click();
+	Thread.sleep(4000);
+	
+	Thread.sleep(1000);
+	File dir = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+	
+	Thread.sleep(500);
+	Locator.DownloadLicense1(driver).click();		//Exporting (Downloading) file
+	
+	Thread.sleep(3000);//C://Users//jiya//Downloads//
+	File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+	
+	Thread.sleep(3000);
+	if (dirContents.length < allFilesNew.length) {
+		test.log(LogStatus.PASS,  "  File downloaded successfully.");
+	} else {
+		test.log(LogStatus.FAIL, "  File does not downloaded.");
+	}
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PlDeleteLicenseRegi(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.LICENSE_REGISTRATION(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.DocDeleteLICENSE1(driver).click();
+	Thread.sleep(2000);
+	String Msg=Locator.DocDeletemsg(driver).getText();
+	Thread.sleep(3000);
+	test.log(LogStatus.PASS, Msg);
+	Thread.sleep(1000);
+	Locator.DocDeleteYes(driver).click();
+	Thread.sleep(2000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDocumentsADDAnnualReport(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.AnnualReport(driver).click();
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	row0 = sheet.getRow(18);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	int No = (int) c1.getNumericCellValue();
+	Locator.LicenseNo(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(4000);
+	Locator.LastRenewDate(driver).sendKeys("13/04/2023");
+	Thread.sleep(3000);
+	
+	Locator.FY(driver).click();
+	Thread.sleep(1000);
+	Locator.FY2223(driver).click();
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(15);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Description(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+
+	Locator.StartTime(driver).click();
+	Thread.sleep(1000);
+	Locator.StartTime8(driver).click();
+	Thread.sleep(3000);
+
+	Locator.EndTime(driver).click();
+	Thread.sleep(1000);
+	Locator.EndTime8(driver).click();
+	Thread.sleep(3000);
+
+	
+	
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
+	Thread.sleep(4000);
+	
+	
+	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[10]");
+	
+	
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton1 = driver.findElement(locator1);	
+	Thread.sleep(4000);
+JavascriptExecutor jse=(JavascriptExecutor)driver;
+Thread.sleep(2000);
+jse.executeScript("arguments[0].click();", ViewButton1);
+	
+Thread.sleep(4000);
+	
+	String	msg1=Locator.SaveDocMsg(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a Annual Report option Type :- " +msg1);
+		Thread.sleep(3000);
+	Locator.Close(driver).click();
+	Thread.sleep(3000);
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(300,0)");						//Scrolling down window by 1000 px.
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDocumentsADDAnnualReportED(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.AnnualReport(driver).click();
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	
+	Locator.LicenseNo(driver).sendKeys("17"); // Writing Task title
+	Thread.sleep(4000);
+	Locator.LastRenewDate(driver).sendKeys("13/04/2023");
+	Thread.sleep(3000);
+	
+	Locator.FY(driver).click();
+	Thread.sleep(1000);
+	Locator.FY2223(driver).click();
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(15);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Description(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+
+	Locator.StartTime(driver).click();
+	Thread.sleep(1000);
+	Locator.StartTime8(driver).click();
+	Thread.sleep(3000);
+
+	Locator.EndTime(driver).click();
+	Thread.sleep(1000);
+	Locator.EndTime8(driver).click();
+	Thread.sleep(3000);
+
+	
+	
+	By locator = By.xpath("(//input[@type='file'])[3]");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
+	Thread.sleep(4000);
+	
+	
+	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[10]");
+	
+	
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton1 = driver.findElement(locator1);	
+	Thread.sleep(4000);
+JavascriptExecutor jse=(JavascriptExecutor)driver;
+Thread.sleep(2000);
+jse.executeScript("arguments[0].click();", ViewButton1);
+	
+Thread.sleep(4000);
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a Annual Report option Type :- " +msg1);
+		Thread.sleep(3000);
+	Locator.Close(driver).click();
+	Thread.sleep(3000);
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(300,0)");						//Scrolling down window by 1000 px.
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PlDocumentsADDAnnualReportWD(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(2000);
+	Locator.Documents(driver).click();
+	Thread.sleep(1000);
+	Locator.AddNewDocuments(driver).click();
+	Thread.sleep(3000);
+	Locator.Type(driver).click();
+	Thread.sleep(1000);
+	Locator.AnnualReport(driver).click();
+	Thread.sleep(3000);
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	
+	Locator.LicenseNo(driver).sendKeys("17"); // Writing Task title
+	Thread.sleep(4000);
+	Locator.LastRenewDate(driver).sendKeys("13/04/2023");
+	Thread.sleep(3000);
+	
+	Locator.FY(driver).click();
+	Thread.sleep(1000);
+	Locator.FY2223(driver).click();
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(15);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Description(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+
+	Locator.StartTime(driver).click();
+	Thread.sleep(1000);
+	Locator.StartTime8(driver).click();
+	Thread.sleep(3000);
+
+	Locator.EndTime(driver).click();
+	Thread.sleep(1000);
+	Locator.EndTime8(driver).click();
+	Thread.sleep(3000);
+	
+	
+	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[10]");
+	
+	
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton1 = driver.findElement(locator1);	
+	Thread.sleep(4000);
+JavascriptExecutor jse=(JavascriptExecutor)driver;
+Thread.sleep(2000);
+jse.executeScript("arguments[0].click();", ViewButton1);
+	
+Thread.sleep(4000);
+	
+	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a Annual Report option Type :- " +msg1);
+		Thread.sleep(3000);
+	Locator.Close(driver).click();
+	Thread.sleep(3000);
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(300,0)");						//Scrolling down window by 1000 px.
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLViewAnnualReport(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.Annual(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.ViewAnnual1(driver).click();
+	Thread.sleep(2000);
+	String	msg1=Locator.ViewMsg(driver).getText();
+if(msg1.equalsIgnoreCase("Viewer")) {
+	 test.log(LogStatus.PASS,  " document Type Annual Report :- View  successfully.");
+}
+	Locator.Viewclose(driver).click();
+	Thread.sleep(3000);
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	
+	public static void PLDownloadAnnualReport(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.Annual(driver).click();
+	Thread.sleep(4000);
+	
+	Thread.sleep(1000);
+	File dir = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+	
+	Thread.sleep(500);
+	Locator.DownloadAR1(driver).click();		//Exporting (Downloading) file
+	
+	Thread.sleep(3000);//C://Users//jiya//Downloads//
+	File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+	
+	Thread.sleep(3000);
+	if (dirContents.length < allFilesNew.length) {
+		test.log(LogStatus.PASS,  "  File downloaded successfully.");
+	} else {
+		test.log(LogStatus.FAIL, "  File does not downloaded.");
+	}
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLDeleteAnnualReport(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(3000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(4000);
+	Locator.Documents(driver).click();
+	Thread.sleep(5000);
+	
+	Locator.Annual(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.DocDeleteAR1(driver).click();
+	Thread.sleep(2000);
+	String Msg=Locator.DocDeletemsg(driver).getText();
+	Thread.sleep(3000);
+	test.log(LogStatus.PASS, Msg);
+	Thread.sleep(1000);
+	Locator.DocDeleteYes(driver).click();
+	Thread.sleep(2000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void PLBranchDetailsClick(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	if(Locator.BranchDetails(driver).isEnabled()) {
+		Locator.BranchDetails(driver).click();
+		test.log(LogStatus.PASS, " Branch Details  tab is clickable ");
+	}else {
+		test.log(LogStatus.FAIL, " Branch Details  tab is not clickable");
+		
+	}
+	
+	Thread.sleep(1000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	public static void PLAddNewBranchDetails(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.AddNewBD(driver).click();
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeMyCompliances"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(3000);
+	
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	
+	row0 = sheet.getRow(20);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Name(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	Locator.Status(driver).click();
+	Thread.sleep(1000);
+	Locator.ACtive(driver).click();
+	Thread.sleep(3000);
+	Locator.BranchType(driver).click();
+	Thread.sleep(1000);
+	Locator.HeadOffice(driver).click();
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(21);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.ContactPerson(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	
+	row0 = sheet.getRow(22);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	int No = (int) c1.getNumericCellValue();
+	Locator.ContactNumber(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(4000);
+	
+	row0 = sheet.getRow(23);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.EmailBD(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	row0 = sheet.getRow(24);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.AddressBD(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	
+	Locator.State(driver).click();
+	Thread.sleep(1000);
+	Locator.Maharashtra(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.City(driver).click();
+	Thread.sleep(1000);
+	Locator.Ahmadnagar(driver).click();
+	Thread.sleep(3000);
+	Locator.ClickSave(driver).click();
+	Thread.sleep(3000);
+String Msg=	Locator.ClickSaveMsg(driver).getText();
+	Thread.sleep(3000);
+	if(Msg.equalsIgnoreCase("Details Save Successfully")) {
+		test.log(LogStatus.PASS, Msg);
+	}else {
+		test.log(LogStatus.FAIL, Msg);
+	}
+	driver.switchTo().parentFrame();
+	Thread.sleep(1000);
+	Locator.CloseBranchD(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	public static void PLAddNewBranchDetailsinvalidData(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.AddNewBD(driver).click();
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeMyCompliances"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(3000);
+	
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	
+	row0 = sheet.getRow(20);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Name(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	Locator.Status(driver).click();
+	Thread.sleep(1000);
+	Locator.ACtive(driver).click();
+	Thread.sleep(3000);
+	Locator.BranchType(driver).click();
+	Thread.sleep(1000);
+	Locator.HeadOffice(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ContactPerson(driver).sendKeys("123$"); // Writing Task title
+	Thread.sleep(2000);
+	
+	
+	Locator.ContactNumber(driver).sendKeys("11111111"); // Writing Task title
+	Thread.sleep(4000);
+	
+	
+	Locator.EmailBD(driver).sendKeys("123@"); // Writing Task title
+	Thread.sleep(2000);
+	row0 = sheet.getRow(24);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.AddressBD(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	
+	Locator.State(driver).click();
+	Thread.sleep(1000);
+	Locator.Maharashtra(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.City(driver).click();
+	Thread.sleep(1000);
+	Locator.Ahmadnagar(driver).click();
+	Thread.sleep(3000);
+	Locator.ClickSave(driver).click();
+	Thread.sleep(3000);
+String Msg=	Locator.ClickSaveMsgInvalid(driver).getText();
+	Thread.sleep(3000);
+	
+		test.log(LogStatus.PASS, Msg);
+	
+	driver.switchTo().parentFrame();
+	Thread.sleep(1000);
+	Locator.CloseBranchD(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	public static void PLAddNewBranchDetailsMandatoryfield(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.AddNewBD(driver).click();
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeMyCompliances"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(3000);
+	
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	
+	row0 = sheet.getRow(20);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Name(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	Locator.Status(driver).click();
+	Thread.sleep(1000);
+	Locator.ACtive(driver).click();
+	Thread.sleep(3000);
+	Locator.BranchType(driver).click();
+	Thread.sleep(1000);
+	Locator.HeadOffice(driver).click();
+	Thread.sleep(3000);
+	
+	
+	
+	Locator.ClickSave(driver).click();
+	Thread.sleep(3000);
+String Msg=	Locator.ClickSaveMsgInvalid(driver).getText();
+	Thread.sleep(3000);
+	
+		test.log(LogStatus.PASS,"Message Displayed :-  "+ Msg);
+	
+	driver.switchTo().parentFrame();
+	Thread.sleep(1000);
+	Locator.CloseBranchD(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	public static void PLAddNewBranchDetailsWithOutData(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.AddNewBD(driver).click();
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeMyCompliances"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(4000);
+	
+	
+	Locator.ClickSave(driver).click();
+	Thread.sleep(3000);
+String Msg=	Locator.ClickSaveMsgInvalid(driver).getText();
+	Thread.sleep(3000);
+	
+		test.log(LogStatus.PASS,"Message Displayed :-  "+ Msg);
+	
+	driver.switchTo().parentFrame();
+	Thread.sleep(1000);
+	Locator.CloseBranchD(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
+	
+	public static void PLEditBranchDetails(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (40));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(1000);
+	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
+	Thread.sleep(4000);
+	Locator.EntityEdit(driver).click();
+	Thread.sleep(3000);
+	
+		Locator.BranchDetails(driver).click();
+		Thread.sleep(3000);
+		Locator.EditBranchD1(driver).click();
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IframeMyCompliances"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(3000);
+	
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	Locator.Name(driver).clear();
+	Thread.sleep(2000);
+	row0 = sheet.getRow(25);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Name(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(3000);
+	
+	Locator.ClickSave(driver).click();
+	Thread.sleep(3000);
+String Msg=	Locator.ClickSaveMsg(driver).getText();
+	Thread.sleep(3000);
+	
+		test.log(LogStatus.PASS,"Message Displayed :-  "+ Msg);
+	
+	driver.switchTo().parentFrame();
+	Thread.sleep(1000);
+	Locator.CloseBranchD(driver).click();
+	Thread.sleep(3000);
+	
+	
+	Locator.ClosePopEntity(driver).click();
+	Thread.sleep(1000);
+	Locator.ClickDashboard(driver).click();
+	}
 	
 	
 	

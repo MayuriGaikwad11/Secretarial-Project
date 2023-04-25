@@ -5,10 +5,8 @@
     <classes>
       <class name="secretrialTestCase.EntittyTest">
         <methods>
-          <include name="BankDetailDelete"/>
           <include name="setBrowser"/>
-          <include name="BankDetailEditInvalid"/>
-          <include name="BankDetailDeleteCan"/>
+          <include name="PLEditBranchDetails"/>
         </methods>
       </class> <!-- secretrialTestCase.EntittyTest -->
     </classes>

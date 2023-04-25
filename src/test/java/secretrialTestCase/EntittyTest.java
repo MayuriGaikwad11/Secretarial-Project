@@ -432,7 +432,7 @@ public class EntittyTest {
 	}
 	
 	@Test(priority = 32)
-	void DownloadCOI() throws InterruptedException, IOException
+	void DownloadPolicy() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity -Edit - Documents-Policies -Download  ");
 		
@@ -851,6 +851,764 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
+//	@Test(priority = 70) //20/04/2023  //not complete
+		void EntityView() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - View");
+			
+			Methods.EntityView(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+//   ----------------------------------   Public Limited   -------------------------------------------
+	
+//	@Test(priority = 71) 
+	void PublicLimitedSelect() throws InterruptedException, IOException
+	{
+			test = extent.startTest("Entity - Add New - Public Limited");
+			
+			Methods.PublicLimitedSelect(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+	}
+	
+//	@Test(priority = 72) 
+	void PublicLimitedAdd() throws InterruptedException, IOException
+	{
+			test = extent.startTest("Entity - Add New - Public Limited -With Valid Data");
+			
+			Methods.PublicLimitedAdd(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+	}
+	
+//	@Test(priority = 73) 
+	void PublicLimitedAddInvalid() throws InterruptedException, IOException
+	{
+			test = extent.startTest("Entity - Add New - Public Limited - -With Invalid Data");
+			
+			Methods.PublicLimitedAddInvalid(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+	}
+	
+//	@Test(priority = 74) 
+	void PublicLimitedAddWith2man() throws InterruptedException, IOException
+	{
+			test = extent.startTest("Entity - Add New - Public Limited - -With two mandatory fields");
+			
+			Methods.PublicLimitedAddWith2man(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+	}
+	
+//	@Test(priority = 75) 
+	void PublicLimitedAddWithoutdata() throws InterruptedException, IOException
+	{
+			test = extent.startTest("Entity - Add New - Public Limited - -withOut Data");
+			
+			Methods.PublicLimitedAddWithoutdata(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+	}
+	
+//	@Test(priority = 76) 
+	void PublicLimitedAddClose() throws InterruptedException, IOException
+	{
+			test = extent.startTest("Entity - Add New - Public Limited - Close");
+			
+			Methods.PublicLimitedAddClose(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+	}
+	
+//	@Test(priority = 77) 
+	void PublicLimitedEdit() throws InterruptedException, IOException
+	{
+			test = extent.startTest("Entity - Public Limited -Edit");
+			
+			Methods.PublicLimitedEdit(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+	}
+	
+//	@Test(priority = 78) 
+	void PublicLimitedEditInvalid() throws InterruptedException, IOException
+	{
+			test = extent.startTest("Entity - Public Limited -Edit-with Invalid Name");
+			
+			Methods.PublicLimitedEditInvalid(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+	}
+	
+//	@Test(priority = 79) 
+	void PublicLimitedEditClose() throws InterruptedException, IOException
+	{
+			test = extent.startTest("Entity - Public Limited -Edit- Close Button");
+			
+			Methods.PublicLimitedEditClose(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+	}
+	
+//	@Test(priority = 80) //  21/04/2023
+	void PLBusinessActivityClick() throws InterruptedException, IOException
+	{
+			test = extent.startTest("Entity - Public Limited -Edit-Business Activity ");
+			
+			Methods.PLBusinessActivityClick(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+	}
+	
+//	@Test(priority = 81)
+	void PLBusinessActivity() throws InterruptedException, IOException
+	{
+			test = extent.startTest("Entity - Public Limited -Edit-Business Activity - Add New ");
+			
+			Methods.PLBusinessActivity(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+	}
+	
+//	@Test(priority = 82)
+	void PLBusinessActivityValidation() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity - Public Limited - Business Activity -Add New - withOut Selecting 'Main Activity Code' dropdown");
+		
+		Methods.PLBusinessActivityValidation(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 83)
+	void PLvalidationofsave() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Public Limited - Edit - Business Activity -Add New - To check validation of save button without entering a data");
+		
+		Methods.PLvalidationofsave(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 84)
+	void validationofedit() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Public Limited - Business Activity -Edit - With Valid Data");
+		
+		Methods.PLvalidationofedit(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 85)
+	void PLCheckInvaliddata() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Public Limited -Edit- Business Activity -Edit -With Invalid Data");
+		
+		Methods.PLCheckInvaliddata(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 86)
+	void PLDeleteBusinessActivity() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Public Limited - Edit - Business Activity - Delete");
+		
+		Methods.PLDeleteBusinessActivity(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 87)
+	void PLBusinessActivityADDNewClose() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Public Limited - Edit - Business Activity - Add New -Close");
+		
+		Methods.PLBusinessActivityADDNewClose(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 88)
+	void PLDocumentClick() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Public Limited - Edit - Documents ");
+		
+		Methods.PLDocumentClick(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 89)
+	void PLDocumentsADDMOA() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New - Selecting MOA");
+		
+		Methods.PLDocumentsADDMOA(driver,test,workbook);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 90)
+	void PLWithoutDocument() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New -Type MOA - Without Document ");
+		
+		Methods.PLWithoutDocument(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 91)
+	void PLDocumentsADDMOAAE() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New - with existing data ");
+		
+		Methods.PLDocumentsADDMOAAE(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 92)
+	void PLViewMOA() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity -Public Limited - Edit - Documents-view-MOA ");
+		
+		Methods.PLViewMOA(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 93)
+	void PLDownloadMOA() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity - Public Limited -Edit - Documents-Download - MOA ");
+		
+		Methods.PLDownloadMOA(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+
+//	@Test(priority = 94) //  24/04/2023
+	void PLDeleteMOA() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Entity - Public Limited - Edit - Documents-Delete - MOA ");
+		
+		Methods.PLDeleteMOA(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}	
+	
+//	@Test(priority = 95)
+		void PLDocumentsADD() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents-Add New - Selecting AOA");
+			
+			Methods.PLDocumentsADD(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 96)
+		void PLWithoutDocumentAOA() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New -Type AOA - Without Document ");
+			
+			Methods.PLWithoutDocumentAOA(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 97)
+		void PLDocumentsADDExisting() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents-Add New -AOA - with existing data ");
+			
+			Methods.PLDocumentsADDExisting(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 98)
+		void PLViewAOA() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents-View - AOA");
+			
+			Methods.PLViewAOA(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 99)
+		void PLDownloadAOA() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Documents-Download -AOA ");
+			
+			Methods.PLDownloadAOA(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 100)
+		void PLDeleteAOA() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents-Delete - AOA ");
+			
+			Methods.PLDeleteAOA(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	//	@Test(priority = 101)
+		void PLDocumentsADDCOI() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents-Add New - Selecting COI ");
+			
+			Methods.PLDocumentsADDCOI(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+			
+	//	@Test(priority = 102)
+		void PLWithoutDocumentCOI() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents-Add New -Type COI - Without Document ");
+			
+			Methods.PLWithoutDocumentCOI(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+	
+	//	@Test(priority = 103)
+		void PLDocumentsADDCOIExisting() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New -COI - with existing data ");
+			
+			Methods.PLDocumentsADDCOIExisting(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+	/*
+		@Test(priority = 104)
+		void PLViewCOI() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited -Edit - Documents-View - COI");
+			
+			Methods.PLViewCOI(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 105)
+		void PLDownloadCOI() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents-Download -COI ");
+			
+			Methods.PLDownloadCOI(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 106)
+		void PLDeleteCOI() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents-Delete - COI ");
+			
+			Methods.PLDeleteCOI(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		
+		@Test(priority = 107)
+		void PLDocumentsADDPolicy() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New - Selecting Policy ");
+			
+			Methods.PLDocumentsADDPolicy(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		
+    	@Test(priority = 108)
+		void PLWithoutDocumentPolicy() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents-Add New -Type Policy - Without Document ");
+			
+			Methods.PLWithoutDocumentPolicy(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 109)
+		void PLDocumentsADDPolicyAE() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents-Add New -Policy - with existing data ");
+			
+			Methods.PLDocumentsADDPolicyAE(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+	
+		@Test(priority = 110)
+		void PLViewPolicy() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited  - Edit - Documents- Policies -View ");
+			
+			Methods.PLViewPolicy(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 111)
+		void PLDownloadPolicy() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents-Policies -Download  ");
+			
+			Methods.PLDownloadPolicy(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 112)
+		void PLDeletePolicy() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents-Policies - Delete  ");
+			
+			Methods.PLDeletePolicy(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+	
+		
+		@Test(priority = 113)
+		void PLDocumentsADDLicenseRegi() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New - Selecting Licence/Registration  ");
+			
+			Methods.PLDocumentsADDLicenseRegi(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+	
+		@Test(priority = 114) // 25/04/2023
+		void PLDocumentsADDLicenseRegiInvalid() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New - Selecting Licence/Registration :- Invalid data ");
+			
+			Methods.PLDocumentsADDLicenseRegiInvalid(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+	
+		@Test(priority = 115)
+		void PLWithoutDocumentLicense() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New - Selecting Licence/Registration :- Without Document ");
+			
+			Methods.PLWithoutDocumentLicense(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+			
+		@Test(priority = 116)
+		void PLDocumentsADDLicenseRegiED() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents-Add New -Licence/Registration  - with existing data ");
+			
+			Methods.PLDocumentsADDLicenseRegiED(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 117)
+		void PLViewLicenseRegi() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited -Edit - Documents- LICENSE_REGISTRATION -View ");
+			
+			Methods.PLViewLicenseRegi(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 118)
+		void PLDownloadLicenseRegi() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents-LICENSE_REGISTRATION -Download  ");
+			
+			Methods.PLDownloadLicenseRegi(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 119)
+		void PlDeleteLicenseRegi() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Documents-LICENSE_REGISTRATION - Delete  ");
+			
+			Methods.PlDeleteLicenseRegi(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+	
+		@Test(priority = 120)
+		void PLDocumentsADDAnnualReport() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New - Selecting  Annual Report ");
+			
+			Methods.PLDocumentsADDAnnualReport(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 121)
+		void PLDocumentsADDAnnualReportED() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents-Add New - Annual Reportn  - with existing data ");
+			
+			Methods.PLDocumentsADDAnnualReportED(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		
+		@Test(priority = 122)
+		void PlDocumentsADDAnnualReportWD() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New - Annual Report :- Without Document ");
+			
+			Methods.PlDocumentsADDAnnualReportWD(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 123)
+		void PLViewAnnualReport() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Documents- Annual report -View ");
+			
+			Methods.PLViewAnnualReport(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 124)
+		void PLDownloadAnnualReport() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Documents-Annual report -Download  ");
+			
+			Methods.PLDownloadAnnualReport(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 125)
+		void PLDeleteAnnualReport() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Documents-Annual report - Delete  ");
+			
+			Methods.PLDeleteAnnualReport(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		
+		@Test(priority = 126)
+		void PLBranchDetailsClick() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Branch Details   ");
+			
+			Methods.BranchDetailsClick(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 127)
+		void PLAddNewBranchDetails() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Branch Details - Add New -With Valid Data  ");
+			
+			Methods.PLAddNewBranchDetails(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 128)
+		void PLAddNewBranchDetailsinvalidData() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Branch Details - Add New - With Invalid Data ");
+			
+			Methods.PLAddNewBranchDetailsinvalidData(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 129)
+		void PLAddNewBranchDetailsMandatoryfield() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Public Limited - Edit - Branch Details - Add New - With 2 Mandatory field ");
+			
+			Methods.PLAddNewBranchDetailsMandatoryfield(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 130)
+		void PLAddNewBranchDetailsWithOutData() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Branch Details - Add New - WithOut Data ");
+			
+			Methods.PLAddNewBranchDetailsWithOutData(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+	
+	   @Test(priority = 131)
+		void PLEditBranchDetails() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity - Public Limited - Edit - Branch Details - Edit ");
+			
+			Methods.PLEditBranchDetails(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}*/
+		
+		/*
+		//@Test(priority = 54)
+		void UploadBranchDetails() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Edit - Branch Details - Upload Document -With Valid Extention ");
+			
+			Methods.UploadBranchDetails(driver,test,workbook);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		//@Test(priority = 55)
+		void UploadBranchDetailsInvalid() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Edit - Branch Details - Upload Document - With Invalid Extention  ");
+			
+			Methods.UploadBranchDetailsInvalid(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+//		@Test(priority = 56)
+		void UploadBranchDetailsMulvalid() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Edit - Branch Details - Upload Document - With  multiple valid file extensions upload  ");
+			
+			Methods.UploadBranchDetailsMulvalid(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		//@Test(priority = 57)
+		void UploadBranchDetailsMulInvalid() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Edit - Branch Details - Upload Document - With  multiple invalid file extensions upload  ");
+			
+			Methods.UploadBranchDetailsMulInvalid(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+//		@Test(priority = 58)//19/04/2023
+		void UploadBranchDetailsWF() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Edit - Branch Details - Upload Document - WithOut Document  ");
+			
+			Methods.UploadBranchDetailsWF(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		//@Test(priority = 59)
+		void AddNewBranchDetailsClose() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Entity -Edit - Branch Details - Add New -Close  ");
+			
+			Methods.AddNewBranchDetailsClose(driver,test);
+			
+			extent.endTest(test);
+			extent.flush();
+		}*/
+	
 	
 	
 //	@Test(priority = 16)
@@ -867,16 +1625,7 @@ public class EntittyTest {
 
 	
 
-	//@Test(priority = 22) //not Completed
-	void EntityView() throws InterruptedException, IOException
-	{
-		test = extent.startTest("Entity - View");
-		
-		Methods.EntityView(driver,test);
-		
-		extent.endTest(test);
-		extent.flush();
-	}
+	
 	
 //	@Test(priority = 23) 
 	void EntityMoreOption() throws InterruptedException, IOException
