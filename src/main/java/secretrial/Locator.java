@@ -90,7 +90,7 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	public static WebElement  SaveMsg(WebDriver driver)		//Method for closing Message Popup
 	{
 		secretrial = driver.findElement(By.xpath("//*[@id='frmBusinessActivity']/div[1]/div/div/lable"));
-		return secretrial;
+		return secretrial;                      
 	}
 	
 	public static WebElement  ClosePop(WebDriver driver)		//Method for closing Message Popup
@@ -261,6 +261,12 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	public static WebElement SaveDoc(WebDriver driver)		//Method for closing Message Popup
 	{
 		secretrial = driver.findElement(By.xpath("(//*[@class='btn btn-primary'])[10]"));
+		return secretrial;
+	}
+	
+	public static WebElement SaveDoc1(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='btn btn-primary'])[11]"));
 		return secretrial;
 	}
 	
@@ -1367,6 +1373,12 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	public static WebElement PublicLimitedSelect(WebDriver driver)		//Method for closing Message Popup
 	{
 		secretrial = driver.findElement(By.xpath("//*[@id='ddlEntityType_listbox']/li[2]"));
+		return secretrial;
+	}
+	
+	public static WebElement ListedCompanySelect(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='ddlEntityType_listbox']/li[3]"));
 		return secretrial;
 	}
 	
