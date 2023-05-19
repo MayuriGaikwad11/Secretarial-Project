@@ -3072,7 +3072,93 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
+			//	@Test(priority = 269) //19/05/2023
+				void DHMaster() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Debenture Holding - Master ");
+					
+					Methods.DHMaster(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
+			//	@Test(priority = 270) 
+				void DHEdit() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Debenture Holding - Edit - Click");
+					
+					Methods.DHEdit(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 271) 
+				void DHEditE() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Debenture Holding - Edit ");
+					
+					Methods.DHEditE(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 272) 
+				void DHEditClose() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Debenture Holding - Edit - Close");
+					
+					Methods.DHEditClose(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 273) 
+				void DHDelete() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Debenture Holding - Delete -YES");
+					
+					Methods.DHDelete(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 274) 
+				void DHDeleteCan() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Debenture Holding - Delete - NO");
+					
+					Methods.DHDeleteCan(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 275) 
+				void DHEditInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Debenture Holding - Edit - With Invalid Data");
+					
+					Methods.DHEditInvalid(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 276) 
+				void DHDAddNewInvalidData() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Debenture Holding - Add New -Debenture Holding Details - Add New - With Invalid Data");
+					
+					Methods.DHDAddNewInvalidData(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
 				
 				

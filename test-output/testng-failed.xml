@@ -5,8 +5,8 @@
     <classes>
       <class name="secretrialTestCase.EntittyTest">
         <methods>
-          <include name="DHUpload"/>
           <include name="setBrowser"/>
+          <include name="DHEditInvalid"/>
         </methods>
       </class> <!-- secretrialTestCase.EntittyTest -->
     </classes>

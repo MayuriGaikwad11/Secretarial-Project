@@ -1904,7 +1904,7 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	public static WebElement   SavehdMsgDhd(WebDriver driver)		//Method for closing Message Popup
 	{
 		secretrial = driver.findElement(By.xpath("//*[@id='lblsuccessI_sub']"));
-		return secretrial;                     
+		return secretrial;                        
 	}
 	
 	public static WebElement   DNFrom(WebDriver driver)		//Method for closing Message Popup
@@ -2045,6 +2045,67 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 		secretrial = driver.findElement(By.xpath("//*[@id='btnDebentureHolding']"));
 		return secretrial;                     
 	}
+	
+	public static WebElement  MasterDH(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='customCommandmaster']"));
+		return secretrial;                     
+	}
+	
+	public static WebElement  MasterDHView(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='popforDebentureMaster_wnd_title']"));
+		return secretrial;                     
+	}
+	
+	public static WebElement  MasterClose(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-button k-bare k-button-icon k-window-action'])[4]"));
+		return secretrial;                     
+	}
+	
+	public static WebElement  DHEdit(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='gridKendo']/div[2]/table/tbody/tr[1]/td[7]/a[1]"));
+		return secretrial;                     
+	}
+	
+	public static WebElement  DHEditview(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='popforsharholder_wnd_title']"));
+		return secretrial;                     
+	}
+	
+	public static WebElement  DHDelete(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='gridKendo']/div[2]/table/tbody/tr[1]/td[7]/a[2]"));
+		return secretrial;                     
+	}
+	
+	public static WebElement  DHDeleteYes(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='yes']"));
+		return secretrial;                     
+	}
+	
+	public static WebElement  DHDeleteNo(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='no']"));
+		return secretrial;                     
+	}
+	
+	public static WebElement  PanVal(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='PAN_validationMessage']"));
+		return secretrial;                     
+	}
+	
+	public static WebElement  NoDebenVal(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='NumberOfDebenture_validationMessage']"));
+		return secretrial;                     
+	}
+	
 	
 	
 	

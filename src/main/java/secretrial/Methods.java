@@ -14163,6 +14163,456 @@ Thread.sleep(1000);
 		 Thread.sleep(1000);
 	 }
 	
+	public static void DHMaster(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+		
+			Locator.DebentureHolding(driver).click();
+			Thread.sleep(3000);
+			
+			Locator.MasterDH(driver).click();
+			Thread.sleep(3000);
+		Thread.sleep(3000);
+	
+	
+	String text=	Locator.MasterDHView(driver).getText();
+		Thread.sleep(3000);
+		if(text.equalsIgnoreCase("Debentureholding Master")) {
+			test.log(LogStatus.PASS,"Clicking on Master -The user  redirected to the 'Debenture Holding Master' page" );
+		}else {
+			test.log(LogStatus.FAIL,"Clicking on Master -The user  not redirected to the 'Debenture Holding Master' page" );
+		}
+		
+		Thread.sleep(2000);
+		Locator.MasterClose(driver).click();
+		Thread.sleep(3000);		
+	
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void DHEdit(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+		
+			Locator.DebentureHolding(driver).click();
+			Thread.sleep(3000);
+			
+			Locator.DHEdit(driver).click();
+			Thread.sleep(3000);
+		Thread.sleep(3000);
+	
+	
+	String text=	Locator.DHEditview(driver).getText();
+		Thread.sleep(3000);
+		if(text.equalsIgnoreCase("Add/Edit - Debenture Holding")) {
+			test.log(LogStatus.PASS,"Clicking on Debenture Holding -Edit -The user is redirected to the Add/Edit debenture holding detail page where the existing data is pre-filled." );
+		}else {
+			test.log(LogStatus.FAIL,"Clicking on Debenture Holding -Edit -The user is not redirected to the Add/Edit debenture holding detail page where the existing data is pre-filled." );
+		}
+		
+		Thread.sleep(2000);
+		Locator.CloseDH(driver).click();
+		Thread.sleep(3000);		
+	
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void DHEditE(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+		
+			Locator.DebentureHolding(driver).click();
+			Thread.sleep(3000);
+			
+			Locator.DHEdit(driver).click();
+			Thread.sleep(3000);
+		Thread.sleep(3000);
+		Locator.Follio_No(driver).clear();
+		Thread.sleep(3000);
+		sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+		int row = 0;
+		Thread.sleep(500);
+		Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+		Cell c1 = null;
+		
+		
+		row0 = sheet.getRow(52);
+		c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+		Locator.Follio_No(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+		Thread.sleep(2000);
+		
+		Locator.SaveBtn(driver).click();
+		Thread.sleep(2000);
+        Thread.sleep(1000);
+        String Text =Locator.SavehdMsgDhd(driver).getText();
+        Thread.sleep(1000);
+       if(Text.equalsIgnoreCase("Updated Successfully.")) {
+	    test.log(LogStatus.PASS,Text );
+      }else {
+
+	test.log(LogStatus.FAIL,  Text);
+}
+		Thread.sleep(2000);
+		Locator.CloseDH(driver).click();
+		Thread.sleep(3000);		
+	
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void DHEditClose(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+		
+			Locator.DebentureHolding(driver).click();
+			Thread.sleep(3000);
+			
+			Locator.DHEdit(driver).click();
+			Thread.sleep(3000);
+		Thread.sleep(3000);
+	
+		
+		if(Locator.CloseDH(driver).isEnabled()) {
+			Locator.CloseDH(driver).click();
+			test.log(LogStatus.PASS,"The window  closed successfully");
+			}else {
+				test.log(LogStatus.FAIL,"The window not closed ");
+			}
+		Thread.sleep(2000);
+		
+	
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void DHDelete(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+		
+			Locator.DebentureHolding(driver).click();
+			Thread.sleep(3000);
+			
+			Locator.DHDelete(driver).click();
+			Thread.sleep(3000);
+			Locator.DHDeleteYes(driver).click();
+		Thread.sleep(3000);
+String msg =	driver.switchTo().alert().getText();
+		
+		if(msg.equalsIgnoreCase("Deleted Successfully")) {
+			
+			test.log(LogStatus.PASS,"Message Displayed :- "+msg);
+			}else {
+				test.log(LogStatus.FAIL,"Message Displayed :- "+msg);
+			}
+		Thread.sleep(2000);
+		driver.switchTo().alert().accept();
+	
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void DHDeleteCan(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+		
+			Locator.DebentureHolding(driver).click();
+			Thread.sleep(3000);
+			
+			Locator.DHDelete(driver).click();
+			Thread.sleep(3000);
+
+		if(Locator.DHDeleteNo(driver).isEnabled()) {
+			Locator.DHDeleteNo(driver).click();
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS," Clicking on No : - The entity is not deleted from the system ");
+			}else {
+				test.log(LogStatus.FAIL,"Clicking on No : - The entity is deleted from the system");
+			}
+		Thread.sleep(2000);
+		
+	
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	
+	public static void DHEditInvalid(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+		
+			Locator.DebentureHolding(driver).click();
+			Thread.sleep(3000);
+			
+			Locator.DHEdit(driver).click();
+			Thread.sleep(3000);
+		Thread.sleep(3000);
+		Locator.PanDH(driver).clear();
+		Thread.sleep(3000);
+		Locator.PanDH(driver).sendKeys("ssd");
+		
+		
+		Locator.SaveBtn(driver).click();
+		Thread.sleep(2000);
+       Thread.sleep(1000);
+       String Text =Locator.PanVal(driver).getText();
+       Thread.sleep(1000);
+    
+	    test.log(LogStatus.PASS,Text );
+    
+		Thread.sleep(2000);
+		Locator.CloseDH(driver).click();
+		Thread.sleep(3000);		
+	
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void DHDAddNewInvalidData(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(3000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+		
+			Locator.DebentureHolding(driver).click();
+			Thread.sleep(3000);
+			
+			Locator.AddNewDH(driver).click();
+			Thread.sleep(3000);
+			
+			sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+			int row = 0;
+			Thread.sleep(500);
+			Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+			Cell c1 = null;
+			
+			
+			row0 = sheet.getRow(40);
+			c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+			Locator.Follio_No(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+			Thread.sleep(2000);
+			Locator.ClassofDebenture(driver).click();
+			Thread.sleep(2000);
+			List<WebElement>comCat = driver.findElements(By.xpath("//li[@class='k-item']"));
+			selectOptionFromDropDown_bs(comCat, "Fully Convertible Debentures");
+			Thread.sleep(2000);
+			row0 = sheet.getRow(41);
+			c1 = row0.getCell(1); // Selected cell (4 row,1 column) 
+			int No = (int) c1.getNumericCellValue();
+			Locator.CouponRate(driver).sendKeys("" + No + ""); // Writing Task title
+			Thread.sleep(2000);
+			row0 = sheet.getRow(42);
+			c1 = row0.getCell(1); // Selected cell (4 row,1 column) 
+		 No = (int) c1.getNumericCellValue();
+			Locator.TotalDebentureheld(driver).sendKeys("" + No + ""); // Writing Task title
+			Thread.sleep(2000);
+			Locator.TypeDH(driver).click();
+			Thread.sleep(2000);
+			List<WebElement> type = driver.findElements(By.xpath("//li[@class='k-item']"));
+			selectOptionFromDropDown_bs(type, "Individual");
+			Thread.sleep(2000);
+			row0 = sheet.getRow(43);
+			c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+			Locator.NameDebentureHolder(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+			Thread.sleep(2000);
+			row0 = sheet.getRow(44);
+			c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+			Locator.AddressDH(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+			Thread.sleep(2000);
+			row0 = sheet.getRow(45);
+			c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+			Locator.CINDH(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+			Thread.sleep(2000);
+			row0 = sheet.getRow(46);
+			c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+			Locator.EmailId(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+			Thread.sleep(2000);
+			Locator.NationalityDh(driver).click();
+			Thread.sleep(2000);
+			List<WebElement> type1 = driver.findElements(By.xpath("//li[@class='k-item']"));
+			selectOptionFromDropDown_bs(type1, "Indian");
+			Thread.sleep(2000);
+			Locator.SaveBtn(driver).click();
+			Thread.sleep(3000);
+	
+		Thread.sleep(2000);
+		Locator.DHD(driver).click();
+		Thread.sleep(3000);
+		Locator.DHDAddNew(driver).click();
+		Thread.sleep(3000);
+		row0 = sheet.getRow(48);
+		c1 = row0.getCell(1); // Selected cell (4 row,1 column) 
+		 No = (int) c1.getNumericCellValue();
+		Locator.AllotmentNo(driver).sendKeys("" + No + ""); // Writing Task title
+		Thread.sleep(3000);
+		Locator.Dateofallotment(driver).click();
+		Thread.sleep(2000);
+		Locator.DateDHD(driver).click();
+		Thread.sleep(2000);
+		
+		Locator.NoofDebentures(driver).sendKeys("dddd"); // Writing Task title
+		Thread.sleep(3000);
+		
+		Locator.DNFrom(driver).sendKeys("2"); // Writing Task title
+		Thread.sleep(2000);
+		Locator.DNTo(driver).sendKeys("3"); // Writing Task title
+		Thread.sleep(2000);
+		Locator.Foliooftransferor(driver).sendKeys("2"); // Writing Task title
+		Thread.sleep(2000);
+		row0 = sheet.getRow(50);
+		c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+		Locator.Nameofthetransferor(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+		Thread.sleep(2000);
+		
+		Locator.Dateofissue(driver).click();
+		Thread.sleep(2000);
+		Locator.DateDHD(driver).click();
+		Thread.sleep(2000);
+		
+		row0 = sheet.getRow(51);
+		c1 = row0.getCell(1); // Selected cell (4 row,1 column) 
+		 No = (int) c1.getNumericCellValue();
+		Locator.CertificateNo(driver).sendKeys("" + No + ""); // Writing Task title
+		Thread.sleep(2000);
+		
+		Locator.issuedforconsideration(driver).sendKeys("ASDF");
+		Thread.sleep(2000);
+		
+		Locator.Dateoftransfer(driver).click();
+		Thread.sleep(2000);
+		Locator.DateDHD(driver).click();
+		Thread.sleep(2000);
+		
+		Locator.NoofDebenturestransferred(driver).sendKeys("2");
+		Thread.sleep(2000);
+		Locator.DNFromT(driver).sendKeys("2"); // Writing Task title
+		Thread.sleep(2000);
+		Locator.DNToT(driver).sendKeys("3"); // Writing Task title
+		Thread.sleep(2000);
+		Locator.txtFolioOfTransferee(driver).sendKeys("35"); // Writing Task title
+		Thread.sleep(2000);
+		Locator.txtNameOfTransferee(driver).sendKeys("PQRS"); // Writing Task title
+		Thread.sleep(2000);
+		Locator.txtBalanceShare(driver).sendKeys("5"); // Writing Task title
+		Thread.sleep(2000);
+		
+		Locator.Remark(driver).sendKeys("Remark"); // Writing Task title
+		Thread.sleep(2000);
+		Locator.Authentication(driver).sendKeys("yes"); // Writing Task title
+		Thread.sleep(2000);
+		
+		Locator.SaveDHD(driver).click();
+		Thread.sleep(3000);
+		String Text =Locator.NoDebenVal(driver).getText();
+		Thread.sleep(1000);
+		
+			test.log(LogStatus.PASS,Text );
+		
+		Thread.sleep(2000);
+		Locator.CloseADDDHDC(driver).click();
+		Thread.sleep(3000);
+		
+		
+	Locator.CloseDHD(driver).click();
+	Thread.sleep(2000);
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
 	
 	
 }
