@@ -33,7 +33,7 @@ public class MastersTest {
 	public static XSSFSheet ReadExcel() throws IOException
 	{
 		//String workingDir = System.getProperty("user.dir");
-		fis = new FileInputStream("C:\\Users\\Mayuri Gaikwad\\Desktop\\Secreterial\\TestData\\Scretrial.xlsx");
+		fis = new FileInputStream("C:\\Users\\Mayuri\\Desktop\\AvaSec\\Secretarial-Project\\TestData\\Scretrial.xlsx");
 		
 		workbook = new XSSFWorkbook(fis);
 		sheet = workbook.getSheetAt(0);					//Retrieving second sheet of Workbook
@@ -45,7 +45,7 @@ public class MastersTest {
 	void setBrowser() throws Exception
 	{
 		
-		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri Gaikwad\\Desktop\\Secreterial\\Report\\Secretrial.html",true);
+		extent = new com.relevantcodes.extentreports.ExtentReports("C:\\Users\\Mayuri\\Desktop\\AvaSec\\Secretarial-Project\\Report\\Secretrial.html",true);
 		test = extent.startTest("Verify OpenBrowser");
 		
 		
@@ -117,6 +117,19 @@ public class MastersTest {
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+//	@Test(priority = 5)
+	void PageAuthoriationCheck() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Page Authoriation -view,add,edit delete -check or uncheck ");
+		
+		MasterMethod.PageAuthoriationCheck(driver,test);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	
 	
 //	@Test(priority = 5)
 	void UserEntityAssignmentMaster() throws InterruptedException, IOException

@@ -3160,41 +3160,376 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
+				// ------------------- More Action -Auditors - Secretarial Auditor  --------------------------------
+				
+			//	@Test(priority = 277) //22/05/2023
+				void SecretarialAuditor() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Secretarial Auditor - click ");
+					
+					Methods.SecretarialAuditor(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+		//		@Test(priority = 278) 
+				void SAAddNew() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Secretarial Auditor - Add New ");
+					
+					Methods.SAAddNew(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+		//		@Test(priority = 279) 
+				void SAAddNewAE() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Secretarial Auditor - Add New - With Existing data");
+					
+					Methods.SAAddNewAE(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+		//		@Test(priority = 280) 
+				void SAAddNewTwoMan() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Secretarial Auditor - Add New - With two mandatory fields");
+					
+					Methods.SAAddNewTwoMan(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 281) 
+				void SAAddNewEmpty() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Secretarial Auditor - Add New - With Empty fields");
+					
+					Methods.SAAddNewEmpty(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 282) 
+				void SAAddNewClose() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Secretarial Auditor - Add New - Close");
+					
+					Methods.SAAddNewClose(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+		//		@Test(priority = 283) 
+				void SAClearFilter() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Secretarial Auditor - Clear Filter");
+					
+					Methods.SAClearFilter(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 284) 
+				void SAEditClose() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Secretarial Auditor - Edit - Close");
+					
+					Methods.SAEditClose(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 285) 
+				void ResignationofAuditor() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Secretarial Auditor - Resignation of Auditor - With Valid data ");
+					
+					Methods.ResignationofAuditor(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 286) 
+				void ResignationofAuditorEmpty() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Secretarial Auditor - Resignation of Auditor - With Empty Fileds ");
+					
+					Methods.ResignationofAuditorEmpty(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 287) //23/05/2023
+				void ResignationofAuditorCancel() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Secretarial Auditor - Resignation of Auditor - Cancel ");
+					
+					Methods.ResignationofAuditorCancel(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 288) 
+				void ResignationofAuditorClose() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Secretarial Auditor - Resignation of Auditor - Close ");
+					
+					Methods.ResignationofAuditorClose(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
 				
+				// ------------------- More Action -Auditors - Cost Auditor --------------------------------
+				
+			//	@Test(priority = 289) 
+				void CostAuditor() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Cost Auditor - Click  ");
+					
+					Methods.CostAuditor(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 290) 
+				void CostAuditorAddNew() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Cost Auditor - Add New  ");
+					
+					Methods.CostAuditorAddNew(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 291) 
+				void CostAuditorAddNewED() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Cost Auditor - Add New - with Existing data ");
+					
+					Methods.CostAuditorAddNewED(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 292) 
+				void CostAuditorAddNewTwoMan() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Cost Auditor - Add New - with two mandatory fields ");
+					
+					Methods.CostAuditorAddNewTwoMan(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 293) 
+				void CostAuditorAddNewEmpty() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Cost Auditor - Add New - with Empty fields ");
+					
+					Methods.CostAuditorAddNewEmpty(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+		//		@Test(priority = 294) 
+				void CAAddNewClose() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Cost Auditor - Add New - Close ");
+					
+					Methods.CAAddNewClose(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 295) 
+				void CAClearFilter() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Cost Auditor - Clear Filter ");
+					
+					Methods.CAClearFilter(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}		
+				
+			//	@Test(priority = 296) 
+				void CAEditClose() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Cost Auditor - Edit - Close ");
+					
+					Methods.CAEditClose(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}		
+				
+			//	@Test(priority = 297) 
+				void ResignationofAuditorCA() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Cost Auditor - Resignation of Auditor - With Valid data ");
+					
+					Methods.ResignationofAuditorCA(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+		//		@Test(priority = 298) //24/05/2023
+				void ResignationofAuditorEmptyCA() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Cost Auditor - Resignation of Auditor - With Empty fields ");
+					
+					Methods.ResignationofAuditorEmptyCA(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 299) 
+				void ResignationofAuditorCancelCA() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Cost Auditor - Resignation of Auditor - Cancel ");
+					
+					Methods.ResignationofAuditorCancelCA(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 300) 
+				void ResignationofAuditorCloseCA() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Cost Auditor - Resignation of Auditor - Close ");
+					
+					Methods.ResignationofAuditorCloseCA(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+				// ------------------- More Action - Statutory Registers --------------------------------
+				
+			//	@Test(priority = 301) 
+				void StatutoryRegisters() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Click ");
+					
+					Methods.StatutoryRegisters(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+		//	//	@Test(priority = 302) 
+				void SRDEPOSIT() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Click ");
+					
+					Methods.SRDEPOSIT(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 303) 
+				void SRDEPOSITAddnew() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Add New ");
+					
+					Methods.SRDEPOSITAddnew(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
 				
+				//@Test(priority = 304) 
+				void SRDEPOSITAddnewEmpty() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Add New - with Empty Field ");
+					
+					Methods.SRDEPOSITAddnewEmpty(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
+		//		@Test(priority = 305) 
+				void SRDEPOSITUpload() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Upload - With valid data");
+					
+					Methods.SRDEPOSITUpload(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
+			//	@Test(priority = 306) 
+				void SRDEPOSITUploadInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Upload - With Invalid data");
+					
+					Methods.SRDEPOSITUploadInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
+			//	@Test(priority = 307) 
+				void SRDEPOSITUploadEmpty() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Upload - With Empty File");
+					
+					Methods.SRDEPOSITUploadEmpty(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
+			//	@Test(priority = 308) 
+				void SRDEPOSITUploadInvalidEx() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Upload - With Invalid File Format");
+					
+					Methods.SRDEPOSITUploadInvalidEx(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+			//	@Test(priority = 309) 
+				void SRDEPOSITDwonGR() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Generate Register");
+					
+					Methods.SRDEPOSITDwonGR(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
 				
 				

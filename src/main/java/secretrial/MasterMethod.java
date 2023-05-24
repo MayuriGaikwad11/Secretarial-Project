@@ -66,6 +66,57 @@ public class MasterMethod {
 		Locator.ClickDashboard(driver).click();
 	}
 	
+	public static void PageAuthoriationCheck(WebDriver driver, ExtentTest test) throws InterruptedException
+	{
+		WebDriverWait wait = new WebDriverWait(driver, (40));
+		Thread.sleep(3000);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+		Thread.sleep(1000);
+		Locator.Master(driver).click();
+		Thread.sleep(1000);
+		Locator.MasterMenu(driver).click();
+		Thread.sleep(5000);
+		
+		By locator = By.xpath("//*[@id='Mastermenu']/ul/li[7]/a");
+
+		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		Thread.sleep(4000);
+		
+		WebElement ViewButton = driver.findElement(locator);	
+		Thread.sleep(3000);
+		ViewButton.click();
+		Thread.sleep(3000);
+		Locator.SelectRole(driver).click();
+		Thread.sleep(1000);
+		Locator.SelectDropdownOption(driver).get(0).click();
+		Thread.sleep(1000);
+		
+		Locator.SelectUser(driver).click();
+		Thread.sleep(1000);
+		Locator.SelectUserDropdownOption(driver).get(0).click();
+		Thread.sleep(1000);
+		if(Locator.viewIcon(driver).isEnabled()&&Locator.addIcon(driver).isEnabled()&&Locator.editIcon(driver).isEnabled()&&Locator.deleteIcon(driver).isEnabled()) {
+			
+			Locator.viewIcon(driver).click();
+			Thread.sleep(1000);
+			Locator.addIcon(driver).click();
+			Thread.sleep(1000);
+			Locator.editIcon(driver).click();
+			Thread.sleep(1000);
+			Locator.deleteIcon(driver).click();
+			Thread.sleep(1000);
+			  test.log(LogStatus.PASS,  "user able to check or uncheck  Every view,add,edit and delete option  ");
+			
+		}else {
+			  test.log(LogStatus.FAIL,  "user not able to check or uncheck  Every view,add,edit and delete option  ");
+		}
+		Thread.sleep(3000);
+		Locator.ClickDashboard(driver).click();
+		Thread.sleep(3000);
+	}
+	
+	
 	public static void PageAuthoriationDirector(WebDriver driver, ExtentTest test) throws InterruptedException
 	{
 		WebDriverWait wait = new WebDriverWait(driver, (40));
