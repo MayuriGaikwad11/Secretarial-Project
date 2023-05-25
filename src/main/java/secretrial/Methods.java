@@ -16490,5 +16490,458 @@ String msg =	driver.switchTo().alert().getText();
 		 Thread.sleep(1000);
 	 }
 	
+	public static void SRSH2(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+			
+			if(Locator.SRSH2(driver).isEnabled()) {
+				Locator.SRSH2(driver).click();
+				Thread.sleep(3000);
+				   test.log(LogStatus.PASS,"The user should redirected to the 'SH-2' page" );
+			}else {
+				 test.log(LogStatus.PASS,"The user should redirected to the 'SH-2' page" );
+			}	
+			Thread.sleep(2000);
+	
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	
+	public static void SRSH2AddNew(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+			
+	Locator.SRSH2(driver).click();
+	Thread.sleep(3000);
+				   
+	Locator.SRSHAN(driver).click();
+	Thread.sleep(3000);
+	
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	row0 = sheet.getRow(72);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.SRSHFolio_No(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	
+	row0 = sheet.getRow(73);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.NameOftheGurantee(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(2000);
+	
+	Locator.DateOfIssuedApproval(driver).click();		
+	Thread.sleep(2000);
+	Locator.DateOfeachdeposit13(driver).click();		
+	Thread.sleep(3000); 
+	
+	Locator.ClassOfShares(driver).click();		
+	Thread.sleep(2000);
+	Locator.EquitySharesSH(driver).click();		
+	Thread.sleep(3000); 
+	
+	Locator.DateOfIssueOriginal(driver).click();		
+	Thread.sleep(2000);
+	Locator.DuedateforPayment20(driver).click();		
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(74);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	int No = (int) c1.getNumericCellValue();
+	Locator.CertificateNoSH(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(4000);
+			Thread.sleep(2000);
+			
+			row0 = sheet.getRow(75);
+			c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+			 No = (int) c1.getNumericCellValue();
+			Locator.Tot_SharesHeld(driver).sendKeys("" + No + ""); // Writing Task title
+			Thread.sleep(4000);
+			
+			row0 = sheet.getRow(76);
+			c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+			 No = (int) c1.getNumericCellValue();
+			Locator.DistinctiveFrom(driver).sendKeys("" + No + ""); // Writing Task title
+			Thread.sleep(4000);
+			
+			row0 = sheet.getRow(77);
+			c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+			 No = (int) c1.getNumericCellValue();
+			Locator.DistinctiveTo(driver).sendKeys("" + No + ""); // Writing Task title
+			Thread.sleep(4000);
+			Locator.DateOfIssuedRenewed(driver).click();		
+			Thread.sleep(2000);
+			Locator.DateOfIssuedRenewed19(driver).click();		
+			Thread.sleep(3000);
+			row0 = sheet.getRow(78);
+			c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+			Locator.ReasonforIssueRenewed(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+			Thread.sleep(2000);
+			
+			row0 = sheet.getRow(79);
+			c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+			 No = (int) c1.getNumericCellValue();
+			Locator.NoOfShareRenewed(driver).sendKeys("" + No + ""); // Writing Task title
+			Thread.sleep(4000);
+			
+			row0 = sheet.getRow(80);
+			c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+			 No = (int) c1.getNumericCellValue();
+			Locator.Tot_SharesHeldIn(driver).sendKeys("" + No + ""); // Writing Task title
+			Thread.sleep(4000);
+			
+			row0 = sheet.getRow(81);
+			c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+			 No = (int) c1.getNumericCellValue();
+			Locator.ReftoEntryInROM(driver).sendKeys("" + No + ""); // Writing Task title
+			Thread.sleep(4000);
+			row0 = sheet.getRow(82);
+			c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+			Locator.Remarks(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+			Thread.sleep(2000);
+					
+					Locator.SaveSH(driver).click();
+					Thread.sleep(2000);
+					
+					String Text =Locator.SaveMsgSH(driver).getText();
+					Thread.sleep(2000);
+					if(Text.equalsIgnoreCase("Record Save Successfully")) {
+						Thread.sleep(1000);
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
+						Thread.sleep(2000);
+					}else {
+					
+						test.log(LogStatus.FAIL,  " Message displayed : -"+Text);
+					}
+					Thread.sleep(2000);
+					Locator.CloseSH(driver).click();
+					Thread.sleep(2000);
+					
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRSH2AddNewEmpty(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+			
+	Locator.SRSH2(driver).click();
+	Thread.sleep(3000);
+				   
+	Locator.SRSHAN(driver).click();
+	Thread.sleep(3000);
+	
+	
+			Thread.sleep(2000);
+					
+					Locator.SaveSH(driver).click();
+					Thread.sleep(2000);
+					
+					String Text =Locator.SaveMsgSH(driver).getText();
+					Thread.sleep(2000);
+					if(Text.equalsIgnoreCase("Record Save Successfully")) {
+						Thread.sleep(1000);
+						test.log(LogStatus.FAIL,  " Message displayed : -"+Text);
+						Thread.sleep(2000);
+					}else {
+					
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
+					}
+					Thread.sleep(2000);
+					Locator.CloseSH(driver).click();
+					Thread.sleep(2000);
+					
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRSH2Upload(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+	Locator.SRSH2(driver).click();		
+	Thread.sleep(5000);
+	Locator.UploadSRSH(driver).click();		
+	Thread.sleep(5000);
+	Locator.SampleFormSH(driver).click();		
+	Thread.sleep(5000);
+	By locator = By.xpath("//*[@id='File']");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\Register_SH-2.xlsx");		
+	Thread.sleep(3000);
+	Locator.UploadRD(driver).click();		
+	Thread.sleep(2000);
+				
+					
+					String Text =Locator.UploadMsgRD(driver).getText();
+					Thread.sleep(2000);
+					if(Text.equalsIgnoreCase("Record Save Successfully")) {
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
+					}else {
+						test.log(LogStatus.FAIL,  " Message displayed : -"+Text);
+					}
+					Thread.sleep(2000);
+					Locator.CloseSRSH(driver).click();
+					Thread.sleep(2000);
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRSH2UploadInvalid(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+	Locator.SRSH2(driver).click();		
+	Thread.sleep(5000);
+	Locator.UploadSRSH(driver).click();		
+	Thread.sleep(5000);
+	Locator.SampleFormSH(driver).click();		
+	Thread.sleep(5000);
+	By locator = By.xpath("//*[@id='File']");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\Register_SH-2 (1).xlsx");		
+	Thread.sleep(3000);
+	Locator.UploadRD(driver).click();		
+	Thread.sleep(2000);
+				
+					
+					String Text =Locator.UploadMsgRD(driver).getText();
+					Thread.sleep(2000);
+					
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
+					
+					Thread.sleep(2000);
+					Locator.CloseSRSH(driver).click();
+					Thread.sleep(2000);
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRSH2UploadEmptyFile(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+	Locator.SRSH2(driver).click();		
+	Thread.sleep(5000);
+	Locator.UploadSRSH(driver).click();		
+	Thread.sleep(5000);
+	Locator.SampleFormSH(driver).click();		
+	Thread.sleep(5000);
+	By locator = By.xpath("//*[@id='File']");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\Register_SH-2 (2).xlsx");		
+	Thread.sleep(3000);
+	Locator.UploadRD(driver).click();		
+	Thread.sleep(2000);
+				
+					
+					String Text =Locator.UploadMsgRD(driver).getText();
+					Thread.sleep(2000);
+					if(Text.equalsIgnoreCase("Record Save Successfully")) {
+						test.log(LogStatus.FAIL,  " Message displayed : -"+Text);
+					}else {
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
+					}
+					Thread.sleep(2000);
+					Locator.CloseSRSH(driver).click();
+					Thread.sleep(2000);
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRSH2UploadInValidEx(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+	Locator.SRSH2(driver).click();		
+	Thread.sleep(5000);
+	Locator.UploadSRSH(driver).click();		
+	Thread.sleep(5000);
+	Locator.SampleFormSH(driver).click();		
+	Thread.sleep(5000);
+	By locator = By.xpath("//*[@id='File']");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\4_28_2023 3_09_26 PM.zip");		
+	Thread.sleep(3000);
+	Locator.UploadRD(driver).click();		
+	Thread.sleep(2000);
+				
+					
+					String Text =Locator.UploadMsgRD(driver).getText();
+					Thread.sleep(2000);
+					if(Text.equalsIgnoreCase("No Data Found in Excel Document or Sheet Name must be 'SH-2'")) {
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
+					}else {
+						test.log(LogStatus.FAIL,  " Message displayed : -"+Text);
+					}
+					Thread.sleep(2000);
+					Locator.CloseSRSH(driver).click();
+					Thread.sleep(2000);
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRSh2DwonGR(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+	Locator.SRSH2(driver).click();		
+	Thread.sleep(5000);
+	
+	File dir = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+
+	Thread.sleep(500);
+	Locator.GenerateRegisterSH(driver).click();		//Exporting (Downloading) file
+
+	Thread.sleep(3000);//C://Users//jiya//Downloads//
+	File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+
+	Thread.sleep(3000);
+	if (dirContents.length < allFilesNew.length) {
+		test.log(LogStatus.PASS,  "Generate Register  :-  File downloaded successfully.");
+	} else {
+		test.log(LogStatus.FAIL, " Generate Register : - File does not downloaded.");
+	}
+
+	
+					Thread.sleep(2000);
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	
 	
 }

@@ -2,23 +2,23 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-05-24T17:21:23 IST" name="Default suite" finished-at="2023-05-24T17:22:25 IST" duration-ms="61493">
+  <suite started-at="2023-05-25T16:37:53 IST" name="Default suite" finished-at="2023-05-25T16:38:51 IST" duration-ms="57889">
     <groups>
     </groups>
-    <test started-at="2023-05-24T17:21:23 IST" name="Default test" finished-at="2023-05-24T17:22:25 IST" duration-ms="61493">
+    <test started-at="2023-05-25T16:37:53 IST" name="Default test" finished-at="2023-05-25T16:38:51 IST" duration-ms="57889">
       <class name="secretrialTestCase.EntittyTest">
-        <test-method is-config="true" signature="setBrowser()[pri:0, instance:secretrialTestCase.EntittyTest@16293aa2]" started-at="2023-05-24T17:21:23 IST" name="setBrowser" finished-at="2023-05-24T17:21:32 IST" duration-ms="8969" status="PASS">
+        <test-method is-config="true" signature="setBrowser()[pri:0, instance:secretrialTestCase.EntittyTest@16293aa2]" started-at="2023-05-25T16:37:53 IST" name="setBrowser" finished-at="2023-05-25T16:38:01 IST" duration-ms="7498" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method signature="Login()[pri:1, instance:secretrialTestCase.EntittyTest@16293aa2]" started-at="2023-05-24T17:21:32 IST" name="Login" finished-at="2023-05-24T17:21:43 IST" duration-ms="10759" status="PASS">
+        <test-method signature="Login()[pri:1, instance:secretrialTestCase.EntittyTest@16293aa2]" started-at="2023-05-25T16:38:01 IST" name="Login" finished-at="2023-05-25T16:38:11 IST" duration-ms="10103" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="SRDEPOSITDwonGR()[pri:309, instance:secretrialTestCase.EntittyTest@16293aa2]" started-at="2023-05-24T17:21:43 IST" name="SRDEPOSITDwonGR" finished-at="2023-05-24T17:22:25 IST" duration-ms="41664" status="PASS">
+        <test-method signature="SRSh2DwonGR()[pri:317, instance:secretrialTestCase.EntittyTest@16293aa2]" started-at="2023-05-25T16:38:11 IST" name="SRSh2DwonGR" finished-at="2023-05-25T16:38:51 IST" duration-ms="40194" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SRDEPOSITDwonGR -->
+        </test-method> <!-- SRSh2DwonGR -->
       </class> <!-- secretrialTestCase.EntittyTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

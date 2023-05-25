@@ -2518,6 +2518,7 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 		return secretrial;                     
 	}
 	
+	
 	public static WebElement NameOfDepositor(WebDriver driver)		
 	{
 		secretrial = driver.findElement(By.xpath("//*[@id='NameOfDepositor']"));
@@ -2668,6 +2669,12 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 		return secretrial;                     
 	}
 	
+	public static WebElement UploadSRSH(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='btnUplaodSH2']"));
+		return secretrial;                     
+	}
+	
 	public static WebElement SampleFormRD(WebDriver driver)		
 	{
 		secretrial = driver.findElement(By.xpath("//*[@id='divDeposit']"));
@@ -2680,6 +2687,12 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 		return secretrial;                     
 	}
 	
+	public static WebElement SampleFormSH(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='divSH2']"));
+		return secretrial;                     
+	}
+	
 	public static WebElement UploadRD(WebDriver driver)		
 	{
 		secretrial = driver.findElement(By.xpath("//*[@id='frmUpdateUploadEntity']/div[3]/button"));
@@ -2689,12 +2702,18 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	public static WebElement UploadMsgRD(WebDriver driver)		
 	{
 		secretrial = driver.findElement(By.xpath("//*[@id='frmUpdateUploadEntity']/div[1]/div/div/lable"));
-		return secretrial;              
+		return secretrial;             
 	}
 	
 	public static WebElement CloseSRU(WebDriver driver)		
 	{
 		secretrial = driver.findElement(By.xpath("(//*[@class='k-button k-bare k-button-icon k-window-action'])[3]"));
+		return secretrial;                     
+	}
+	
+	public static WebElement CloseSRSH(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-button k-bare k-button-icon k-window-action'])[5]"));
 		return secretrial;                     
 	}
 	
@@ -2705,14 +2724,145 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 		return secretrial;                     
 	}
 	
+	public static WebElement GenerateRegisterSH(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='btnGenerateSH2']"));
+		return secretrial;                     
+	}
 	
 	
+	public static WebElement SRSH2(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='mytab3']"));
+		return secretrial;                     
+	}
+	
+	public static WebElement SRSHAN(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@id='StaturoryRegisterNew'])[3]"));
+		return secretrial;                     
+	}
+	
+	public static WebElement SRSHFolio_No(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='Folio_No']"));
+		return secretrial;                     
+	}
+	
+	public static WebElement NameOftheGurantee(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='NameOfShareholder']"));
+		return secretrial;                     
+	}
+	
+	public static WebElement DateOfIssuedApproval(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmSH2Register']/div[1]/div[3]/span[1]/span/span/span"));
+		return secretrial;                     
+	}
+	
+	public static WebElement ClassOfShares(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmSH2Register']/div[1]/div[4]/span/span/span[2]"));
+		return secretrial;                     
+	}
+	
+	public static WebElement EquitySharesSH(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='ddlShares_Class_listbox']/li[1]"));
+		return secretrial;                     
+	}
+	
+	public static WebElement DateOfIssueOriginal(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmSH2Register']/div[1]/div[5]/span[1]/span/span/span"));
+		return secretrial;                     
+	}
+	
+	public static WebElement CertificateNoSH(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='CertificateNo']"));
+		return secretrial;                     
+	}
+	
+	public static WebElement Tot_SharesHeld(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmSH2Register']/div[2]/div[2]/span[1]/span/input[1]"));
+		return secretrial;                     
+	}
+	
+	public static WebElement DistinctiveFrom(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='DistinctiveFrom']"));
+		return secretrial;                     
+	}
+	
+	public static WebElement DistinctiveTo(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='DistinctiveTo']"));
+		return secretrial;                     
+	}
+	
+	public static WebElement DateOfIssuedRenewed(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmSH2Register']/div[2]/div[5]/span[1]/span/span/span"));
+		return secretrial;                     
+	}
+	
+	public static WebElement DateOfIssuedRenewed19(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.linkText("19"));
+		return secretrial;                     
+	}
+	
+	public static WebElement ReasonforIssueRenewed(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='ReasonforIssueRenewed']"));
+		return secretrial;                     
+	}
+	
+	public static WebElement NoOfShareRenewed(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmSH2Register']/div[3]/div[2]/span[1]/span/input[1]"));
+		return secretrial;                     
+	}
+	
+	public static WebElement Tot_SharesHeldIn(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmSH2Register']/div[3]/div[3]/span[1]/span/input[1]"));
+		return secretrial;                     
+	}
+	
+	public static WebElement ReftoEntryInROM(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='ReftoEntryInROM']"));
+		return secretrial;                     
+	}
+	
+	public static WebElement Remarks(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='Remarks']"));
+		return secretrial;                     
+	}
+	
+	public static WebElement SaveSH(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmSH2Register']/div[5]/div/button"));
+		return secretrial;                     
+	}
+	
+	public static WebElement SaveMsgSH(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmSH2Register']/div[1]/div/div/lable"));
+		return secretrial;                     
+	}
 	
 	
-	
-	
-	
-	
+	public static WebElement CloseSH(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-button k-bare k-button-icon k-window-action'])[6]"));
+		return secretrial;                     
+	}
 	
 	
 	

@@ -3532,14 +3532,93 @@ public class EntittyTest {
 				}	
 				
 				
+		//		@Test(priority = 310) //25/05/2023
+				void SRSH2() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - SH-2 - Click ");
+					
+					Methods.SRSH2(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
+			//	@Test(priority = 311) 
+				void SRSH2AddNew() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - SH-2 - Add New ");
+					
+					Methods.SRSH2AddNew(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
+			//	@Test(priority = 312) 
+				void SRSH2AddNewEmpty() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - SH-2 - Add New -With Empty Fields ");
+					
+					Methods.SRSH2AddNewEmpty(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+					
+			//	@Test(priority = 313) 
+				void SRSH2Upload() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - SH-2 - Upload - With Vaild Data");
+					
+					Methods.SRSH2Upload(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+					
+			//	@Test(priority = 314) 
+				void SRSH2UploadInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - SH-2 - Upload - With InVaild Data");
+					
+					Methods.SRSH2UploadInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
+			//	@Test(priority = 315) 
+				void SRSH2UploadEmptyFile() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - SH-2 - Upload - With Empty File");
+					
+					Methods.SRSH2UploadEmptyFile(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
+			//	@Test(priority = 316) 
+				void SRSH2UploadInValidEx() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - SH-2 - Upload - With Invalid File Format");
+					
+					Methods.SRSH2UploadInValidEx(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
-				
-				
-				
+			//	@Test(priority = 317) 
+				void SRSh2DwonGR() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers -  SH-2 - Generate Register");
+					
+					Methods.SRSh2DwonGR(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
 				
 				
