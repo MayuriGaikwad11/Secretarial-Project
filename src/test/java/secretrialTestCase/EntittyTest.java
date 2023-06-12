@@ -3434,7 +3434,7 @@ public class EntittyTest {
 			//	@Test(priority = 301) 
 				void StatutoryRegisters() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Click ");
+					test = extent.startTest("Entity - More Action - Statutory Registers - Click ");
 					
 					Methods.StatutoryRegisters(driver,test);
 					
@@ -3445,7 +3445,7 @@ public class EntittyTest {
 		//	//	@Test(priority = 302) 
 				void SRDEPOSIT() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Click ");
+					test = extent.startTest("Entity - More Action - Statutory Registers - Deposit - Click ");
 					
 					Methods.SRDEPOSIT(driver,test);
 					
@@ -3456,7 +3456,7 @@ public class EntittyTest {
 			//	@Test(priority = 303) 
 				void SRDEPOSITAddnew() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Add New ");
+					test = extent.startTest("Entity - More Action  - Statutory Registers - Deposit - Add New ");
 					
 					Methods.SRDEPOSITAddnew(driver,test,workbook);
 					
@@ -3468,7 +3468,7 @@ public class EntittyTest {
 				//@Test(priority = 304) 
 				void SRDEPOSITAddnewEmpty() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Add New - with Empty Field ");
+					test = extent.startTest("Entity - More Action - Statutory Registers - Deposit - Add New - with Empty Field ");
 					
 					Methods.SRDEPOSITAddnewEmpty(driver,test,workbook);
 					
@@ -3479,7 +3479,7 @@ public class EntittyTest {
 		//		@Test(priority = 305) 
 				void SRDEPOSITUpload() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Upload - With valid data");
+					test = extent.startTest("Entity - More Action- Statutory Registers - Deposit - Upload - With valid data");
 					
 					Methods.SRDEPOSITUpload(driver,test,workbook);
 					
@@ -3490,7 +3490,7 @@ public class EntittyTest {
 			//	@Test(priority = 306) 
 				void SRDEPOSITUploadInvalid() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Upload - With Invalid data");
+					test = extent.startTest("Entity - More Action - Statutory Registers - Deposit - Upload - With Invalid data");
 					
 					Methods.SRDEPOSITUploadInvalid(driver,test,workbook);
 					
@@ -3501,7 +3501,7 @@ public class EntittyTest {
 			//	@Test(priority = 307) 
 				void SRDEPOSITUploadEmpty() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Upload - With Empty File");
+					test = extent.startTest("Entity - More Action - Statutory Registers - Deposit - Upload - With Empty File");
 					
 					Methods.SRDEPOSITUploadEmpty(driver,test,workbook);
 					
@@ -3512,7 +3512,7 @@ public class EntittyTest {
 			//	@Test(priority = 308) 
 				void SRDEPOSITUploadInvalidEx() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Upload - With Invalid File Format");
+					test = extent.startTest("Entity - More Action - Statutory Registers - Deposit - Upload - With Invalid File Format");
 					
 					Methods.SRDEPOSITUploadInvalidEx(driver,test);
 					
@@ -3523,7 +3523,7 @@ public class EntittyTest {
 			//	@Test(priority = 309) 
 				void SRDEPOSITDwonGR() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - Deposit - Generate Register");
+					test = extent.startTest("Entity - More Action - Statutory Registers - Deposit - Generate Register");
 					
 					Methods.SRDEPOSITDwonGR(driver,test);
 					
@@ -3531,11 +3531,22 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
+			//	@Test(priority = 310) 
+				void SRDEPOSITEdit() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - Deposit - Edit");
+					
+					Methods.SRDEPOSITEdit(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
-		//		@Test(priority = 310) //25/05/2023
+				
+		//		@Test(priority = 311) //1/06/2023
 				void SRSH2() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - SH-2 - Click ");
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-2 - Click ");
 					
 					Methods.SRSH2(driver,test);
 					
@@ -3543,10 +3554,10 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 311) 
+			//	@Test(priority = 312) 
 				void SRSH2AddNew() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - SH-2 - Add New ");
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-2 - Add New ");
 					
 					Methods.SRSH2AddNew(driver,test,workbook);
 					
@@ -3554,10 +3565,10 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 312) 
+			//	@Test(priority = 313) 
 				void SRSH2AddNewEmpty() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - SH-2 - Add New -With Empty Fields ");
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-2 - Add New -With Empty Fields ");
 					
 					Methods.SRSH2AddNewEmpty(driver,test,workbook);
 					
@@ -3565,10 +3576,10 @@ public class EntittyTest {
 					extent.flush();
 				}	
 					
-			//	@Test(priority = 313) 
+			//	@Test(priority = 314) 
 				void SRSH2Upload() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - SH-2 - Upload - With Vaild Data");
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-2 - Upload - With Vaild Data");
 					
 					Methods.SRSH2Upload(driver,test,workbook);
 					
@@ -3576,10 +3587,10 @@ public class EntittyTest {
 					extent.flush();
 				}	
 					
-			//	@Test(priority = 314) 
+			//	@Test(priority = 315) 
 				void SRSH2UploadInvalid() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - SH-2 - Upload - With InVaild Data");
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-2 - Upload - With InVaild Data");
 					
 					Methods.SRSH2UploadInvalid(driver,test,workbook);
 					
@@ -3587,10 +3598,10 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 315) 
+			//	@Test(priority = 317) 
 				void SRSH2UploadEmptyFile() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - SH-2 - Upload - With Empty File");
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-2 - Upload - With Empty File");
 					
 					Methods.SRSH2UploadEmptyFile(driver,test,workbook);
 					
@@ -3598,10 +3609,10 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 316) 
+			//	@Test(priority = 318) 
 				void SRSH2UploadInValidEx() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers - SH-2 - Upload - With Invalid File Format");
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-2 - Upload - With Invalid File Format");
 					
 					Methods.SRSH2UploadInValidEx(driver,test,workbook);
 					
@@ -3609,10 +3620,10 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 317) 
+			//	@Test(priority = 319) 
 				void SRSh2DwonGR() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Auditors - Statutory Registers -  SH-2 - Generate Register");
+					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-2 - Generate Register");
 					
 					Methods.SRSh2DwonGR(driver,test);
 					
@@ -3620,9 +3631,797 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
+			//	@Test(priority = 320) 
+				void SRSh2Edit() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-2 - Edit");
+					
+					Methods.SRSh2Edit(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
+			//	@Test(priority = 321) //2/06/2023
+				void SRSH3() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Click ");
+					
+					Methods.SRSH3(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
+			//	@Test(priority = 322) 
+				void SRSH3AddNew() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Add New - With valid Data");
+					
+					Methods.SRSH3AddNew(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
+			//	@Test(priority = 323) 
+				void SRSH3AddNewInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Add New - With Invalid Data");
+					
+					Methods.SRSH3AddNewInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 324) 
+				void SRSH3AddNewEmpty() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Add New - With Empty Fields");
+					
+					Methods.SRSH3AddNewEmpty(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 325) 
+				void SRSH3Upload() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Upload - With valid data");
+					
+					Methods.SRSH3Upload(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 326) 
+				void SRSH3UploadInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Upload - With Invalid data");
+					
+					Methods.SRSH3UploadInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 327) 
+				void SRSH3UploadWithoutData() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Upload -   without filling data in Excel file");
+					
+					Methods.SRSH3UploadWithoutData(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 328) 
+				void SRSH3UploadInValidEx() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Upload - With Invalid File Format");
+					
+					Methods.SRSH3UploadInValidEx(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 329) 
+				void SRSh3DwonGR() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-3 - Generate Register");
+					
+					Methods.SRSh3DwonGR(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 330) 
+				void SRSH3Edit() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-3 - Edit - with Valid Data");
+					
+					Methods.SRSH3Edit(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 331) 
+				void SRSH3EditInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-3 - Edit - with Invalid Data");
+					
+					Methods.SRSH3EditInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+		//		@Test(priority = 332) 
+				void SRSH6() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-6 - Click ");
+					
+					Methods.SRSH6(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 333) //5/06/2023
+				void SRSH6AddNew() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-6 - Add New - with valid Data");
+					
+					Methods.SRSH6AddNew(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 334) 
+				void SRSH6AddNewInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-6 - Add New - with Invalid Data");
+					
+					Methods.SRSH6AddNewInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 335) 
+				void SRSH6AddNewEmpty() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-6 - Add New - with Empty Fields");
+					
+					Methods.SRSH6AddNewEmpty(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 336) 
+				void SRSH6Upload() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-6 - Upload - With valid data");
+					
+					Methods.SRSH6Upload(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 337) 
+				void SRSH6UploadInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-6 - Upload - With Invalid data");
+					
+					Methods.SRSH6UploadInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 338) 
+				void SRSH6UploadInValidEx() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - SH-6 - Upload - With Invalid File Format");
+					
+					Methods.SRSH6UploadInValidEx(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+	   	//		@Test(priority = 339) 
+				void SRSh6DwonGR() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-6 - Generate Register");
+					
+					Methods.SRSh6DwonGR(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 340) 
+				void SRSH6Edit() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-6 - Edit");
+					
+					Methods.SRSH6Edit(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 341) 
+				void SRSH6EditInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-6 - Edit - with Invalid data");
+					
+					Methods.SRSH6EditInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+		//		@Test(priority = 342) 
+				void SRCHG7() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Click ");
+					
+					Methods.SRCHG7(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 343) //06/06/2023
+				void SRCHG7AddNew() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Add New - With Valid Data ");
+					
+					Methods.SRCHG7AddNew(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 344) 
+				void SRCHG7AddNewInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Add New - With InValid Data ");
+					
+					Methods.SRCHG7AddNewInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+		//		@Test(priority = 345) 
+				void SRCHG7AddnewTwoman() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Add New -  with two mandatory field ");
+					
+					Methods.SRCHG7AddnewTwoman(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 346) 
+				void SRCHG7AddnewEmptyFields() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Add New -  with Empty fields ");
+					
+					Methods.SRCHG7AddnewEmptyFields(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 347) 
+				void SRCHG7Upload() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Upload-  with Valid Data ");
+					
+					Methods.SRCHG7Upload(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 348) 
+				void SRCHG7UploadInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Upload-  with InValid Data ");
+					
+					Methods.SRCHG7UploadInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 349) 
+				void SRCHG7UploadEmpty() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Upload-  without filling data in Excel file ");
+					
+					Methods.SRCHG7UploadEmpty(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 350) 
+				void SRCHG7UploadInvalidFormat() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Upload -  with Invalid File Format ");
+					
+					Methods.SRCHG7UploadInvalidFormat(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 351) 
+				void SRCHG7UploadwithOutFile() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Upload-  without selecting a file");
+					
+					Methods.SRCHG7UploadwithOutFile(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 352) 
+				void SRCHG7DwonGR() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7 - Generate Register");
+					
+					Methods.SRCHG7DwonGR(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 353) 
+				void ChargeDetailsAddNew() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Add New - With Valid Data ");
+					
+					Methods.ChargeDetailsAddNew(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 354) //07/06/2023
+				void SRCHG7ViewAddNewInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7 - View - Add New - With InValid Data ");
+					
+					Methods.SRCHG7ViewAddNewInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 355) 
+				void ChargeDetailsAddNewtwoMan() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Add New -  with two mandatory field ");
+					
+					Methods.ChargeDetailsAddNewtwoMan(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 356) 
+				void ChargeDetailsAddNewEmpty() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Add New -  with Empty field ");
+					
+					Methods.ChargeDetailsAddNewEmpty(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 357) 
+				void ChargeDetailsEdit() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Edit -  with valid data ");
+					
+					Methods.ChargeDetailsEdit(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 358) 
+				void SRCHG7ViewEditInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Edit -  with Invalid data ");
+					
+					Methods.SRCHG7ViewEditInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 359) 
+				void SRCHG7ViewUpload() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Upload -  with valid data ");
+					
+					Methods.SRCHG7ViewUpload(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 360) 
+				void SRCHG7ViewUploadWF() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Upload -  without selecting a file ");
+					
+					Methods.SRCHG7ViewUploadWF(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 361) 
+				void SRCHG7ViewDoc() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Document -  'document' button is clickable or not Verification ");
+					
+					Methods.SRCHG7ViewDoc(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 362) 
+				void SRCHG7ViewDocument() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Document -  download  or not Verification ");
+					
+					Methods.SRCHG7ViewDocument(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 363) 
+				void SRCHG7View2Document() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Document - View");
+					
+					Methods.SRCHG7View2Document(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 364) //09/06/2023
+				void SRMBP2() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Click ");
+					
+					Methods.SRMBP2(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 365) 
+				void SRMBP2AddNew() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - With valid Data ");
+					
+					Methods.SRMBP2AddNew(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 366) 
+				void SRMBP2AddNewInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - with Invalid Data ");
+					
+					Methods.SRMBP2AddNewInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 367) 
+				void SRMBP2AddNewTwoMan() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - with two mandatory field ");
+					
+					Methods.SRMBP2AddNewTwoMan(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 368) 
+				void SRMBP2AddNewEmpty() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - with Empty data");
+					
+					Methods.SRMBP2AddNewEmpty(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 369) 
+				void SRMBP2AddNewGurantee() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - Gurantee With valid Data ");
+					
+					Methods.SRMBP2AddNewGurantee(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 370) 
+				void SRMBP2AddNewInvalidGura() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - Gurantee With Invalid Data ");
+					
+					Methods.SRMBP2AddNewInvalidGura(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 371) 
+				void SRMBP2AddNewGuraTwoMan() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - Gurantee with two mandatory field ");
+					
+					Methods.SRMBP2AddNewGuraTwoMan(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 372) 
+				void SRMBP2AddGuraNewEmpty() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - Gurantee with Empty data");
+					
+					Methods.SRMBP2AddGuraNewEmpty(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+				//@Test(priority = 373) 
+				void SRMBP2AddNewLoan() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - Loan With valid Data ");
+					
+					Methods.SRMBP2AddNewLoan(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 374) 
+				void SRMBP2AddNewInvalidLoan() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - Loan With Invalid Data ");
+					
+					Methods.SRMBP2AddNewInvalidLoan(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 375) 
+				void SRMBP2AddNewLoanTwoMan() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - Loan with two mandatory field ");
+					
+					Methods.SRMBP2AddNewLoanTwoMan(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 376) 
+				void SRMBP2AddLoanNewEmpty() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - Loan with Empty data");
+					
+					Methods.SRMBP2AddGuraNewEmpty(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 377) 
+				void SRMBP2AddNewSecurity() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - Security With valid Data ");
+					
+					Methods.SRMBP2AddNewSecurity(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+		//		@Test(priority = 378) 
+				void SRMBP2AddNewInvalidSecurity() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - Security With Invalid Data ");
+					
+					Methods.SRMBP2AddNewInvalidSecurity(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 379) 
+				void SRMBP2AddNewSecuTwoMan() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - Security with two mandatory field ");
+					
+					Methods.SRMBP2AddNewSecuTwoMan(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 380) 
+				void SRMBP2AddSecuNewEmpty() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Add New - Security with Empty data");
+					
+					Methods.SRMBP2AddSecuNewEmpty(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 381)  //12/09/2023
+				void SRMB2Upload() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-2 - Upload - with Valid Data");
+					
+					Methods.SRMB2Upload(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 382) 
+				void SRMB2UploadInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action  - Statutory Registers -  MBP-2 - Upload - with Invalid Data");
+					
+					Methods.SRMB2UploadInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 383) 
+				void SRMB2UploadWithoutData() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action  - Statutory Registers -  MBP-2 - Upload - without filling data in Excel file ");
+					
+					Methods.SRMB2UploadWithoutData(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 384) 
+				void SRMB2UploadInvalidformate() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action  - Statutory Registers -  MBP-2 - Upload -  with Invalid File Format ");
+					
+					Methods.SRMB2UploadInvalidformat(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 385) 
+				void SRMB2GR() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action  - Statutory Registers -  MBP-2 - Generate Register'  ");
+					
+					Methods.SRMB2GR(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 386) 
+				void SRMB2approvedLimitEdit() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action  - Statutory Registers -  MBP-2 - edit approved limit details  ");
+					
+					Methods.SRMB2approvedLimitEdit(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 387) 
+				void SRMB2approvedLimitEditClosed() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action  - Statutory Registers -  MBP-2 - edit approved limit details - Close ");
+					
+					Methods.SRMB2approvedLimitEditClosed(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+				//@Test(priority = 388) 
+				void SRMBP2Edit() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action  - Statutory Registers -  MBP-2 - edit - With Valid data ");
+					
+					Methods.SRMBP2Edit(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+		//		@Test(priority = 389) 
+				void SRMBP2EditInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action  - Statutory Registers -  MBP-2 - edit - With InValid data ");
+					
+					Methods.SRMBP2EditInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 390) 
+				void SRMB2UploadActionTab() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action  - Statutory Registers -  MBP-2 - Upload' button which is present under Action tab - With Valid data ");
+					
+					Methods.SRMB2UploadActionTab(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 391) 
+				void SRMB2UploadwithoutFileActionTab() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action  - Statutory Registers -  MBP-2 - Upload' button which is present under Action tab - With Valid data ");
+					
+					Methods.SRMB2UploadwithoutFileActionTab(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
 	/*
 //	@Test(priority = 32) //not completed

@@ -6,7 +6,7 @@
       <class name="secretrialTestCase.EntittyTest">
         <methods>
           <include name="setBrowser"/>
-          <include name="SRDEPOSITUpload"/>
+          <include name="SRMBP2Edit"/>
         </methods>
       </class> <!-- secretrialTestCase.EntittyTest -->
     </classes>
