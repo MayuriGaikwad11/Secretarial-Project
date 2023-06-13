@@ -2,23 +2,23 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-12T18:10:05 IST" name="Default suite" finished-at="2023-06-12T18:11:12 IST" duration-ms="67266">
+  <suite started-at="2023-06-13T19:21:28 IST" name="Default suite" finished-at="2023-06-13T19:24:07 IST" duration-ms="158810">
     <groups>
     </groups>
-    <test started-at="2023-06-12T18:10:05 IST" name="Default test" finished-at="2023-06-12T18:11:12 IST" duration-ms="67266">
+    <test started-at="2023-06-13T19:21:28 IST" name="Default test" finished-at="2023-06-13T19:24:07 IST" duration-ms="158810">
       <class name="secretrialTestCase.EntittyTest">
-        <test-method is-config="true" signature="setBrowser()[pri:0, instance:secretrialTestCase.EntittyTest@5c5eefef]" started-at="2023-06-12T18:10:05 IST" name="setBrowser" finished-at="2023-06-12T18:10:13 IST" duration-ms="7813" status="PASS">
+        <test-method is-config="true" signature="setBrowser()[pri:0, instance:secretrialTestCase.EntittyTest@5c5eefef]" started-at="2023-06-13T19:21:28 IST" name="setBrowser" finished-at="2023-06-13T19:21:39 IST" duration-ms="11599" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method signature="Login()[pri:1, instance:secretrialTestCase.EntittyTest@5c5eefef]" started-at="2023-06-12T18:10:13 IST" name="Login" finished-at="2023-06-12T18:10:25 IST" duration-ms="12816" status="PASS">
+        <test-method signature="Login()[pri:1, instance:secretrialTestCase.EntittyTest@5c5eefef]" started-at="2023-06-13T19:21:39 IST" name="Login" finished-at="2023-06-13T19:21:57 IST" duration-ms="17821" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method signature="SRMB2UploadwithoutFileActionTab()[pri:391, instance:secretrialTestCase.EntittyTest@5c5eefef]" started-at="2023-06-12T18:10:25 IST" name="SRMB2UploadwithoutFileActionTab" finished-at="2023-06-12T18:11:12 IST" duration-ms="46551" status="PASS">
+        <test-method signature="SRMBP3AddNew()[pri:396, instance:secretrialTestCase.EntittyTest@5c5eefef]" started-at="2023-06-13T19:21:57 IST" name="SRMBP3AddNew" finished-at="2023-06-13T19:24:07 IST" duration-ms="129249" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SRMB2UploadwithoutFileActionTab -->
+        </test-method> <!-- SRMBP3AddNew -->
       </class> <!-- secretrialTestCase.EntittyTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

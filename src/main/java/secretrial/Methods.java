@@ -21833,5 +21833,704 @@ jse.executeScript("arguments[0].click();", ViewButton);
 		 Thread.sleep(1000);
 	 }
 	
+	public static void SRMB2DocActionTab(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+	Locator.SRMBP2(driver).click();		
+	Thread.sleep(5000);
+		
+					
+					Thread.sleep(2000);
+					if(Locator.clickDocument(driver).isEnabled()) {
+						Locator.clickDocument(driver).click();
+						Thread.sleep(4000);
+						test.log(LogStatus.PASS,  "The user  redirected to the 'Document' page ");
+					}else {
+						test.log(LogStatus.FAIL,  "The user not redirected to the 'Document' page");
+					}
+					Thread.sleep(2000);
+					Locator.ClosekDocument(driver).click();
+					Thread.sleep(3000);
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRMB2DocDwonActionTab(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+	Locator.SRMBP2(driver).click();		
+	Thread.sleep(5000);
+	
+						Locator.clickDocument(driver).click();
+						
+					Thread.sleep(4000);
+					File dir = new File("C:\\Users\\Mayuri\\Downloads");
+					File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+					
+					Thread.sleep(2000);
+					Locator.DocumentDownLoad(driver).click();		//Exporting (Downloading) file
+					
+					Thread.sleep(4000);//C://Users//jiya//Downloads//
+					File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+					File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+					
+					Thread.sleep(3000);
+					if (dirContents.length < allFilesNew.length) {
+						test.log(LogStatus.PASS,  "  File downloaded successfully.");
+					} else {
+						test.log(LogStatus.FAIL, "  File does not downloaded.");
+					}
+					Thread.sleep(3000);
+					Locator.ClosekDocument(driver).click();
+					Thread.sleep(3000);
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRMB2DocViewActionTab(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+	Locator.SRMBP2(driver).click();		
+	Thread.sleep(5000);
+	
+						Locator.clickDocument(driver).click();
+						
+					Thread.sleep(4000);
+					Locator.DocumentView1(driver).click();
+					
+					Thread.sleep(4000);
+			String text=Locator.DocumentView1Text(driver).getText();
+					Thread.sleep(2000);
+					if(text.equalsIgnoreCase("Viewer")) {
+						Locator.DocumentView1Close(driver).click();
+						Thread.sleep(4000);
+						test.log(LogStatus.PASS,  "view a document successfully ");
+					}else {
+						test.log(LogStatus.FAIL,  " document not View");
+					}
+					
+					Thread.sleep(3000);
+					Locator.ClosekDocument(driver).click();
+					Thread.sleep(3000);
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	
+	
+	public static void ClickMBP4(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+        	WebDriverWait wait = new WebDriverWait(driver, (120));
+           Thread.sleep(2000);
+           Locator.Master(driver).click();
+           Thread.sleep(2000);
+           Locator.MoreAction(driver).click();
+           Thread.sleep(2000);
+           Locator.StatutoryRegisters(driver).click();
+           Thread.sleep(2000);
+           if(Locator.clickMBP4(driver).isEnabled())
+   	    {
+   	      Thread.sleep(2000);
+   	   Locator.clickMBP4(driver).click();
+   	      test.log(LogStatus.PASS, "MBP-4 tab is Selected");
+   	    }
+   	    else
+   	    {
+   	    	 test.log(LogStatus.FAIL, "MBP-4 tab is not Selected");
+   	    }
+           Thread.sleep(2000);
+           Locator.ClickDashboard(driver).click();
+           
+           
+	 }
+	
+	public static void ClickUploadExistingRegistorValidData(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+       	WebDriverWait wait = new WebDriverWait(driver, (120));
+          Thread.sleep(2000);
+          Locator.Master(driver).click();
+          Thread.sleep(2000);
+          Locator.MoreAction(driver).click();
+          Thread.sleep(2000);
+          Locator.StatutoryRegisters(driver).click();
+          Thread.sleep(2000);
+          Locator.clickMBP4(driver).click();
+          Thread.sleep(2000);
+          Locator.clickUploadBtn(driver).click();
+          Thread.sleep(2000);
+          Locator.SelectFile1(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\SampleExcelMBP4-Existing.xlsx");
+          Thread.sleep(2000);
+          Locator.clickUploadBtn1(driver).click();
+          
+          try 
+		  {
+		   Thread.sleep(3000);
+	        String msg=	Locator.clickUploadfileValidMsg(driver).getText();
+	        test.log(LogStatus.PASS,"Enter Valid Data In MBP-4 Existing Excel File  =" +msg );
+	       
+		  }
+	      catch(Exception  e) 
+		  {
+	    	 Thread.sleep(3000);
+			 String msg=Locator.clickUploadfileInValidMsg(driver).getText();
+			  test.log(LogStatus.FAIL, "Enter Valid Data In MBP-4 Existing Excel File =" +msg );
+			
+		  }
+          
+          Thread.sleep(2000);
+          Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void ClickUploadExistingRegistorInvalidData(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+      	WebDriverWait wait = new WebDriverWait(driver, (120));
+         Thread.sleep(2000);
+         Locator.Master(driver).click();
+         Thread.sleep(2000);
+         Locator.MoreAction(driver).click();
+         Thread.sleep(2000);
+         Locator.StatutoryRegisters(driver).click();
+         Thread.sleep(2000);
+         Locator.clickMBP4(driver).click();
+         Thread.sleep(2000);
+         Locator.clickUploadBtn(driver).click();
+         Thread.sleep(2000);
+         Locator.SelectFile1(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\SampleExcelMBP4-Existing (1).xlsx");
+         Thread.sleep(2000);
+         Locator.clickUploadBtn1(driver).click();
+         
+         try 
+		  {
+		   Thread.sleep(3000);
+	        String msg=	Locator.clickUploadfileInValidMsg(driver).getText();
+	        test.log(LogStatus.PASS,"Enter InValid Data In MBP-4 Existing Excel File  =" +msg );
+	       
+		  }
+	      catch(Exception  e) 
+		  {
+	    	 Thread.sleep(3000);
+			 String msg=Locator.clickUploadfileValidMsg(driver).getText();
+			  test.log(LogStatus.FAIL, "Enter InValid Data In MBP-4 Existing Excel File =" +msg );
+			
+		  }
+         
+         Thread.sleep(2000);
+         Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void ClickUploadExistingRegistorDupliacteData(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+     	WebDriverWait wait = new WebDriverWait(driver, (120));
+        Thread.sleep(2000);
+        Locator.Master(driver).click();
+        Thread.sleep(2000);
+        Locator.MoreAction(driver).click();
+        Thread.sleep(2000);
+        Locator.StatutoryRegisters(driver).click();
+        Thread.sleep(2000);
+        Locator.clickMBP4(driver).click();
+        Thread.sleep(2000);
+        Locator.clickUploadBtn(driver).click();
+        Thread.sleep(2000);
+        Locator.SelectFile1(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\SampleExcelMBP4-Existing.xlsx");
+        Thread.sleep(2000);
+        Locator.clickUploadBtn1(driver).click();
+        
+       
+		  
+	    	 Thread.sleep(3000);
+			 String msg=Locator.clickUploadfileValidMsg(driver).getText();
+			 if(msg.equalsIgnoreCase("Record Save Successfully")) {
+			  test.log(LogStatus.FAIL, "uploading a duplicate Existing Register of MBP-4  =" +msg );
+			 }else {
+				 test.log(LogStatus.PASS, "uploading a duplicate Existing Register of MBP-4=" +msg );
+			 }
+        
+        Thread.sleep(2000);
+        Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void ClickUploadExistingRegistorWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+     	WebDriverWait wait = new WebDriverWait(driver, (120));
+        Thread.sleep(2000);
+        Locator.Master(driver).click();
+        Thread.sleep(2000);
+        Locator.MoreAction(driver).click();
+        Thread.sleep(2000);
+        Locator.StatutoryRegisters(driver).click();
+        Thread.sleep(2000);
+        Locator.clickMBP4(driver).click();
+        Thread.sleep(2000);
+        Locator.clickUploadBtn(driver).click();
+        
+        Thread.sleep(2000);
+        Locator.SelectFile1(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\SampleExcelMBP4-Existing (2).xlsx");
+       
+        Thread.sleep(2000);
+        Locator.clickUploadBtn1(driver).click();
+        
+     
+        
+        try 
+		  {
+		   Thread.sleep(3000);
+	        String msg=	Locator.clickUploadfileInValidMsg(driver).getText();
+	        test.log(LogStatus.PASS,"Without data In MBP-4 Existing Excel File  =" +msg );
+	       
+		  }
+	      catch(Exception  e) 
+		  {
+	    	 Thread.sleep(3000);
+			 String msg=Locator.clickUploadfileValidMsg(driver).getText();
+			  test.log(LogStatus.FAIL, "Without data Data In MBP-4 Existing Excel File =" +msg );
+			
+		  }
+        
+        Thread.sleep(2000);
+        Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void ClickUploadExistingRegistorInvalidFileFormat(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+    	WebDriverWait wait = new WebDriverWait(driver, (120));
+       Thread.sleep(2000);
+       Locator.Master(driver).click();
+       Thread.sleep(2000);
+       Locator.MoreAction(driver).click();
+       Thread.sleep(2000);
+       Locator.StatutoryRegisters(driver).click();
+       Thread.sleep(2000);
+       Locator.clickMBP4(driver).click();
+       Thread.sleep(2000);
+       Locator.clickUploadBtn(driver).click();
+       
+       Thread.sleep(2000);
+       Locator.SelectFile1(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\4_28_2023 3_09_26 PM.zip");
+      
+       Thread.sleep(2000);
+       Locator.clickUploadBtn1(driver).click();
+       
+    
+       
+       try 
+		  {
+		   Thread.sleep(3000);
+	        String msg=	Locator.clickUploadfileValidMsg(driver).getText();
+	        test.log(LogStatus.PASS,"Enter Invalid file format In MBP-4 Existing Excel File  =" +msg );
+	       
+		  }
+	      catch(Exception  e) 
+		  {
+	    	 Thread.sleep(3000);
+			 String msg=Locator.clickUploadfileInValidMsg(driver).getText();
+			  test.log(LogStatus.FAIL, "Enter Invalid file format In MBP-4 Existing Excel File =" +msg );
+			
+		  }
+       
+       Thread.sleep(2000);
+       Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void ClickUploadExistingRegistorWithoutSelectingFile(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+   	WebDriverWait wait = new WebDriverWait(driver, (120));
+      Thread.sleep(2000);
+      Locator.Master(driver).click();
+      Thread.sleep(2000);
+      Locator.MoreAction(driver).click();
+      Thread.sleep(2000);
+      Locator.StatutoryRegisters(driver).click();
+      Thread.sleep(2000);
+      Locator.clickMBP4(driver).click();
+      Thread.sleep(2000);
+      Locator.clickUploadBtn(driver).click();
+      
+      
+     
+      Thread.sleep(2000);
+      Locator.clickUploadBtn1(driver).click();
+      
+   
+      
+      try 
+		  {
+		   Thread.sleep(3000);
+	        String msg=	Locator.clickInvalidMsg(driver).getText();
+	        test.log(LogStatus.FAIL,"Without selecting file In MBP-4 Existing Excel File  =" +msg );
+	       
+		  }
+	      catch(Exception  e) 
+		  {
+	    	 Thread.sleep(3000);
+			 String msg=Locator.clickUploadfileInValidMsg(driver).getText();
+			  test.log(LogStatus.PASS, "Without selecting file  In MBP-4 Existing Excel File =" +msg );
+			
+		  }
+      
+      Thread.sleep(2000);
+      Locator.ClickDashboard(driver).click();
+	 }
+
+	public static void ClickUploadOldRegistorWithValidFile(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+   	WebDriverWait wait = new WebDriverWait(driver, (120));
+     Thread.sleep(2000);
+     Locator.Master(driver).click();
+     Thread.sleep(2000);
+     Locator.MoreAction(driver).click();
+     Thread.sleep(2000);
+     Locator.StatutoryRegisters(driver).click();
+     Thread.sleep(2000);
+     Locator.clickMBP4(driver).click();
+     Thread.sleep(2000);
+     Locator.clickUploadBtn(driver).click();
+     
+     Thread.sleep(2000);
+     Locator.clickOld(driver).click();
+     
+     Thread.sleep(2000);
+     Locator.SelectFile1(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\SampleExcelMBP4-Old.xlsx");
+    
+     Thread.sleep(2000);
+     Locator.clickUploadBtn1(driver).click();
+     
+  
+     
+     try 
+		  {
+		   Thread.sleep(3000);
+	        String msg=	Locator.clickUploadfileValidMsg(driver).getText();
+	        test.log(LogStatus.PASS,"Enter Valid Data In MBP-4 Old Excel File  =" +msg );
+	       
+		  }
+	      catch(Exception  e) 
+		  {
+	    	 Thread.sleep(3000);
+			 String msg=Locator.clickInvalidMsg(driver).getText();
+			  test.log(LogStatus.FAIL, "Enter Valid Data In MBP-4 Old Excel File  =" +msg );
+			
+		  }
+     
+     Thread.sleep(2000);
+     Locator.ClickDashboard(driver).click();
+	 }
+
+	public static void ClickUploadOldRegistorWithInValidFile(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+  	WebDriverWait wait = new WebDriverWait(driver, (120));
+    Thread.sleep(2000);
+    Locator.Master(driver).click();
+    Thread.sleep(2000);
+    Locator.MoreAction(driver).click();
+    Thread.sleep(2000);
+    Locator.StatutoryRegisters(driver).click();
+    Thread.sleep(2000);
+    Locator.clickMBP4(driver).click();
+    Thread.sleep(2000);
+    Locator.clickUploadBtn(driver).click();
+    
+    Thread.sleep(2000);
+    Locator.clickOld(driver).click();
+    
+    Thread.sleep(2000);
+    Locator.SelectFile1(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\SampleExcelMBP4-Old (1).xlsx");
+   
+    Thread.sleep(2000);
+    Locator.clickUploadBtn1(driver).click();
+    
+ 
+    
+    try 
+		  {
+		   Thread.sleep(3000);
+	        String msg=	Locator.clickUploadfileInValidMsg(driver).getText();
+	        test.log(LogStatus.PASS,"Enter Invalid file format In MBP-4 Existing Excel File  =" +msg );
+	       
+		  }
+	      catch(Exception  e) 
+		  {
+	    	 Thread.sleep(3000);
+			 String msg=Locator.clickInvalidMsg(driver).getText();
+			  test.log(LogStatus.FAIL, "Enter Invalid file format In MBP-4 Existing Excel File =" +msg );
+			
+		  }
+    
+    Thread.sleep(2000);
+    Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void ClickUploadOldRegistorWithDuplicateData(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+  	WebDriverWait wait = new WebDriverWait(driver, (120));
+    Thread.sleep(2000);
+    Locator.Master(driver).click();
+    Thread.sleep(2000);
+    Locator.MoreAction(driver).click();
+    Thread.sleep(2000);
+    Locator.StatutoryRegisters(driver).click();
+    Thread.sleep(2000);
+    Locator.clickMBP4(driver).click();
+    Thread.sleep(2000);
+    Locator.clickUploadBtn(driver).click();
+    
+    Thread.sleep(2000);
+    Locator.clickOld(driver).click();
+    
+    Thread.sleep(2000);
+    Locator.SelectFile1(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\SampleExcelMBP4-Old.xlsx");
+   
+    Thread.sleep(2000);
+    Locator.clickUploadBtn1(driver).click();
+    
+    Thread.sleep(5000);
+    
+    
+    String msg=Locator.clickUploadfileValidMsg(driver).getText();
+	 if(msg.equalsIgnoreCase("Record Save Successfully")) {
+	  test.log(LogStatus.FAIL, "uploading a duplicate Existing Register of MBP-4  =" +msg );
+	 }else {
+		 test.log(LogStatus.PASS, "uploading a duplicate Existing Register of MBP-4=" +msg );
+	 }
+    Thread.sleep(2000);
+    Locator.ClickDashboard(driver).click();
+	 }
+	
+	public static void SRMBP3(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+			
+			if(Locator.SRMBP3(driver).isEnabled()) {
+				Locator.SRMBP3(driver).click();
+				Thread.sleep(3000);
+				   test.log(LogStatus.PASS,"The user should redirected to the 'MBP-3' page" );
+			}else {
+				 test.log(LogStatus.PASS,"The user should redirected to the 'MBP-3' page" );
+			}	
+			Thread.sleep(3000);
+	
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRMBP3AddNew(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+			
+	Locator.SRMBP3(driver).click();
+	Thread.sleep(5000);
+				   
+	Locator.SRMBP3AddNew(driver).click();
+	Thread.sleep(5000);
+	
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	Locator.DateOfBoardResolution3(driver).click();		
+	Thread.sleep(2000);
+	Locator.CreationDate1(driver).click();		
+	Thread.sleep(3000); 
+	
+	Locator.DateOfInvestment_date(driver).click();		
+	Thread.sleep(2000);
+	Locator.RegistrationChargeCreateDate1(driver).click();		
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(144);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.NameOfPerson(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(145);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Address_Email(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(146);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.PurposeOfInvestment(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(147);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.NameOfCompanyMB3(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(148);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.ClassOfSecurities(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(149);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	int No = (int) c1.getNumericCellValue();
+	Locator.NoOfSecurities(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(4000);
+	
+	row0 = sheet.getRow(150);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	 No = (int) c1.getNumericCellValue();
+	Locator.CilentId_DpNo(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(4000);
+	
+	row0 = sheet.getRow(151);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	 No = (int) c1.getNumericCellValue();
+	Locator.FaceValueOfSecurities(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(4000);
+	
+	row0 = sheet.getRow(152);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	 No = (int) c1.getNumericCellValue();
+	Locator.PaidUpValueOfSecurities(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(4000);
+	
+	row0 = sheet.getRow(153);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	 No = (int) c1.getNumericCellValue();
+	Locator.CostOfAcquisition(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(4000);
+	
+	Locator.DateOfDisposal(driver).click();		
+	Thread.sleep(2000);
+	Locator.CreationDate1(driver).click();		
+	Thread.sleep(3000); 
+	
+	row0 = sheet.getRow(154);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	 No = (int) c1.getNumericCellValue();
+	Locator.NoOfSecuritiesDisposedOff(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(4000);
+	
+	row0 = sheet.getRow(155);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.SaleConsideration(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(156);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	 No = (int) c1.getNumericCellValue();
+	Locator.BalanceSecuritiesLeft(driver).sendKeys("" + No + ""); // Writing Task title
+	Thread.sleep(4000);
+
+	row0 = sheet.getRow(157);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.RemarksMB3(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(3000);
+	
+	
+	By locator = By.xpath("//*[@id='frmMBP3Register']/div[5]/div/button");
+	
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(4000);
+JavascriptExecutor jse=(JavascriptExecutor)driver;
+Thread.sleep(2000);
+jse.executeScript("arguments[0].click();", ViewButton);
+	Thread.sleep(4000);
+					
+					String Text =Locator.SaveMB3Msg(driver).getText();
+					Thread.sleep(2000);
+					if(Text.equalsIgnoreCase("Record Save Successfully")) {
+						Thread.sleep(1000);
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
+						Thread.sleep(2000);
+					}else {
+					
+						test.log(LogStatus.FAIL,  " Message displayed : -"+Text);
+					}
+					Thread.sleep(2000);
+					Locator.CloseMB3(driver).click();
+					Thread.sleep(2000);
+					
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
 	
 }

@@ -5,8 +5,8 @@
     <classes>
       <class name="secretrialTestCase.EntittyTest">
         <methods>
+          <include name="SRMBP3AddNew"/>
           <include name="setBrowser"/>
-          <include name="SRMBP2Edit"/>
         </methods>
       </class> <!-- secretrialTestCase.EntittyTest -->
     </classes>

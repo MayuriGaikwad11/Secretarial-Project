@@ -4415,13 +4415,191 @@ public class EntittyTest {
 			//	@Test(priority = 391) 
 				void SRMB2UploadwithoutFileActionTab() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action  - Statutory Registers -  MBP-2 - Upload' button which is present under Action tab - With Valid data ");
+					test = extent.startTest("Entity - More Action  - Statutory Registers -  MBP-2 - Upload' button which is present under Action tab - WithOut Selecting File ");
 					
 					Methods.SRMB2UploadwithoutFileActionTab(driver,test,workbook);
 					
 					extent.endTest(test);
 					extent.flush();
 				}	
+				
+			//	@Test(priority = 392) //13/06/2023
+				void SRMB2DocActionTab() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action  - Statutory Registers -  MBP-2 - 'document' button is clickable or not verification");
+					
+					Methods.SRMB2DocActionTab(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 393) 
+				void SRMB2DocDwonActionTab() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action  - Statutory Registers -  MBP-2 - 'document' - download or not verification ");
+					
+					Methods.SRMB2DocDwonActionTab(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 394) 
+				void SRMB2DocViewActionTab() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action  - Statutory Registers -  MBP-2 - 'document' - View or not verification ");
+					
+					Methods.SRMB2DocViewActionTab(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 395) 
+				void SRMBP3() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-3 - Click ");
+					
+					Methods.SRMBP3(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+				@Test(priority = 396) 
+				void SRMBP3AddNew() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-3 - Add New - with Valid data ");
+					
+					Methods.SRMBP3AddNew(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+				
+				
+				
+			//	@Test(priority =2) 
+				void ClickMBP4() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab ");
+					
+					Methods.ClickMBP4(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority =3) 
+				void ClickUploadExistingRegistor() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Upload File with valid data ");
+					
+					Methods.ClickUploadExistingRegistorValidData(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+		//		@Test(priority = 4) 
+				void ClickUploadExistingRegistorInvalidData() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Upload File with Invalid data ");
+					
+					Methods.ClickUploadExistingRegistorInvalidData(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 5) 
+				void ClickUploadExistingRegistorDupliacteData() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Upload File with Duplicate data ");
+					
+					Methods.ClickUploadExistingRegistorDupliacteData(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 6) 
+				void ClickUploadExistingRegistorWithoutData() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Upload File without data ");
+					
+					Methods.ClickUploadExistingRegistorWithoutData(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 7) 
+				void ClickUploadExistingRegistorInvalidFileFormat() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Invalid File Format ");
+					
+					Methods.ClickUploadExistingRegistorInvalidFileFormat(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+				
+			//	@Test(priority = 8) 
+				void ClickUploadExistingRegistorWithoutSelectingFile() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Without selecting file ");
+					
+					Methods.ClickUploadExistingRegistorWithoutSelectingFile(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority = 9) 
+				void ClickUploadOldRegistorWithValidFile() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Select Old-with valid file ");
+					
+					Methods.ClickUploadOldRegistorWithValidFile(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority =10) 
+				void ClickUploadOldRegistorWithInValidFile() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Select Old-with invalid file ");
+					
+					Methods.ClickUploadOldRegistorWithInValidFile(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+		//		@Test(priority =11) 
+				void ClickUploadOldRegistorWithDuplicateData() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Select Old-with Duplicate data ");
+					
+					Methods.ClickUploadOldRegistorWithDuplicateData(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				
 	/*
 //	@Test(priority = 32) //not completed
