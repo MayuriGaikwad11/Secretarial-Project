@@ -297,21 +297,40 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	
 	public static WebElement DownloadPolicy(WebDriver driver)		//Method for closing Message Popup
 	{
-		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Download k-grid-download k-grid-button hoverCircle'])[5]"));
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Download k-grid-download k-grid-button hoverCircle'])[11]"));
+		return secretrial;
+	}
+	
+	public static WebElement DownloadPolicy1(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Download k-grid-download k-grid-button hoverCircle'])[6]"));
 		return secretrial;
 	}
 	
 	public static WebElement DownloadLicense(WebDriver driver)		//Method for closing Message Popup
 	{
-		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Download k-grid-download k-grid-button hoverCircle'])[8]"));
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Download k-grid-download k-grid-button hoverCircle'])[11]"));
 		return secretrial;
 	}
 	
 	public static WebElement DownloadLicense1(WebDriver driver)		//Method for closing Message Popup
 	{
-		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Download k-grid-download k-grid-button hoverCircle'])[5]"));
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Download k-grid-download k-grid-button hoverCircle'])[12]"));
 		return secretrial;
 	}
+	
+	public static WebElement DownloadLicenseLC(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Download k-grid-download k-grid-button hoverCircle'])[7]"));
+		return secretrial;
+	}
+	
+	public static WebElement DownloadLicenseLC1(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Download k-grid-download k-grid-button hoverCircle'])[8]"));
+		return secretrial;
+	}
+	
 	
 	public static WebElement DownloadAR(WebDriver driver)		//Method for closing Message Popup
 	{
@@ -321,9 +340,22 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	
 	public static WebElement DownloadAR1(WebDriver driver)		//Method for closing Message Popup
 	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Download k-grid-download k-grid-button hoverCircle'])[13]"));
+		return secretrial;
+	}
+	
+	public static WebElement DownloadARLC(WebDriver driver)		//Method for closing Message Popup
+	{
 		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Download k-grid-download k-grid-button hoverCircle'])[6]"));
 		return secretrial;
 	}
+	
+	public static WebElement DownloadARLC1(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Download k-grid-download k-grid-button hoverCircle'])[8]"));
+		return secretrial;
+	}
+	
 	
 	public static WebElement View(WebDriver driver)		//Method for closing Message Popup
 	{
@@ -333,19 +365,37 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	
 	public static WebElement ViewPolicy(WebDriver driver)		//Method for closing Message Popup
 	{
-		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-View k-grid-view k-grid-button hoverCircle'])[5]"));
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-View k-grid-view k-grid-button hoverCircle'])[11]"));
+		return secretrial;
+	}
+	
+	public static WebElement ViewPolicy1(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-View k-grid-view k-grid-button hoverCircle'])[6]"));
 		return secretrial;
 	}
 	
 	public static WebElement ViewLICENSE_REGISTRATION(WebDriver driver)		//Method for closing Message Popup
 	{
-		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-View k-grid-view k-grid-button hoverCircle'])[8]"));
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-View k-grid-view k-grid-button hoverCircle'])[12]"));
 		return secretrial;
 	}
 	
 	public static WebElement ViewLICENSE_REGISTRATION1(WebDriver driver)		//Method for closing Message Popup
 	{
-		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-View k-grid-view k-grid-button hoverCircle'])[5]"));
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-View k-grid-view k-grid-button hoverCircle'])[12]"));
+		return secretrial;
+	}
+	
+	public static WebElement ViewLICENSE_REGISTRATIONLC(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-View k-grid-view k-grid-button hoverCircle'])[7]"));
+		return secretrial;
+	}
+	
+	public static WebElement ViewLICENSE_REGISTRATIONLC1(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-View k-grid-view k-grid-button hoverCircle'])[8]"));
 		return secretrial;
 	}
 	
@@ -357,6 +407,18 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	}
 	
 	public static WebElement ViewAnnual1(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-View k-grid-view k-grid-button hoverCircle'])[13]"));
+		return secretrial;
+	}
+	
+	public static WebElement ViewAnnualLC(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-View k-grid-view k-grid-button hoverCircle'])[8]"));
+		return secretrial;
+	}
+	
+	public static WebElement ViewAnnualLC1(WebDriver driver)		//Method for closing Message Popup
 	{
 		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-View k-grid-view k-grid-button hoverCircle'])[6]"));
 		return secretrial;
@@ -382,19 +444,37 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	
 	public static WebElement DocDeletePolicy(WebDriver driver)		//Method for closing Message Popup
 	{
-		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Delete k-grid-delete k-grid-button'])[5]"));
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Delete k-grid-delete k-grid-button'])[11]"));
+		return secretrial;
+	}
+	
+	public static WebElement DocDeletePolicy1(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Delete k-grid-delete k-grid-button'])[6]"));
 		return secretrial;
 	}
 	
 	public static WebElement DocDeleteLICENSE(WebDriver driver)		//Method for closing Message Popup
 	{
-		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Delete k-grid-delete k-grid-button'])[8]"));
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Delete k-grid-delete k-grid-button'])[11]"));
 		return secretrial;
 	}
 	
 	public static WebElement DocDeleteLICENSE1(WebDriver driver)		//Method for closing Message Popup
 	{
-		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Delete k-grid-delete k-grid-button'])[5]"));
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Delete k-grid-delete k-grid-button'])[12]"));
+		return secretrial;
+	}
+	
+	public static WebElement DocDeleteLICENSElc(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Delete k-grid-delete k-grid-button'])[7]"));
+		return secretrial;
+	}
+	
+	public static WebElement DocDeleteLICENSElc1(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Delete k-grid-delete k-grid-button'])[8]"));
 		return secretrial;
 	}
 	
@@ -406,9 +486,22 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	
 	public static WebElement DocDeleteAR1(WebDriver driver)		//Method for closing Message Popup
 	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Delete k-grid-delete k-grid-button'])[13]"));
+		return secretrial;
+	}
+	
+	public static WebElement DocDeleteARLC(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Delete k-grid-delete k-grid-button'])[8]"));
+		return secretrial;
+	}
+	
+	public static WebElement DocDeleteARLC1(WebDriver driver)		//Method for closing Message Popup
+	{
 		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Delete k-grid-delete k-grid-button'])[6]"));
 		return secretrial;
 	}
+	
 	
 	public static WebElement DocDeletemsg(WebDriver driver)		//Method for closing Message Popup
 	{
@@ -1373,7 +1466,7 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	public static WebElement InvalidUploadMsg(WebDriver driver)		//Method for closing Message Popup
 	{
 		secretrial = driver.findElement(By.xpath("//*[@id='frmAgendaDocumentUpload']/div/div/div[2]/div/ul/li/span[3]/span[2]"));
-		return secretrial;
+		return secretrial;//*[@id="frmUpdateUploadEntity"]/div[1]/div/div/lable
 	}
 	
 	public static WebElement InvalidUploadMsg1(WebDriver driver)		//Method for closing Message Popup
@@ -2025,7 +2118,7 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	public static WebElement  InvalidUploadMSg(WebDriver driver)		//Method for closing Message Popup
 	{
 		secretrial = driver.findElement(By.xpath("//*[@id='frmUpdateUploadEntity']/div[1]/div/div/ul/li/label"));
-		return secretrial;                    
+		return secretrial;             
 	}
 	
 	public static WebElement  UploadClosed(WebDriver driver)		//Method for closing Message Popup
@@ -2758,6 +2851,12 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	public static WebElement CloseSRSH(WebDriver driver)		
 	{
 		secretrial = driver.findElement(By.xpath("(//*[@class='k-button k-bare k-button-icon k-window-action'])[5]"));
+		return secretrial;                     
+	}
+	
+	public static WebElement CloseSRMB3(WebDriver driver)		
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-button k-bare k-button-icon k-window-action'])[25]"));
 		return secretrial;                     
 	}
 	
@@ -3779,13 +3878,13 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	
 	public static WebElement ViewEdit(WebDriver driver)		
 	{
-		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Edit k-grid-edit hoverCircle k-grid-button'])[31]"));
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Edit k-grid-edit hoverCircle k-grid-button'])[41]"));
 		return secretrial;                     
 	}
 	
 	public static WebElement ViewUpload(WebDriver driver)		
 	{
-		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Upload k-grid-upload hoverCircle k-grid-button'])[3]"));
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-Upload k-grid-upload hoverCircle k-grid-button'])[13]"));
 		return secretrial;                     
 	}
 	
@@ -3822,7 +3921,7 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	
 	public static WebElement Document(WebDriver driver)		
 	{
-		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-document k-grid-document hoverCircle k-grid-button'])[2]"));
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-grid-document k-grid-document hoverCircle k-grid-button'])[11]"));
 		return secretrial;                     
 	}
 	
@@ -4361,6 +4460,186 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 		secretrial=driver.findElement(By.xpath("//*[@id='Remarks']"));
 		return secretrial;
 	}
+	
+	public static WebElement DateOfBoardResolutiontext(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("//*[@id='DateOfBoardResolution']"));
+		return secretrial;
+	}
+	
+	public static WebElement DateOfBoardResolutiontext1(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("//*[@id='frmMBP3Register']/div[2]/div[1]/span[2]"));
+		return secretrial;
+	}
+	
+	public static WebElement UploadMB3(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("//*[@id='btnUplaodMBP3']"));
+		return secretrial;
+	}
+	
+	public static WebElement SampleFormMB3(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("//*[@id='divMBP3']"));
+		return secretrial;
+	}
+	
+	public static WebElement UploadMsgMB3(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("//*[@id='lblsuccessI']"));
+		return secretrial;
+	}
+	
+	public static WebElement btnGenerateMBP3(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("//*[@id='btnGenerateMBP3']"));
+		return secretrial;
+	}
+	
+	public static WebElement EditMB3(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("(//*[@class='k-grid-Edit k-grid-edit hoverCircle k-grid-button'])[31]"));
+		return secretrial;
+	}
+	
+	public static WebElement clickGenerateRegistor(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("(//*[@id='btnGenerateDeposit'])[2]"));
+		return secretrial;
+	}
+	public static WebElement clickExistingDropdown(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("//*[@id='divExisting']/span/span/span[1]"));
+		return secretrial;
+	}
+	public static WebElement clickOldDropdown(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("//*[@id='divOld']/span/span/span[1]"));
+		return secretrial;
+	}
+	public static WebElement clickExistingDropdown1(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("//*[@id='ddlDirector_listbox']/li[2]"));
+		return secretrial;
+	}
+	public static WebElement clickDownloadBtn(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("//*[@id='btnDirectorRegisters']"));
+		return secretrial;
+	}
+	public static WebElement clickOldBtn(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.cssSelector("label[for='IsCheckregister_2']"));
+		return secretrial;
+	}
+	public static WebElement clickOldDropdown1(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("//*[@id='ddlPastDirector_listbox']/li[2]"));
+		return secretrial;
+	}
+	public static WebElement clickAllBtn(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.cssSelector("label[for='IsCheckregister_3']"));
+		return secretrial;
+	}
+	public static WebElement clickViewBtn(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("(//*[@id='btnDirectorRegisters'])[2]"));
+		return secretrial;
+	}
+	public static WebElement clickViewPage(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("//*[@id='wndDocViewer_wnd_title']"));
+		return secretrial;
+	}
+	public static WebElement clickViewClosePage(WebDriver driver)
+	{
+		secretrial=driver.findElement(By.xpath("(//a[@class='k-button k-bare k-button-icon k-window-action'])[17]"));
+		return secretrial;
+	}
+	public static WebElement  clickPASTROD(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='mytab10']/a"));
+		return secretrial;
+	}
+	public static WebElement  clickPASTRODUpload(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='btnUploadPastdirector']"));
+		return secretrial;
+	}
+	public static WebElement clickPASTRODUploadButton(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmUpdateUploadEntity']/div[3]/button"));
+		return secretrial;
+	}
+	public static WebElement clickPASTRODValidMsg(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmUpdateUploadEntity']/div[1]/div[2]/div/lable"));
+		return secretrial;
+	}
+	public static WebElement  clickPASTRODInValidMsg(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmUpdateUploadEntity']/div[1]/div[2]/div/lable"));
+		return secretrial;
+	}
+	public static WebElement  clickPASTRODGenerateRegostor(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='btnGeneratePastdirector']"));
+		return secretrial;
+	}
+	public static WebElement  clickPASTRODGenerateRegostorDropdown(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='wndRegisterPastROD']/div/div/div/table/tbody/tr/td[1]/div/span/span/span[1]"));
+		return secretrial;
+	}
+	public static WebElement  clickPASTRODGenerateRegostorDropdown1(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@id='ddlDirector_listbox']/li[2])"));
+		return secretrial;
+	}
+	
+	public static WebElement  clickChooseFile(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='File']"));
+		return secretrial;
+	}
+	
+	public static WebElement  Address2(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='txtRegAddress2']"));
+		return secretrial;
+	}
+	
+	public static WebElement  CloseLR(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("(//*[@class='k-button k-bare k-button-icon k-window-action'])[3]"));
+		return secretrial;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

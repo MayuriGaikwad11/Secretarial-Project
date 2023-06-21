@@ -3,12 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="secretrialTestCase.EntittyTest">
+      <class name="secretrialTestCase.DirectorTest">
         <methods>
-          <include name="SRMBP3AddNew"/>
+          <include name="Closing"/>
+          <include name="Login"/>
           <include name="setBrowser"/>
+          <include name="DirectorEdit"/>
+          <include name="browserClosing"/>
         </methods>
-      </class> <!-- secretrialTestCase.EntittyTest -->
+      </class> <!-- secretrialTestCase.DirectorTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

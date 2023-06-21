@@ -10,6 +10,9 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -48,27 +51,32 @@ public class EntittyTest {
 		test = extent.startTest("Verify OpenBrowser");
 		
 		
-		XSSFSheet sheet = ReadExcel();
+	/*	XSSFSheet sheet = ReadExcel();
 		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
 		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
 		String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
 		
-		login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
+		login.Login.BrowserSetup(URL);		*/			//Method of Login class to set browser.
 		
 		test.log(LogStatus.PASS, "Test Passed.");
 		extent.endTest(test);
 		extent.flush();
 	}
 	
-	@Test(priority = 1)
-
+	@BeforeMethod
 	void Login() throws InterruptedException, IOException
 	{
 	
-		test = extent.startTest("Secreterial Logging In - Company Secretory");
+	//	test = extent.startTest("Secreterial Logging In - Company Secretory");
 		
-
 		XSSFSheet sheet = ReadExcel();
+		Row row0 = sheet.getRow(0);						//Selected 0th index row (First row)
+		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
+		String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
+		
+		login.Login.BrowserSetup(URL);	
+
+	//	XSSFSheet sheet = ReadExcel();
 		Row row1 = sheet.getRow(1);						//Selected 1st index row (Second row)
 		Cell c2 = row1.getCell(1);						//Selected cell (1 row,1 column)
 		String uname = c2.getStringCellValue();			//Got the URL stored at position 1,1
@@ -79,9 +87,9 @@ public class EntittyTest {
 		
 		driver = login.Login.UserLogin(uname,password,"Compnay Secretory");		//Method of Login class to login user.
 		
-		test.log(LogStatus.PASS, "Test Passed.");
-		extent.endTest(test);
-		extent.flush();
+	//	test.log(LogStatus.PASS, "Test Passed.");
+	//	extent.endTest(test);
+	//	extent.flush();
 	}
 /*
 	@Test(priority = 2)
@@ -863,8 +871,8 @@ public class EntittyTest {
 		}
 		
 //   ----------------------------------   Public Limited   -------------------------------------------
-	
-//	@Test(priority = 71) 
+	/*
+	@Test(priority = 71) 
 	void PublicLimitedSelect() throws InterruptedException, IOException
 	{
 			test = extent.startTest("Entity - Add New - Public Limited");
@@ -875,7 +883,7 @@ public class EntittyTest {
 			extent.flush();
 	}
 	
-//	@Test(priority = 72) 
+	@Test(priority = 72) 
 	void PublicLimitedAdd() throws InterruptedException, IOException
 	{
 			test = extent.startTest("Entity - Add New - Public Limited -With Valid Data");
@@ -886,7 +894,7 @@ public class EntittyTest {
 			extent.flush();
 	}
 	
-//	@Test(priority = 73) 
+	@Test(priority = 73) 
 	void PublicLimitedAddInvalid() throws InterruptedException, IOException
 	{
 			test = extent.startTest("Entity - Add New - Public Limited - -With Invalid Data");
@@ -897,7 +905,7 @@ public class EntittyTest {
 			extent.flush();
 	}
 	
-//	@Test(priority = 74) 
+	@Test(priority = 74) 
 	void PublicLimitedAddWith2man() throws InterruptedException, IOException
 	{
 			test = extent.startTest("Entity - Add New - Public Limited - -With two mandatory fields");
@@ -908,7 +916,7 @@ public class EntittyTest {
 			extent.flush();
 	}
 	
-//	@Test(priority = 75) 
+	@Test(priority = 75) 
 	void PublicLimitedAddWithoutdata() throws InterruptedException, IOException
 	{
 			test = extent.startTest("Entity - Add New - Public Limited - -withOut Data");
@@ -919,7 +927,7 @@ public class EntittyTest {
 			extent.flush();
 	}
 	
-//	@Test(priority = 76) 
+	@Test(priority = 76) 
 	void PublicLimitedAddClose() throws InterruptedException, IOException
 	{
 			test = extent.startTest("Entity - Add New - Public Limited - Close");
@@ -930,7 +938,7 @@ public class EntittyTest {
 			extent.flush();
 	}
 	
-//	@Test(priority = 77) 
+	@Test(priority = 77) 
 	void PublicLimitedEdit() throws InterruptedException, IOException
 	{
 			test = extent.startTest("Entity - Public Limited -Edit");
@@ -941,7 +949,7 @@ public class EntittyTest {
 			extent.flush();
 	}
 	
-//	@Test(priority = 78) 
+	@Test(priority = 78) 
 	void PublicLimitedEditInvalid() throws InterruptedException, IOException
 	{
 			test = extent.startTest("Entity - Public Limited -Edit-with Invalid Name");
@@ -952,7 +960,7 @@ public class EntittyTest {
 			extent.flush();
 	}
 	
-//	@Test(priority = 79) 
+	@Test(priority = 79) 
 	void PublicLimitedEditClose() throws InterruptedException, IOException
 	{
 			test = extent.startTest("Entity - Public Limited -Edit- Close Button");
@@ -963,7 +971,7 @@ public class EntittyTest {
 			extent.flush();
 	}
 	
-//	@Test(priority = 80) //  21/04/2023
+	@Test(priority = 80) //  21/04/2023
 	void PLBusinessActivityClick() throws InterruptedException, IOException
 	{
 			test = extent.startTest("Entity - Public Limited -Edit-Business Activity ");
@@ -974,7 +982,7 @@ public class EntittyTest {
 			extent.flush();
 	}
 	
-//	@Test(priority = 81)
+	@Test(priority = 81)
 	void PLBusinessActivity() throws InterruptedException, IOException
 	{
 			test = extent.startTest("Entity - Public Limited -Edit-Business Activity - Add New ");
@@ -985,7 +993,7 @@ public class EntittyTest {
 			extent.flush();
 	}
 	
-//	@Test(priority = 82)
+	@Test(priority = 82)
 	void PLBusinessActivityValidation() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity - Public Limited - Business Activity -Add New - withOut Selecting 'Main Activity Code' dropdown");
@@ -996,7 +1004,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 83)
+	@Test(priority = 83)
 	void PLvalidationofsave() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity -Public Limited - Edit - Business Activity -Add New - To check validation of save button without entering a data");
@@ -1007,7 +1015,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 84)
+	@Test(priority = 84)
 	void PLvalidationofedit() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity -Public Limited - Business Activity -Edit - With Valid Data");
@@ -1018,7 +1026,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-	//@Test(priority = 85)
+	@Test(priority = 85)
 	void PLCheckInvaliddata() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity -Public Limited -Edit- Business Activity -Edit -With Invalid Data");
@@ -1029,7 +1037,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 86)
+	@Test(priority = 86)
 	void PLDeleteBusinessActivity() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity -Public Limited - Edit - Business Activity - Delete");
@@ -1040,7 +1048,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 87)
+	@Test(priority = 87)
 	void PLBusinessActivityADDNewClose() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity -Public Limited - Edit - Business Activity - Add New -Close");
@@ -1051,7 +1059,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 88)
+	@Test(priority = 88)
 	void PLDocumentClick() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity -Public Limited - Edit - Documents ");
@@ -1062,7 +1070,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 89)
+	@Test(priority = 89)
 	void PLDocumentsADDMOA() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New - Selecting MOA");
@@ -1073,7 +1081,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 90)
+	@Test(priority = 90)
 	void PLWithoutDocument() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New -Type MOA - Without Document ");
@@ -1084,7 +1092,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 91)
+	@Test(priority = 91)
 	void PLDocumentsADDMOAAE() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New - with existing data ");
@@ -1095,7 +1103,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-//	@Test(priority = 92)
+	@Test(priority = 92)
 	void PLViewMOA() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity -Public Limited - Edit - Documents-view-MOA ");
@@ -1106,7 +1114,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 	
-	//@Test(priority = 93)
+	@Test(priority = 93)
 	void PLDownloadMOA() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity - Public Limited -Edit - Documents-Download - MOA ");
@@ -1117,7 +1125,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 
-//	@Test(priority = 94) //  24/04/2023
+	@Test(priority = 94) //  24/04/2023
 	void PLDeleteMOA() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Entity - Public Limited - Edit - Documents-Delete - MOA ");
@@ -1128,7 +1136,7 @@ public class EntittyTest {
 		extent.flush();
 	}	
 	
-//	@Test(priority = 95)
+	@Test(priority = 95)
 		void PLDocumentsADD() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Entity - Public Limited - Edit - Documents-Add New - Selecting AOA");
@@ -1139,7 +1147,7 @@ public class EntittyTest {
 			extent.flush();
 		}
 		
-	//	@Test(priority = 96)
+		@Test(priority = 96)
 		void PLWithoutDocumentAOA() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New -Type AOA - Without Document ");
@@ -1150,7 +1158,7 @@ public class EntittyTest {
 			extent.flush();
 		}
 		
-	//	@Test(priority = 97)
+		@Test(priority = 97)
 		void PLDocumentsADDExisting() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Entity - Public Limited - Edit - Documents-Add New -AOA - with existing data ");
@@ -1161,7 +1169,7 @@ public class EntittyTest {
 			extent.flush();
 		}
 		
-	//	@Test(priority = 98)
+		@Test(priority = 98)
 		void PLViewAOA() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Entity - Public Limited - Edit - Documents-View - AOA");
@@ -1172,7 +1180,7 @@ public class EntittyTest {
 			extent.flush();
 		}
 		
-	//	@Test(priority = 99)
+		@Test(priority = 99)
 		void PLDownloadAOA() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Entity -Public Limited - Edit - Documents-Download -AOA ");
@@ -1183,7 +1191,7 @@ public class EntittyTest {
 			extent.flush();
 		}
 		
-	//	@Test(priority = 100)
+		@Test(priority = 100)
 		void PLDeleteAOA() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Entity - Public Limited - Edit - Documents-Delete - AOA ");
@@ -1194,7 +1202,7 @@ public class EntittyTest {
 			extent.flush();
 		}
 		
-	//	@Test(priority = 101)
+		@Test(priority = 101)
 		void PLDocumentsADDCOI() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Entity - Public Limited - Edit - Documents-Add New - Selecting COI ");
@@ -1206,7 +1214,7 @@ public class EntittyTest {
 		}
 		
 			
-	//	@Test(priority = 102)
+		@Test(priority = 102)
 		void PLWithoutDocumentCOI() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Entity - Public Limited - Edit - Documents-Add New -Type COI - Without Document ");
@@ -1217,7 +1225,7 @@ public class EntittyTest {
 			extent.flush();
 		}
 	
-	//	@Test(priority = 103)
+		@Test(priority = 103)
 		void PLDocumentsADDCOIExisting() throws InterruptedException, IOException
 		{
 			test = extent.startTest("Entity -Public Limited - Edit - Documents-Add New -COI - with existing data ");
@@ -1227,7 +1235,7 @@ public class EntittyTest {
 			extent.endTest(test);
 			extent.flush();
 		}
-	/*
+	
 		@Test(priority = 104)
 		void PLViewCOI() throws InterruptedException, IOException
 		{
@@ -1717,9 +1725,9 @@ public class EntittyTest {
 			extent.flush();
 		}
 		*/
-		
-	//   ----------------------------------   Listed Company   -------------------------------------------
 		/*
+	//   ----------------------------------   Listed Company   -------------------------------------------
+		
 		@Test(priority = 148) 
 		void ListedCompanySelect() throws InterruptedException, IOException
 		{
@@ -1786,7 +1794,7 @@ public class EntittyTest {
 				extent.flush();
 		}
 		
-	//	@Test(priority = 154) 
+		@Test(priority = 154) 
 		void ListedCompanyEdit() throws InterruptedException, IOException
 		{
 				test = extent.startTest("Entity - Listed Company -Edit");
@@ -1797,7 +1805,7 @@ public class EntittyTest {
 				extent.flush();
 		}
 	
-	//	@Test(priority = 155) 
+		@Test(priority = 155) 
 		void ListedCompanyEditInvalid() throws InterruptedException, IOException
 		{
 				test = extent.startTest("Entity - Listed Company  -Edit-with Invalid Name");
@@ -1972,8 +1980,8 @@ public class EntittyTest {
 			
 			extent.endTest(test);
 			extent.flush();
-		}*/
-		/*
+		}
+		
 		@Test(priority = 171) 
 		void LCDeleteMOA() throws InterruptedException, IOException
 		{
@@ -1984,7 +1992,6 @@ public class EntittyTest {
 			extent.endTest(test);
 			extent.flush();
 		}	
-		
 		
 		
 		@Test(priority = 172)  //28/04/2023
@@ -2332,7 +2339,7 @@ public class EntittyTest {
 			extent.endTest(test);
 			extent.flush();
 		}
-		
+	
 		@Test(priority = 203)
 		void LCBranchDetailsClick() throws InterruptedException, IOException
 		{
@@ -2575,8 +2582,8 @@ public class EntittyTest {
 			extent.endTest(test);
 			extent.flush();
 		}
-	
-	/*	//--------------------------'More Action'- 'Related Companies'-------------------------
+	*/
+/*		//--------------------------'More Action'- 'Related Companies'-------------------------
 		 
 		@Test(priority = 225) // 04/05/2023
 		void EntityMoreOption() throws InterruptedException, IOException
@@ -2680,7 +2687,7 @@ public class EntittyTest {
 		extent.flush();
 	}
 		
-		//--------------------------'More Action'- 'Shareholding'-------------------------
+		//--------------------------'More Action'- //'Shareholding'-------------------------
 		
 		@Test(priority = 234) 
 		void Shareholding() throws InterruptedException, IOException
@@ -2749,12 +2756,12 @@ public class EntittyTest {
 			extent.endTest(test);
 			extent.flush();
 		}
-		*/
+		
 		
 		//--------------------------'More Action'- 'Debenture Holding'-------------------------
 		
-			//	@Test(priority = 240) //16/05/2023
-				void Shareholding() throws InterruptedException, IOException
+				@Test(priority = 240) //16/05/2023
+				void DebentureHolding() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding");
 					
@@ -2764,7 +2771,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 241) 
+				@Test(priority = 241) 
 				void DebentureHoldingSearch() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Search-With Valid data");
@@ -2775,7 +2782,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 242) 
+				@Test(priority = 242) 
 				void DebentureHoldingSearchInvalid() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Search-With InValid data");
@@ -2786,7 +2793,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 243) 
+				@Test(priority = 243) 
 				void ClassAllDS() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding -Class-All");
@@ -2797,7 +2804,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 244) 
+				@Test(priority = 244) 
 				void ClassAllNCD() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding -Class-All -NCD");
@@ -2808,7 +2815,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 245) 
+				@Test(priority = 245) 
 				void ClassAllPCD() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding -Class-All -PCD");
@@ -2819,7 +2826,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 246) 
+				@Test(priority = 246) 
 				void ClassAllFCD() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding -Class-All -FCD");
@@ -2830,7 +2837,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 247) 
+				@Test(priority = 247) 
 				void ClearFilter() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Clear Filter");
@@ -2841,7 +2848,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 248) 
+				@Test(priority = 248) 
 				void AddNewDH() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New -with Valid Data");
@@ -2852,7 +2859,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-		//		@Test(priority = 249) 
+				@Test(priority = 249) 
 				void AddNewDHTwoMan() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New - with Two mandatory field");
@@ -2863,7 +2870,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 250) //17/05/2023
+				@Test(priority = 250) //17/05/2023
 				void AddNewInvalidData() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New - with invalid Data");
@@ -2874,7 +2881,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 251)
+				@Test(priority = 251)
 				void AddNewDHEmpty() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New - with empty File");
@@ -2885,7 +2892,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 252)
+				@Test(priority = 252)
 				void AddNewClose() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New - Close");
@@ -2896,7 +2903,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 253) 
+				@Test(priority = 253) 
 				void DHD() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New -Debenture Holding Details");
@@ -2907,7 +2914,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-		//		@Test(priority = 254) 
+				@Test(priority = 254) 
 				void DHDAddNew() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New -Debenture Holding Details -Add New");
@@ -2918,7 +2925,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-				//@Test(priority = 255) 
+				@Test(priority = 255) 
 				void DHDAddNewEmpty() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New -Debenture Holding Details -Add New - with Empty Feilds ");
@@ -2929,7 +2936,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 256) 
+				@Test(priority = 256) 
 				void DHDAddNewClose() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New -Debenture Holding Details -Add New -Close Button ");
@@ -2940,7 +2947,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 257) //18/05/2023
+				@Test(priority = 257) //18/05/2023
 				void DHDUpload() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New -Debenture Holding Details - Upload - Valid Data");
@@ -2951,7 +2958,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 258) 
+				@Test(priority = 258) 
 				void DHDUploadED() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New -Debenture Holding Details - Upload - with Existing data");
@@ -2962,7 +2969,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 259) 
+				@Test(priority = 259) 
 				void DHDUploadInvalidData() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New -Debenture Holding Details - Upload - with Invalid data");
@@ -2973,7 +2980,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 260) 
+				@Test(priority = 260) 
 				void DHDUploadEmpty() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New -Debenture Holding Details - Upload - with Empty File");
@@ -2984,7 +2991,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 261) 
+				@Test(priority = 261) 
 				void DHDUploadInvalidEx() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New -Debenture Holding Details - Upload - with invalid File type extension");
@@ -2995,7 +3002,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 262) 
+				@Test(priority = 262) 
 				void DHDUploadwithoutFile() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New -Debenture Holding Details - Upload - withOut File");
@@ -3006,7 +3013,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 263) 
+				@Test(priority = 263) 
 				void DHUpload() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Upload - with Valid Data File");
@@ -3017,7 +3024,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 264) 
+				@Test(priority = 264) 
 				void DHUploadInvalidData() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Upload - with InValid Data File");
@@ -3028,7 +3035,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 265) 
+				@Test(priority = 265) 
 				void DHUploadED() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Upload - with Existing Data ");
@@ -3039,7 +3046,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 266) 
+				@Test(priority = 266) 
 				void DHUploadEmptyFile() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Upload - with empty File ");
@@ -3050,7 +3057,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 267) 
+				@Test(priority = 267) 
 				void DHUploadinvalidExten() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Upload - with invalid File type extension ");
@@ -3061,7 +3068,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 268) 
+				@Test(priority = 268) 
 				void DHUploadWithOutFile() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Upload - without File ");
@@ -3072,7 +3079,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 269) //19/05/2023
+				@Test(priority = 269) //19/05/2023
 				void DHMaster() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Master ");
@@ -3083,7 +3090,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 270) 
+				@Test(priority = 270) 
 				void DHEdit() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Edit - Click");
@@ -3094,7 +3101,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 271) 
+				@Test(priority = 271) 
 				void DHEditE() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Edit ");
@@ -3105,7 +3112,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 272) 
+				@Test(priority = 272) 
 				void DHEditClose() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Edit - Close");
@@ -3116,7 +3123,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 273) 
+				@Test(priority = 273) 
 				void DHDelete() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Delete -YES");
@@ -3127,7 +3134,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 274) 
+				@Test(priority = 274) 
 				void DHDeleteCan() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Delete - NO");
@@ -3138,7 +3145,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 275) 
+				@Test(priority = 275) 
 				void DHEditInvalid() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Edit - With Invalid Data");
@@ -3149,7 +3156,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 276) 
+				@Test(priority = 276) 
 				void DHDAddNewInvalidData() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Debenture Holding - Add New -Debenture Holding Details - Add New - With Invalid Data");
@@ -3159,8 +3166,8 @@ public class EntittyTest {
 					extent.endTest(test);
 					extent.flush();
 				}	
-				
-				// ------------------- More Action -Auditors - Secretarial Auditor  --------------------------------
+				*/
+		/*snehal		// ------------------- More Action -Auditors - Secretarial Auditor  --------------------------------
 				
 			//	@Test(priority = 277) //22/05/2023
 				void SecretarialAuditor() throws InterruptedException, IOException
@@ -3427,11 +3434,11 @@ public class EntittyTest {
 					
 					extent.endTest(test);
 					extent.flush();
-				}	
+				}	*/
 				
 				// ------------------- More Action - Statutory Registers --------------------------------
 				
-			//	@Test(priority = 301) 
+			/*	@Test(priority = 301) 
 				void StatutoryRegisters() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - Click ");
@@ -3442,7 +3449,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-		//	//	@Test(priority = 302) 
+			@Test(priority = 302) 
 				void SRDEPOSIT() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - Deposit - Click ");
@@ -3453,7 +3460,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 303) 
+				@Test(priority = 303) 
 				void SRDEPOSITAddnew() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action  - Statutory Registers - Deposit - Add New ");
@@ -3465,7 +3472,7 @@ public class EntittyTest {
 				}	
 				
 				
-				//@Test(priority = 304) 
+				@Test(priority = 304) 
 				void SRDEPOSITAddnewEmpty() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - Deposit - Add New - with Empty Field ");
@@ -3476,7 +3483,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-		//		@Test(priority = 305) 
+			@Test(priority = 305) 
 				void SRDEPOSITUpload() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action- Statutory Registers - Deposit - Upload - With valid data");
@@ -3487,7 +3494,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 306) 
+				@Test(priority = 306) 
 				void SRDEPOSITUploadInvalid() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - Deposit - Upload - With Invalid data");
@@ -3498,7 +3505,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 307) 
+			@Test(priority = 307) 
 				void SRDEPOSITUploadEmpty() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - Deposit - Upload - With Empty File");
@@ -3509,7 +3516,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 308) 
+				@Test(priority = 308) 
 				void SRDEPOSITUploadInvalidEx() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - Deposit - Upload - With Invalid File Format");
@@ -3520,7 +3527,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 309) 
+				@Test(priority = 309) 
 				void SRDEPOSITDwonGR() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - Deposit - Generate Register");
@@ -3531,7 +3538,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 310) 
+				@Test(priority = 310) 
 				void SRDEPOSITEdit() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - Deposit - Edit");
@@ -3543,7 +3550,7 @@ public class EntittyTest {
 				}	
 				
 				
-		//		@Test(priority = 311) //1/06/2023
+				@Test(priority = 311) //1/06/2023
 				void SRSH2() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-2 - Click ");
@@ -3554,7 +3561,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 312) 
+				@Test(priority = 312) 
 				void SRSH2AddNew() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-2 - Add New ");
@@ -3565,7 +3572,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 313) 
+				@Test(priority = 313) 
 				void SRSH2AddNewEmpty() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-2 - Add New -With Empty Fields ");
@@ -3576,7 +3583,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 					
-			//	@Test(priority = 314) 
+				@Test(priority = 314) 
 				void SRSH2Upload() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-2 - Upload - With Vaild Data");
@@ -3587,7 +3594,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 					
-			//	@Test(priority = 315) 
+				@Test(priority = 315) 
 				void SRSH2UploadInvalid() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-2 - Upload - With InVaild Data");
@@ -3598,7 +3605,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 317) 
+				@Test(priority = 317) 
 				void SRSH2UploadEmptyFile() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-2 - Upload - With Empty File");
@@ -3609,7 +3616,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 318) 
+		     	@Test(priority = 318) 
 				void SRSH2UploadInValidEx() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-2 - Upload - With Invalid File Format");
@@ -3620,7 +3627,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 319) 
+				@Test(priority = 319) 
 				void SRSh2DwonGR() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-2 - Generate Register");
@@ -3631,7 +3638,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 320) 
+				@Test(priority = 320) 
 				void SRSh2Edit() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-2 - Edit");
@@ -3642,7 +3649,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 321) //2/06/2023
+				@Test(priority = 321) //2/06/2023
 				void SRSH3() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Click ");
@@ -3653,7 +3660,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 322) 
+				@Test(priority = 322) 
 				void SRSH3AddNew() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Add New - With valid Data");
@@ -3664,7 +3671,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 323) 
+				@Test(priority = 323) 
 				void SRSH3AddNewInvalid() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Add New - With Invalid Data");
@@ -3675,7 +3682,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 324) 
+				@Test(priority = 324) 
 				void SRSH3AddNewEmpty() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Add New - With Empty Fields");
@@ -3686,7 +3693,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 325) 
+				@Test(priority = 325) 
 				void SRSH3Upload() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Upload - With valid data");
@@ -3697,7 +3704,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 326) 
+				@Test(priority = 326) 
 				void SRSH3UploadInvalid() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Upload - With Invalid data");
@@ -3708,7 +3715,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 327) 
+				@Test(priority = 327) 
 				void SRSH3UploadWithoutData() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Upload -   without filling data in Excel file");
@@ -3719,7 +3726,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 328) 
+				@Test(priority = 328) 
 				void SRSH3UploadInValidEx() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-3 - Upload - With Invalid File Format");
@@ -3730,7 +3737,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 329) 
+				@Test(priority = 329) 
 				void SRSh3DwonGR() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-3 - Generate Register");
@@ -3741,7 +3748,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 330) 
+				@Test(priority = 330) 
 				void SRSH3Edit() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-3 - Edit - with Valid Data");
@@ -3752,7 +3759,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 331) 
+				@Test(priority = 331) 
 				void SRSH3EditInvalid() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-3 - Edit - with Invalid Data");
@@ -3763,7 +3770,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-		//		@Test(priority = 332) 
+				@Test(priority = 332) 
 				void SRSH6() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-6 - Click ");
@@ -3774,7 +3781,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 333) //5/06/2023
+				@Test(priority = 333) //5/06/2023
 				void SRSH6AddNew() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-6 - Add New - with valid Data");
@@ -3785,7 +3792,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 334) 
+				@Test(priority = 334) 
 				void SRSH6AddNewInvalid() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-6 - Add New - with Invalid Data");
@@ -3796,7 +3803,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 335) 
+				@Test(priority = 335) 
 				void SRSH6AddNewEmpty() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-6 - Add New - with Empty Fields");
@@ -3807,7 +3814,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 336) 
+				@Test(priority = 336) 
 				void SRSH6Upload() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-6 - Upload - With valid data");
@@ -3818,7 +3825,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 337) 
+				@Test(priority = 337) 
 				void SRSH6UploadInvalid() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-6 - Upload - With Invalid data");
@@ -3829,7 +3836,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 338) 
+				@Test(priority = 338) 
 				void SRSH6UploadInValidEx() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - SH-6 - Upload - With Invalid File Format");
@@ -3840,7 +3847,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-	   	//		@Test(priority = 339) 
+	   			@Test(priority = 339) 
 				void SRSh6DwonGR() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-6 - Generate Register");
@@ -3851,7 +3858,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 340) 
+				@Test(priority = 340) 
 				void SRSH6Edit() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-6 - Edit");
@@ -3862,7 +3869,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 341) 
+				@Test(priority = 341) 
 				void SRSH6EditInvalid() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers -  SH-6 - Edit - with Invalid data");
@@ -3873,7 +3880,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-		//		@Test(priority = 342) 
+				@Test(priority = 342) 
 				void SRCHG7() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Click ");
@@ -3884,7 +3891,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 343) //06/06/2023
+				@Test(priority = 343) //06/06/2023
 				void SRCHG7AddNew() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Add New - With Valid Data ");
@@ -3895,7 +3902,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 344) 
+				@Test(priority = 344) 
 				void SRCHG7AddNewInvalid() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Add New - With InValid Data ");
@@ -3906,7 +3913,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-		//		@Test(priority = 345) 
+				@Test(priority = 345) 
 				void SRCHG7AddnewTwoman() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Add New -  with two mandatory field ");
@@ -3917,7 +3924,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 346) 
+	         	@Test(priority = 346) 
 				void SRCHG7AddnewEmptyFields() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Add New -  with Empty fields ");
@@ -3928,7 +3935,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 347) 
+				@Test(priority = 347) 
 				void SRCHG7Upload() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Upload-  with Valid Data ");
@@ -3939,7 +3946,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 348) 
+				@Test(priority = 348) 
 				void SRCHG7UploadInvalid() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Upload-  with InValid Data ");
@@ -3950,7 +3957,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 349) 
+				@Test(priority = 349) 
 				void SRCHG7UploadEmpty() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Upload-  without filling data in Excel file ");
@@ -3961,7 +3968,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 350) 
+				pass@Test(priority = 350) 
 				void SRCHG7UploadInvalidFormat() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Upload -  with Invalid File Format ");
@@ -3972,7 +3979,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 351) 
+				@Test(priority = 351) 
 				void SRCHG7UploadwithOutFile() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- Upload-  without selecting a file");
@@ -3983,7 +3990,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 352) 
+				@Test(priority = 352) 
 				void SRCHG7DwonGR() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7 - Generate Register");
@@ -3994,7 +4001,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 353) 
+				@Test(priority = 353) 
 				void ChargeDetailsAddNew() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Add New - With Valid Data ");
@@ -4004,8 +4011,8 @@ public class EntittyTest {
 					extent.endTest(test);
 					extent.flush();
 				}	
-				
-			//	@Test(priority = 354) //07/06/2023
+			
+				@Test(priority = 354) //07/06/2023
 				void SRCHG7ViewAddNewInvalid() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7 - View - Add New - With InValid Data ");
@@ -4016,7 +4023,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 355) 
+				@Test(priority = 355) 
 				void ChargeDetailsAddNewtwoMan() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Add New -  with two mandatory field ");
@@ -4027,7 +4034,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 356) 
+				@Test(priority = 356) 
 				void ChargeDetailsAddNewEmpty() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Add New -  with Empty field ");
@@ -4037,8 +4044,8 @@ public class EntittyTest {
 					extent.endTest(test);
 					extent.flush();
 				}
-				
-			//	@Test(priority = 357) 
+				*/
+		/*		@Test(priority = 357) 
 				void ChargeDetailsEdit() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Edit -  with valid data ");
@@ -4093,7 +4100,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 362) 
+			@Test(priority = 362) 
 				void SRCHG7ViewDocument() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Document -  download  or not Verification ");
@@ -4104,7 +4111,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 363) 
+				@Test(priority = 363) 
 				void SRCHG7View2Document() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers - CHG-7- View - Document - View");
@@ -4114,7 +4121,7 @@ public class EntittyTest {
 					extent.endTest(test);
 					extent.flush();
 				}
-				
+				*/
 			//	@Test(priority = 364) //09/06/2023
 				void SRMBP2() throws InterruptedException, IOException
 				{
@@ -4467,7 +4474,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-				@Test(priority = 396) 
+			//	@Test(priority = 396) 
 				void SRMBP3AddNew() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-3 - Add New - with Valid data ");
@@ -4478,10 +4485,120 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
+			//	@Test(priority = 397) //14/06/2023
+				void SRMBP3AddNewInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-3 - Add New - with InValid data ");
+					
+					Methods.SRMBP3AddNewInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 398) 
+				void SRMBP3AddNewTwoMan() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-3 - Add New -  with two mandatory field ");
+					
+					Methods.SRMBP3AddNewTwoMan(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 399) 
+				void SRMBP3AddNewEmpty() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers -  MBP-3 - Add New -  with two Empty data ");
+					
+					Methods.SRMBP3AddNewEmpty(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 400) 
+				void SRMB3Upload() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action- Statutory Registers -   MBP-3  - Upload - With valid data");
+					
+					Methods.SRMB3Upload(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
 				
+			//	@Test(priority = 401) 
+				void SRMB3UploadInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action- Statutory Registers -   MBP-3  - Upload - With Invalid data");
+					
+					Methods.SRMB3UploadInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
-			//	@Test(priority =2) 
+		//		@Test(priority = 402) 
+				void SRMB3UploadWithOutData() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action- Statutory Registers -   MBP-3  - Upload - without filling data in Excel file ");
+					
+					Methods.SRMB3UploadWithOutData(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 403) 
+				void SRMB3UploadInvalidFormate() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action- Statutory Registers -   MBP-3  - Upload - with Invalid File Format ");
+					
+					Methods.SRMB3UploadInvalidFormate(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 404) 
+				void SRMB3DwonGR() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - MBP-3  - Generate Register");
+					
+					Methods.SRMB3DwonGR(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 405) 
+				void SRMBP3Edit() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - MBP-3  -Edit - With Valid Data");
+					
+					Methods.SRMBP3Edit(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+				
+			//	@Test(priority = 406) 
+				void SRMBP3EditInvalid() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Registers - MBP-3  -Edit - With InValid Data");
+					
+					Methods.SRMBP3EditInvalid(driver,test,workbook);
+					
+					extent.endTest(test);
+					extent.flush();
+				}		
+				
+				
+				//Snehal
+			//	@Test(priority =407) 
 				void ClickMBP4() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab ");
@@ -4492,7 +4609,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority =3) 
+			//	@Test(priority =408) 
 				void ClickUploadExistingRegistor() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Upload File with valid data ");
@@ -4503,7 +4620,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-		//		@Test(priority = 4) 
+		//		@Test(priority = 409) 
 				void ClickUploadExistingRegistorInvalidData() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Upload File with Invalid data ");
@@ -4514,7 +4631,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 5) 
+			//	@Test(priority = 410) 
 				void ClickUploadExistingRegistorDupliacteData() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Upload File with Duplicate data ");
@@ -4525,7 +4642,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority = 6) 
+			//	@Test(priority = 411) 
 				void ClickUploadExistingRegistorWithoutData() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Upload File without data ");
@@ -4536,7 +4653,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 7) 
+			//	@Test(priority = 412) 
 				void ClickUploadExistingRegistorInvalidFileFormat() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Invalid File Format ");
@@ -4548,7 +4665,7 @@ public class EntittyTest {
 				}
 				
 				
-			//	@Test(priority = 8) 
+			//	@Test(priority = 413) 
 				void ClickUploadExistingRegistorWithoutSelectingFile() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Without selecting file ");
@@ -4559,7 +4676,7 @@ public class EntittyTest {
 					extent.flush();
 				}
 				
-			//	@Test(priority = 9) 
+			//	@Test(priority = 414) 
 				void ClickUploadOldRegistorWithValidFile() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Select Old-with valid file ");
@@ -4570,10 +4687,10 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-			//	@Test(priority =10) 
+			//	@Test(priority =415) 
 				void ClickUploadOldRegistorWithInValidFile() throws InterruptedException, IOException
 				{
-					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Select Old-with invalid file ");
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Select Old-with invalid Data ");
 					
 					Methods.ClickUploadOldRegistorWithInValidFile(driver,test);
 					
@@ -4581,7 +4698,7 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
-		//		@Test(priority =11) 
+		//		@Test(priority =416) 
 				void ClickUploadOldRegistorWithDuplicateData() throws InterruptedException, IOException
 				{
 					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Select Old-with Duplicate data ");
@@ -4592,15 +4709,227 @@ public class EntittyTest {
 					extent.flush();
 				}	
 				
+			//	@Test(priority =417) 
+				void ClickUploadOldRegistorWithoutData() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Select Old Btn-without data ");
+					
+					Methods.ClickUploadOldRegistorWithoutData(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
 				
+			//	@Test(priority =418) 
+				void ClickUploadOldRegistorInvalidFile() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Select Old Btn-Invalid File ");
+					
+					Methods.ClickUploadOldRegistorInvalidFile(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
+			//	@Test(priority =419) 
+				void ClickUploadOldRegistorWithoutSelectFile() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab -Select Old Btn- Without selecting file ");
+					
+					Methods.ClickUploadOldRegistorWithoutSelectFile(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
 				
+		//		@Test(priority =420) 
+				void ClickGenerateRegistor() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab - click Generate Registor tab");
+					
+					Methods.ClickGenerateRegistor(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
 				
+			//	@Test(priority =421) 
+				void ClickDownloadExisitingRegisterOfMBP4() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab - click Generate Registor tab-Existing Download Report");
+					
+					Methods.ClickDownloadExisitingRegisterOfMBP4(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
 				
+			//	@Test(priority =422) 
+				void ClickDownloadOldRegisterOfMBP4() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab - click Generate Registor tab-Old Download Report");
+					
+					Methods.ClickDownloadOldRegisterOfMBP4(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
 				
+		//		@Test(priority =423) 
+				void ClickDownloadAllRegisterOfMBP4() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab - click Generate Registor tab-All btn -Download Report");
+					
+					Methods.ClickDownloadAllRegisterOfMBP4(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
+			//	@Test(priority =424) 
+				void ClickViewExisitingRegisterOfMBP4() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab - click Generate Registor tab-Existing- Viewed Document");
+					
+					Methods.ClickViewExisitingRegisterOfMBP4(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
+			
+			//	@Test(priority =425) 
+				void ClickViewOldRegisterOfMBP4() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab - click Generate Registor tab-Old Btn- Viewed Document");
+					
+					Methods.ClickViewOldRegisterOfMBP4(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}	
 				
+			//	@Test(priority =426) 
+				void ClickViewAllRegisterOfMBP4() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-MBP-4 tab - click Generate Registor tab-All Btn- Viewed Document");
+					
+					Methods.ClickViewAllRegisterOfMBP4(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
 				
+		//		@Test(priority =427) 
+				void clickPASTROD() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-Past ROD Tab");
+					
+					Methods.clickPASTROD(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority =428) 
+				void clickPASTRODwithValidData() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-Past ROD Tab-With valid data");
+					
+					Methods.clickPASTRODwithValidData(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority =429) 
+				void clickPASTRODwithInValidData() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-Past ROD Tab-With invalid data");
+					
+					Methods.clickPASTRODwithInValidData(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority =430) 
+				void clickPASTRODwithDuplicateData() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-Past ROD Tab-With Duplicate data");
+					
+					Methods.clickPASTRODwithDuplicateData(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority =431) 
+				void clickPASTRODwithoutData() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-Past ROD Tab-Without data");
+					
+					Methods.clickPASTRODwithoutData(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority =432) 
+				void clickPASTRODInvalidFile() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-Past ROD Tab-Invliad File Format");
+					
+					Methods.clickPASTRODInvalidFile(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority =433) 
+				void clickPASTRODGenerateRegistor() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-Past ROD Tab-Generate Registor Tab");
+					
+					Methods.clickPASTRODGenerateRegistor(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+			//	@Test(priority =434) 
+				void clickPASTRODGenerateRegistorDownload() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-Past ROD Tab-Generate Registor Tab - Download Report");
+					
+					Methods.clickPASTRODGenerateRegistorDownload(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+			//	@Test(priority =435) 
+				void clickPASTRODGenerateRegistorview() throws InterruptedException, IOException
+				{
+					test = extent.startTest("Entity - More Action - Statutory Auditors-Past ROD Tab-Generate Registor Tab - View Document");
+					
+					Methods.clickPASTRODGenerateRegistorDownload(driver,test);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+				
+				@AfterMethod
+		      	void browserClosing() throws InterruptedException
+		      	{
+		      		Thread.sleep(1000);
+		      		driver.close();
+		      	}	       
+		      		       		
+		      	@AfterTest
+		      	void Closing() throws InterruptedException
+		      	{
+		      		
+		      	}
+			
 	/*
 //	@Test(priority = 32) //not completed
 	void CapitalA() throws InterruptedException, IOException

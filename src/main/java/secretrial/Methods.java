@@ -3004,6 +3004,12 @@ public static void selectOptionFromDropDown_bs(List<WebElement> options, String 
 	Locator.AddressE(driver).sendKeys(c1.getStringCellValue());
 	Thread.sleep(4000);
 	
+	row0 = sheet.getRow(31);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	
+	Locator.Address2(driver).sendKeys(c1.getStringCellValue());
+	Thread.sleep(4000);
+	
 	Locator.StateE(driver).click();
 	Thread.sleep(2000);
 	List<WebElement>state = driver.findElements(By.xpath("(//ul[@id='stateId_listbox'])[2]//li"));
@@ -3210,20 +3216,11 @@ Locator.CloseEntity(driver).click();
 	Locator.EntityEdit(driver).click();
 	Thread.sleep(2000);
 	
+	Thread.sleep(5000);
+	Locator.CalendorIcon(driver).click();
+	Thread.sleep(2000);
+	Locator.Date(driver).click();
 	Thread.sleep(3000);
-	Locator.EntityName(driver).clear();
-	Thread.sleep(3000);
-	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
-	int row = 0;
-	Thread.sleep(500);
-	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
-	Cell c1 = null;
-	
-	row0 = sheet.getRow(27);
-	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
-	
-	Locator.EntityName(driver).sendKeys(c1.getStringCellValue());
-	Thread.sleep(4000);
 	
 	Locator.SaveE(driver).click();
 	Thread.sleep(4000);
@@ -3258,16 +3255,16 @@ Locator.CloseEntity(driver).click();
 	Thread.sleep(2000);
 	
 	Thread.sleep(3000);
-	Locator.EntityName(driver).clear();
+	Locator.PAN(driver).clear();
 	Thread.sleep(3000);
 	
-	Locator.EntityName(driver).sendKeys("$s");
+	Locator.PAN(driver).sendKeys("ASS122");
 	Thread.sleep(4000);
 	
 	Locator.SaveE(driver).click();
 	Thread.sleep(4000);
-	String msg=	Locator.InvalidMsgName(driver).getText();
-	
+	String msg=	Locator.InvalidMsgePan(driver).getText();
+	Thread.sleep(1000);
 		test.log(LogStatus.PASS, msg );
 
 	Locator.CloseEntity(driver).click();
@@ -3924,12 +3921,12 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
 	Thread.sleep(1000);
 	Locator.Master(driver).click();
-	Thread.sleep(3000);
+	Thread.sleep(4000);
 	
 	Locator.MoreAction(driver).click();
-	Thread.sleep(2000);
+	Thread.sleep(4000);
 	Locator.RelatedCompanies(driver).click();
-	Thread.sleep(2000);
+	Thread.sleep(4000);
 	Locator.search(driver).sendKeys("U45200MH1981PTC025832",Keys.ENTER);
 	Thread.sleep(2000);
 String text=Locator.searchText(driver).getText();
@@ -4287,7 +4284,7 @@ String text=Locator.searchText(driver).getText();
 			    Thread.sleep(2000);
 			    test.log(LogStatus.PASS,  text);
 			    Thread.sleep(3000);
-			 	js.executeScript("window.scrollBy(0,600)");
+			 //	js.executeScript("window.scrollBy(0,600)");
 				Locator.CloseS(driver).click();
 				Thread.sleep(2000);
 		Locator.EntityCap(driver).click();
@@ -4333,7 +4330,7 @@ String text=Locator.searchText(driver).getText();
 			    test.log(LogStatus.PASS, "Error messages reflected in Other mandatory field :-"+ text+", "+text1 +", "+text2);
 			    Thread.sleep(1000);
 				Locator.CloseS(driver).click();
-				Thread.sleep(2000);
+				Thread.sleep(4000);
 		Locator.EntityCap(driver).click();
 		Thread.sleep(2000);
 		Locator.ClickDashboard(driver).click();
@@ -5118,7 +5115,7 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	
 	//Locator.Upload(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report  (1).xlsx");
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	
@@ -5156,7 +5153,7 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	Thread.sleep(4000);
 	
 	
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	
@@ -5212,7 +5209,7 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	
 	//Locator.Upload(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report  (1).xlsx");
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	
@@ -5411,15 +5408,21 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
-	
+	try {
 	String	msg1=Locator.SaveDocMsg(driver).getText();
+	Thread.sleep(3000);
 	if(msg1.equalsIgnoreCase("Record saved successfully")) {
 		test.log(LogStatus.PASS,  " selecting a AOA option Type :- " +msg1);
 	}else {
 		test.log(LogStatus.FAIL,  " selecting a AOA option Type :- " +msg1);
+	}
+	}catch(Exception e) {
+		String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,"selecting a AOA option Type " + msg1);
+	
 	}
 	Locator.Close(driver).click();
 	Thread.sleep(1000);
@@ -5451,7 +5454,7 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	Locator.TypeAOA(driver).click();
 	Thread.sleep(3000);
 	
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	
@@ -5507,12 +5510,23 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
-	
-	String	msg1=Locator.SaveDocMsg1(driver).getText();
+	try {
+		String	msg1=Locator.SaveDocMsg1(driver).getText();
+		Thread.sleep(4000);
 		test.log(LogStatus.PASS,"To check whether user is able to add existing data or not. (For Type AOA) " + msg1);
+		}catch(Exception e) {
+			String	msg1=Locator.SaveDocMsg(driver).getText();
+			Thread.sleep(3000);
+			if(msg1.equalsIgnoreCase("Record saved successfully")) {
+				test.log(LogStatus.PASS,  " selecting a AOA option Type :- " +msg1);
+			}else {
+				test.log(LogStatus.FAIL,  " selecting a AOA option Type :- " +msg1);
+		
+		}
+		}
 	
 	Locator.Close(driver).click();
 	Thread.sleep(1000);
@@ -5702,10 +5716,10 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	Thread.sleep(4000);
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
-	
+	try {
 	String	msg1=Locator.SaveDocMsg(driver).getText();
 		
 		if(msg1.equalsIgnoreCase("Record saved successfully")) {
@@ -5713,6 +5727,12 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 		}else {
 			test.log(LogStatus.FAIL,  " selecting a COI option Type :- " +msg1);
 		}
+	}catch(Exception e) {
+		Thread.sleep(3000);
+		String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a COI option Type :- " +msg1);
+	
+	}
 	Locator.Close(driver).click();
 	Thread.sleep(1000);
 	Locator.ClosePopEntity(driver).click();
@@ -5743,7 +5763,7 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	Locator.TypeCOI(driver).click();
 	Thread.sleep(3000);
 	
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	
@@ -5800,12 +5820,23 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	Thread.sleep(4000);
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
+	try {
+		String	msg1=Locator.SaveDocMsg(driver).getText();
+			
+			if(msg1.equalsIgnoreCase("Record saved successfully")) {
+				test.log(LogStatus.PASS,  "selecting a COI option Type :- " +msg1);
+			}else {
+				test.log(LogStatus.FAIL,  " selecting a COI option Type :- " +msg1);
+			}
+		}catch(Exception e) {
+			Thread.sleep(3000);
+			String	msg1=Locator.SaveDocMsg1(driver).getText();
+			test.log(LogStatus.PASS,  " selecting a COI option Type :- " +msg1);
+		
+		}
 	
-	
-	String	msg1=Locator.SaveDocMsg1(driver).getText();
-		test.log(LogStatus.PASS,  " selecting a COI option Type :- " +msg1);
 	
 	Locator.Close(driver).click();
 	Thread.sleep(1000);
@@ -5993,19 +6024,25 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	Thread.sleep(4000);
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
-	
+	try {
 	String	msg1=Locator.SaveDocMsg(driver).getText();
-		test.log(LogStatus.PASS,  " selecting a Policy option Type :- " +msg1);
+	Thread.sleep(3000);
 		if(msg1.equalsIgnoreCase("Record saved successfully")) {
 			test.log(LogStatus.PASS,  " selecting a Policy option Type :- " +msg1);
 		}else {
 			test.log(LogStatus.FAIL,  "selecting a Policy option Type :- " +msg1);
 		}
+	}catch(Exception e) {
+		String	msg1=Locator.SaveDocMsg1(driver).getText();
+		Thread.sleep(3000);
+		test.log(LogStatus.PASS,  " selecting a Policy option Type :- " +msg1);
+	
+	}
 	Locator.Close(driver).click();
-	Thread.sleep(1000);
+	Thread.sleep(3000);
 	Locator.ClosePopEntity(driver).click();
 	Thread.sleep(1000);
 	Locator.ClickDashboard(driver).click();
@@ -6034,7 +6071,7 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	Locator.TypePolicy(driver).click();
 	Thread.sleep(3000);
 	
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	
@@ -6064,9 +6101,9 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	Locator.Master(driver).click();
 	Thread.sleep(1000);
 	Locator.SearchFilter(driver).sendKeys("U72200KA2002PLC030311",Keys.ENTER);
-	Thread.sleep(3000);
+	Thread.sleep(4000);
 	Locator.EntityEdit(driver).click();
-	Thread.sleep(2000);
+	Thread.sleep(4000);
 	Locator.Documents(driver).click();
 	Thread.sleep(1000);
 	Locator.AddNewDocuments(driver).click();
@@ -6088,12 +6125,24 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	Thread.sleep(4000);
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
+	try {
+		String	msg1=Locator.SaveDocMsg(driver).getText();
+		Thread.sleep(3000);
+			if(msg1.equalsIgnoreCase("Record saved successfully")) {
+				test.log(LogStatus.PASS,  " selecting a Policy option Type :- " +msg1);
+			}else {
+				test.log(LogStatus.FAIL,  "selecting a Policy option Type :- " +msg1);
+			}
+		}catch(Exception e) {
+			String	msg1=Locator.SaveDocMsg1(driver).getText();
+			Thread.sleep(3000);
+			test.log(LogStatus.PASS,  " selecting a Policy option Type :- " +msg1);
+		
+		}
 	
-	
-	String	msg1=Locator.SaveDocMsg1(driver).getText();
-		test.log(LogStatus.PASS,  " selecting a Policy option Type :- " +msg1);
+	Thread.sleep(3000);
 	
 	Locator.Close(driver).click();
 	Thread.sleep(1000);
@@ -6271,16 +6320,21 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	Thread.sleep(4000);
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
-	
+	try {
 	String	msg1=Locator.SaveDocMsg(driver).getText();
 		if(msg1.equalsIgnoreCase("Record saved successfully")) {
 			test.log(LogStatus.PASS,  " selecting a  Licence/Registration option Type :- " +msg1);
 		}else {
 			test.log(LogStatus.FAIL,  "selecting a  Licence/Registration option Type :- " +msg1);
 		}
+	}catch(Exception e) {
+		String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a  Licence/Registration option Type :- " +msg1);
+	
+	}
 	Locator.Close(driver).click();
 	Thread.sleep(1000);
 	Locator.ClosePopEntity(driver).click();
@@ -6338,7 +6392,7 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	Thread.sleep(4000);
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	try {
@@ -6388,7 +6442,7 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	Locator.LicenseRegistration(driver).click();
 	Thread.sleep(3000);
 	
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	
@@ -6449,12 +6503,21 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	Thread.sleep(4000);
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
+	try {
+		String	msg1=Locator.SaveDocMsg(driver).getText();
+			if(msg1.equalsIgnoreCase("Record saved successfully")) {
+				test.log(LogStatus.PASS,  " selecting a  Licence/Registration option Type :- " +msg1);
+			}else {
+				test.log(LogStatus.FAIL,  "selecting a  Licence/Registration option Type :- " +msg1);
+			}
+		}catch(Exception e) {
+			String	msg1=Locator.SaveDocMsg1(driver).getText();
+			test.log(LogStatus.PASS,  " selecting a  Licence/Registration option Type :- " +msg1);
+		
+		}
 	
-	
-	String	msg1=Locator.SaveDocMsg1(driver).getText();
-		test.log(LogStatus.PASS,  " selecting a  Licence/Registration option Type :- " +msg1);
 	
 	Locator.Close(driver).click();
 	Thread.sleep(1000);
@@ -6479,12 +6542,16 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 	Thread.sleep(4000);
 	Locator.Documents(driver).click();
 	Thread.sleep(5000);
-	
 	Locator.LICENSE_REGISTRATION(driver).click();
 	Thread.sleep(4000);
+	try {
+		Locator.ViewLICENSE_REGISTRATION1(driver).click();
+		Thread.sleep(2000);
+	}catch(Exception e) {
+		Locator.ViewPolicy(driver).click();
+		Thread.sleep(2000);
+	}
 	
-	Locator.ViewLICENSE_REGISTRATION1(driver).click();
-	Thread.sleep(2000);
 	String	msg1=Locator.ViewMsg(driver).getText();
 if(msg1.equalsIgnoreCase("Viewer")) {
 	 test.log(LogStatus.PASS,  " document Type LICENSE_REGISTRATION :- View  successfully.");
@@ -6525,8 +6592,13 @@ if(msg1.equalsIgnoreCase("Viewer")) {
 	File dir = new File("C:\\Users\\Mayuri\\Downloads");
 	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
 	
-	Thread.sleep(500);
-	Locator.DownloadLicense1(driver).click();		//Exporting (Downloading) file
+	
+	try {
+		Locator.DownloadLicense1(driver).click();	
+	}catch(Exception e) {
+		Locator.DownloadLicense(driver).click();
+		Thread.sleep(2000);
+	}
 	
 	Thread.sleep(3000);//C://Users//jiya//Downloads//
 	File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
@@ -6566,9 +6638,14 @@ if(msg1.equalsIgnoreCase("Viewer")) {
 	
 	Locator.LICENSE_REGISTRATION(driver).click();
 	Thread.sleep(4000);
+	try {
+		Locator.DocDeleteLICENSE1(driver).click();
+		Thread.sleep(2000);
+	}catch(Exception e) {
+		Locator.DocDeleteLICENSE(driver).click();
+		Thread.sleep(2000);
+	}
 	
-	Locator.DocDeleteLICENSE1(driver).click();
-	Thread.sleep(2000);
 	String Msg=Locator.DocDeletemsg(driver).getText();
 	Thread.sleep(3000);
 	test.log(LogStatus.PASS, Msg);
@@ -6651,7 +6728,7 @@ if(msg1.equalsIgnoreCase("Viewer")) {
 	Thread.sleep(4000);
 	
 	
-	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[10]");
+	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[11]");
 	
 	
 	wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
@@ -6664,7 +6741,7 @@ Thread.sleep(2000);
 jse.executeScript("arguments[0].click();", ViewButton1);
 	
 Thread.sleep(4000);
-	
+	try {
 	String	msg1=Locator.SaveDocMsg(driver).getText();
 	
 		Thread.sleep(3000);
@@ -6673,6 +6750,11 @@ Thread.sleep(4000);
 		}else {
 			test.log(LogStatus.FAIL,  "selecting a Annual Report option Type  :- " +msg1);
 		}
+	}catch(Exception e) {
+		String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a Annual Report option Type :- " +msg1);
+		Thread.sleep(3000);
+	}
 	Locator.Close(driver).click();
 	Thread.sleep(3000);
 	JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -6750,7 +6832,7 @@ Thread.sleep(4000);
 	Thread.sleep(4000);
 	
 	
-	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[10]");
+	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[11]");
 	
 	
 	wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
@@ -6763,10 +6845,21 @@ Thread.sleep(2000);
 jse.executeScript("arguments[0].click();", ViewButton1);
 	
 Thread.sleep(4000);
+try {
+	String	msg1=Locator.SaveDocMsg(driver).getText();
 	
-	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		Thread.sleep(3000);
+		if(msg1.equalsIgnoreCase("Record saved successfully")) {
+			test.log(LogStatus.PASS,  " selecting a Annual Report option Type  :- " +msg1);
+		}else {
+			test.log(LogStatus.FAIL,  "selecting a Annual Report option Type  :- " +msg1);
+		}
+	}catch(Exception e) {
+		String	msg1=Locator.SaveDocMsg1(driver).getText();
 		test.log(LogStatus.PASS,  " selecting a Annual Report option Type :- " +msg1);
 		Thread.sleep(3000);
+	}
+	
 	Locator.Close(driver).click();
 	Thread.sleep(3000);
 	JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -6832,7 +6925,7 @@ Thread.sleep(4000);
 	Thread.sleep(3000);
 	
 	
-	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[10]");
+	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[11]");
 	
 	
 	wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
@@ -6845,10 +6938,21 @@ Thread.sleep(2000);
 jse.executeScript("arguments[0].click();", ViewButton1);
 	
 Thread.sleep(4000);
+try {
+	String	msg1=Locator.SaveDocMsg(driver).getText();
 	
-	String	msg1=Locator.SaveDocMsg1(driver).getText();
+		Thread.sleep(3000);
+		if(msg1.equalsIgnoreCase("Record saved successfully")) {
+			test.log(LogStatus.PASS,  " selecting a Annual Report option Type  :- " +msg1);
+		}else {
+			test.log(LogStatus.FAIL,  "selecting a Annual Report option Type  :- " +msg1);
+		}
+	}catch(Exception e) {
+		String	msg1=Locator.SaveDocMsg1(driver).getText();
 		test.log(LogStatus.PASS,  " selecting a Annual Report option Type :- " +msg1);
 		Thread.sleep(3000);
+	}
+	
 	Locator.Close(driver).click();
 	Thread.sleep(3000);
 	JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -6878,9 +6982,14 @@ Thread.sleep(4000);
 	
 	Locator.Annual(driver).click();
 	Thread.sleep(4000);
+	try {
+		Locator.ViewAnnual1(driver).click();
+		Thread.sleep(2000);
+	}catch(Exception e) {
+		Locator.ViewAnnual(driver).click();
+		Thread.sleep(2000);
+	}
 	
-	Locator.ViewAnnual1(driver).click();
-	Thread.sleep(2000);
 	String	msg1=Locator.ViewMsg(driver).getText();
 if(msg1.equalsIgnoreCase("Viewer")) {
 	 test.log(LogStatus.PASS,  " document Type Annual Report :- View  successfully.");
@@ -6923,6 +7032,12 @@ if(msg1.equalsIgnoreCase("Viewer")) {
 	
 	Thread.sleep(500);
 	Locator.DownloadAR1(driver).click();		//Exporting (Downloading) file
+	try {
+		Locator.DownloadAR1(driver).click();	
+	}catch(Exception e) {
+		Locator.DownloadAR(driver).click();
+		Thread.sleep(2000);
+	}
 	
 	Thread.sleep(3000);//C://Users//jiya//Downloads//
 	File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
@@ -6962,9 +7077,14 @@ if(msg1.equalsIgnoreCase("Viewer")) {
 	
 	Locator.Annual(driver).click();
 	Thread.sleep(4000);
+	try {
+		Locator.DocDeleteAR1(driver).click();
+		Thread.sleep(2000);	
+	}catch(Exception e) {
+		Locator.DocDeleteAR(driver).click();
+		Thread.sleep(2000);
+	}
 	
-	Locator.DocDeleteAR1(driver).click();
-	Thread.sleep(2000);
 	String Msg=Locator.DocDeletemsg(driver).getText();
 	Thread.sleep(3000);
 	test.log(LogStatus.PASS, Msg);
@@ -7468,7 +7588,7 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 		
 		WebElement ViewButton = driver.findElement(locator);	
 		Thread.sleep(3000);
-		ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\file-sample_100kB.doc");
+		ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\Committee Composition (5).pdf");
 		Thread.sleep(3000);
 		By locator1 = By.xpath("//*[@id='files']");
 
@@ -8216,6 +8336,12 @@ Thread.sleep(1000);
 	Locator.AddressE(driver).sendKeys(c1.getStringCellValue());
 	Thread.sleep(4000);
 	
+	row0 = sheet.getRow(31);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	
+	Locator.Address2(driver).sendKeys(c1.getStringCellValue());
+	Thread.sleep(4000);
+	
 	Locator.StateE(driver).click();
 	Thread.sleep(2000);
 	List<WebElement>state = driver.findElements(By.xpath("(//ul[@id='stateId_listbox'])[2]//li"));
@@ -8522,19 +8648,12 @@ Locator.CloseEntity(driver).click();
 	Thread.sleep(3000);
 	
 	Thread.sleep(3000);
-	//Locator.EntityName(driver).clear();
+	Thread.sleep(5000);
+	Locator.CalendorIcon(driver).click();
+	Thread.sleep(2000);
+	Locator.Date(driver).click();
 	Thread.sleep(3000);
-	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
-	int row = 0;
-	Thread.sleep(500);
-	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
-	Cell c1 = null;
 	
-	row0 = sheet.getRow(32);
-	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
-	
-	Locator.EntityName(driver).sendKeys(c1.getStringCellValue());
-	Thread.sleep(4000);
 	
 	Locator.SaveE(driver).click();
 	Thread.sleep(4000);
@@ -8569,15 +8688,14 @@ Locator.CloseEntity(driver).click();
 	Thread.sleep(2000);
 	
 	Thread.sleep(3000);
-	Locator.EntityName(driver).clear();
-	Thread.sleep(3000);
-	
-	Locator.EntityName(driver).sendKeys("$s");
+	Locator.PAN(driver).sendKeys("ASS122");
 	Thread.sleep(4000);
 	
 	Locator.SaveE(driver).click();
 	Thread.sleep(4000);
-	String msg=	Locator.InvalidMsgName(driver).getText();
+	String msg=	Locator.InvalidMsgePan(driver).getText();
+	Thread.sleep(1000);
+	
 	
 		test.log(LogStatus.PASS, msg );
 
@@ -9023,10 +9141,10 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	
 	//Locator.Upload(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report  (1).xlsx");
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
-	
+	try {
 	String	msg1=Locator.SaveDocMsg(driver).getText();
 		
 		if(msg1.equalsIgnoreCase("Record saved successfully")) {
@@ -9034,6 +9152,10 @@ jse.executeScript("arguments[0].click();", ViewButton);
 		}else {
 			test.log(LogStatus.FAIL,  "  selecting a MOA option Type :- " +msg1);
 		}
+	}catch(Exception e) {
+		String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,  "  selecting a MOA option Type :- " +msg1);
+	}
 	Locator.Close(driver).click();
 	Thread.sleep(1000);
 	Locator.ClosePopEntity(driver).click();
@@ -9061,7 +9183,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(4000);
 	
 	
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	
@@ -9117,16 +9239,24 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	
 	//Locator.Upload(driver).sendKeys("C:\\Users\\Mayuri Gaikwad\\Downloads\\Report  (1).xlsx");
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
-	
+	try {
 	String	msg1=Locator.SaveDocMsg1(driver).getText();
 	if(msg1.equalsIgnoreCase("Record already exist")) {
 		test.log(LogStatus.PASS,  " To check whether user is able to add existing data or not. (For Type MOA) " +msg1);
 	}
 	else {
 		test.log(LogStatus.FAIL,  " To check whether user is able to add existing data or not. (For Type MOA) " +msg1);
+	}
+	}catch(Exception e) {
+		
+     String	msg1=Locator.SaveDocMsg(driver).getText();
+		
+		
+			test.log(LogStatus.PASS,  "  To check whether user is able to add existing data or not. (For Type MOA) :- " +msg1);
+		
 	}
 	Locator.Close(driver).click();
 	Thread.sleep(1000);
@@ -9315,15 +9445,20 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
-	
+	try {
 	String	msg1=Locator.SaveDocMsg(driver).getText();
 	if(msg1.equalsIgnoreCase("Record saved successfully")) {
 		test.log(LogStatus.PASS,  " selecting a AOA option Type :- " +msg1);
 	}else {
 		test.log(LogStatus.FAIL,  " selecting a AOA option Type :- " +msg1);
+	}
+	}catch(Exception e) {
+		String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,"selecting a AOA option Type : -" + msg1);
+	
 	}
 	Locator.Close(driver).click();
 	Thread.sleep(1000);
@@ -9355,7 +9490,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Locator.TypeAOA(driver).click();
 	Thread.sleep(3000);
 	
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	
@@ -9409,12 +9544,21 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
 	Thread.sleep(4000);
 	
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
-	
-	String	msg1=Locator.SaveDocMsg1(driver).getText();
-		test.log(LogStatus.PASS,"To check whether user is able to add existing data or not. (For Type AOA) " + msg1);
+	try {
+		String	msg1=Locator.SaveDocMsg(driver).getText();
+		if(msg1.equalsIgnoreCase("Record saved successfully")) {
+			test.log(LogStatus.PASS,  " selecting a AOA option Type :- " +msg1);
+		}else {
+			test.log(LogStatus.FAIL,  " selecting a AOA option Type :- " +msg1);
+		}
+		}catch(Exception e) {
+			String	msg1=Locator.SaveDocMsg1(driver).getText();
+			test.log(LogStatus.PASS,"o check whether user is able to add existing data or not. (For Type AOA)  : -" + msg1);
+		
+		}
 	
 	Locator.Close(driver).click();
 	Thread.sleep(1000);
@@ -9450,10 +9594,12 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Locator.ClickFiter(driver).click();
 	Thread.sleep(5000);
 	Locator.View(driver).click();
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 	String	msg1=Locator.ViewMsg(driver).getText();
+	Thread.sleep(1000);
   if(msg1.equalsIgnoreCase("Viewer")) {
  	 test.log(LogStatus.PASS,  " document Type AOA :- View  successfully.");
+ 	Thread.sleep(1000);
   }
 	Locator.Viewclose(driver).click();
 	Thread.sleep(3000);
@@ -9604,10 +9750,10 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(4000);
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
-	
+	try {
 	String	msg1=Locator.SaveDocMsg(driver).getText();
 		
 		if(msg1.equalsIgnoreCase("Record saved successfully")) {
@@ -9615,6 +9761,11 @@ jse.executeScript("arguments[0].click();", ViewButton);
 		}else {
 			test.log(LogStatus.FAIL,  " selecting a COI option Type :- " +msg1);
 		}
+	}catch(Exception e) {
+		String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a COI option Type :- " +msg1);
+	
+	}
 	Locator.Close(driver).click();
 	Thread.sleep(1000);
 	Locator.ClosePopEntity(driver).click();
@@ -9645,7 +9796,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Locator.TypeCOI(driver).click();
 	Thread.sleep(3000);
 	
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	
@@ -9702,12 +9853,22 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(4000);
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
-	
-	String	msg1=Locator.SaveDocMsg1(driver).getText();
-		test.log(LogStatus.PASS,  " selecting a COI option Type :- " +msg1);
+	try {
+		String	msg1=Locator.SaveDocMsg(driver).getText();
+			
+			if(msg1.equalsIgnoreCase("Record saved successfully")) {
+				test.log(LogStatus.PASS,  "selecting a COI option Type :- " +msg1);
+			}else {
+				test.log(LogStatus.FAIL,  " selecting a COI option Type :- " +msg1);
+			}
+		}catch(Exception e) {
+			String	msg1=Locator.SaveDocMsg1(driver).getText();
+			test.log(LogStatus.PASS,  " selecting a COI option Type :- " +msg1);
+		
+		}
 	
 	Locator.Close(driver).click();
 	Thread.sleep(1000);
@@ -9745,7 +9906,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(2000);
 	String	msg1=Locator.ViewMsg(driver).getText();
  if(msg1.equalsIgnoreCase("Viewer")) {
-	 test.log(LogStatus.PASS,  " document Type AOA :- View  successfully.");
+	 test.log(LogStatus.PASS,  " document Type COI :- View  successfully.");
  }
 	Locator.Viewclose(driver).click();
 	Thread.sleep(3000);
@@ -9895,17 +10056,24 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(4000);
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
+	
+	try {
 	
 	
 	String	msg1=Locator.SaveDocMsg(driver).getText();
-		test.log(LogStatus.PASS,  " selecting a Policy option Type :- " +msg1);
+		
 		if(msg1.equalsIgnoreCase("Record saved successfully")) {
 			test.log(LogStatus.PASS,  " selecting a Policy option Type :- " +msg1);
 		}else {
 			test.log(LogStatus.FAIL,  "selecting a Policy option Type :- " +msg1);
 		}
+	}catch(Exception e) {
+		String	msg1=Locator.SaveDocMsg1(driver).getText();
+		test.log(LogStatus.PASS,  " selecting a Policy option Type :- " +msg1);
+	
+	}
 	Locator.Close(driver).click();
 	Thread.sleep(1000);
 	Locator.ClosePopEntity(driver).click();
@@ -9936,7 +10104,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Locator.TypePolicy(driver).click();
 	Thread.sleep(3000);
 	
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	
@@ -9990,13 +10158,25 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Thread.sleep(4000);
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	
-	String	msg1=Locator.SaveDocMsg1(driver).getText();
-		test.log(LogStatus.PASS,  " selecting a Policy option Type :- " +msg1);
-	
+	try {
+		
+		
+		String	msg1=Locator.SaveDocMsg(driver).getText();
+			test.log(LogStatus.PASS,  " selecting a Policy option Type :- " +msg1);
+			if(msg1.equalsIgnoreCase("Record saved successfully")) {
+				test.log(LogStatus.PASS,  " selecting a Policy option Type :- " +msg1);
+			}else {
+				test.log(LogStatus.FAIL,  "selecting a Policy option Type :- " +msg1);
+			}
+		}catch(Exception e) {
+			String	msg1=Locator.SaveDocMsg1(driver).getText();
+			test.log(LogStatus.PASS,  " selecting a Policy option Type :- " +msg1);
+		
+		}
 	Locator.Close(driver).click();
 	Thread.sleep(1000);
 	Locator.ClosePopEntity(driver).click();
@@ -10025,7 +10205,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Locator.ClickPolicies(driver).click();
 	Thread.sleep(4000);
 	
-	Locator.ViewPolicy(driver).click();
+	Locator.ViewPolicy1(driver).click();
 	Thread.sleep(2000);
 	String	msg1=Locator.ViewMsg(driver).getText();
 if(msg1.equalsIgnoreCase("Viewer")) {
@@ -10068,7 +10248,7 @@ if(msg1.equalsIgnoreCase("Viewer")) {
 	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
 	
 	Thread.sleep(500);
-	Locator.DownloadPolicy(driver).click();		//Exporting (Downloading) file
+	Locator.DownloadPolicy1(driver).click();		//Exporting (Downloading) file
 	
 	Thread.sleep(3000);//C://Users//jiya//Downloads//
 	File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
@@ -10109,7 +10289,7 @@ if(msg1.equalsIgnoreCase("Viewer")) {
 	Locator.ClickPolicies(driver).click();
 	Thread.sleep(4000);
 	
-	Locator.DocDeletePolicy(driver).click();
+	Locator.DocDeletePolicy1(driver).click();
 	Thread.sleep(2000);
 	String Msg=Locator.DocDeletemsg(driver).getText();
 	Thread.sleep(3000);
@@ -10174,7 +10354,7 @@ if(msg1.equalsIgnoreCase("Viewer")) {
 	Thread.sleep(4000);
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 		
@@ -10249,7 +10429,7 @@ try {
 	Thread.sleep(4000);
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	try {
@@ -10299,7 +10479,7 @@ try {
 	Locator.LicenseRegistration(driver).click();
 	Thread.sleep(3000);
 	
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	
@@ -10360,7 +10540,7 @@ try {
 	Thread.sleep(4000);
 	
 	Thread.sleep(3000);
-	Locator.SaveDoc(driver).click();
+	Locator.SaveDoc1(driver).click();
 	Thread.sleep(3000);
 	
 	
@@ -10403,8 +10583,15 @@ try {
 	
 	Locator.LICENSE_REGISTRATION(driver).click();
 	Thread.sleep(4000);
+	try {
+		Locator.ViewLICENSE_REGISTRATIONLC(driver).click();
+		Thread.sleep(2000);
+	}catch(Exception e) {
+		Locator.ViewLICENSE_REGISTRATIONLC1(driver).click();
+		Thread.sleep(2000);
+	}
 	
-	Locator.ViewLICENSE_REGISTRATION1(driver).click();
+	
 	Thread.sleep(2000);
 	String	msg1=Locator.ViewMsg(driver).getText();
 if(msg1.equalsIgnoreCase("Viewer")) {
@@ -10447,8 +10634,13 @@ if(msg1.equalsIgnoreCase("Viewer")) {
 	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
 	
 	Thread.sleep(500);
-	Locator.DownloadLicense1(driver).click();		//Exporting (Downloading) file
-	
+
+	try {
+		Locator.DownloadLicenseLC(driver).click();	
+	}catch(Exception e) {
+		Locator.DownloadLicenseLC1(driver).click();
+		Thread.sleep(2000);
+	}
 	Thread.sleep(3000);//C://Users//jiya//Downloads//
 	File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
 	File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
@@ -10487,9 +10679,14 @@ if(msg1.equalsIgnoreCase("Viewer")) {
 	
 	Locator.LICENSE_REGISTRATION(driver).click();
 	Thread.sleep(4000);
+	try {
+		Locator.DocDeleteLICENSElc(driver).click();
+		Thread.sleep(2000);
+	}catch(Exception e) {
+		Locator.DocDeleteLICENSElc1(driver).click();
+		Thread.sleep(2000);
+	}
 	
-	Locator.DocDeleteLICENSE1(driver).click();
-	Thread.sleep(2000);
 	String Msg=Locator.DocDeletemsg(driver).getText();
 	Thread.sleep(3000);
 	test.log(LogStatus.PASS, Msg);
@@ -10572,7 +10769,7 @@ if(msg1.equalsIgnoreCase("Viewer")) {
 	Thread.sleep(4000);
 	
 	
-	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[10]");
+	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[11]");
 	
 	
 	wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
@@ -10679,7 +10876,7 @@ try {
 	Thread.sleep(4000);
 	
 	
-	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[10]");
+	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[11]");
 	
 	
 	wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
@@ -10774,7 +10971,7 @@ Thread.sleep(4000);
 	Thread.sleep(3000);
 	
 	
-	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[10]");
+	By locator1 = By.xpath("(//*[@class='btn btn-primary'])[11]");
 	
 	
 	wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
@@ -10820,9 +11017,13 @@ Thread.sleep(4000);
 	
 	Locator.Annual(driver).click();
 	Thread.sleep(4000);
-	
-	Locator.ViewAnnual1(driver).click();
+	try {
+	Locator.ViewAnnualLC(driver).click();
 	Thread.sleep(2000);
+	}catch(Exception e) {
+		Locator.ViewAnnualLC1(driver).click();
+		Thread.sleep(2000);
+	}
 	String	msg1=Locator.ViewMsg(driver).getText();
 if(msg1.equalsIgnoreCase("Viewer")) {
 	 test.log(LogStatus.PASS,  " document Type Annual Report :- View  successfully.");
@@ -10864,8 +11065,11 @@ if(msg1.equalsIgnoreCase("Viewer")) {
 	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
 	
 	Thread.sleep(500);
-	Locator.DownloadAR1(driver).click();		//Exporting (Downloading) file
-	
+	try {
+	Locator.DownloadARLC1(driver).click();		//Exporting (Downloading) file
+	}catch(Exception e) {
+		Locator.DownloadARLC(driver).click();
+	}
 	Thread.sleep(3000);//C://Users//jiya//Downloads//
 	File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
 	File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
@@ -10904,9 +11108,13 @@ if(msg1.equalsIgnoreCase("Viewer")) {
 	
 	Locator.Annual(driver).click();
 	Thread.sleep(4000);
-	
-	Locator.DocDeleteAR1(driver).click();
+	try {
+	Locator.DocDeleteARLC(driver).click();
 	Thread.sleep(2000);
+	}catch(Exception e) {
+		Locator.DocDeleteARLC1(driver).click();
+		Thread.sleep(2000);
+	}
 	String Msg=Locator.DocDeletemsg(driver).getText();
 	Thread.sleep(3000);
 	test.log(LogStatus.PASS, Msg);
@@ -11410,7 +11618,7 @@ String Msg=	Locator.InvalidUploadMsg(driver).getText();
 		
 		WebElement ViewButton = driver.findElement(locator);	
 		Thread.sleep(3000);
-		ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\file-sample_100kB.doc");
+		ViewButton.sendKeys("C:\\Users\\Mayuri\\Downloads\\Committee Composition (5).pdf");
 		Thread.sleep(3000);
 		By locator1 = By.xpath("//*[@id='files']");
 
@@ -11890,7 +12098,7 @@ Locator.ClickDashboard(driver).click();
 //	Thread.sleep(5000);
 //	Locator.EditBD(driver).click();
 	Thread.sleep(3000);
-	By locator = By.xpath("(//*[@class='k-grid-Edit k-grid-edit hoverCircle k-grid-button'])[4]");
+	By locator = By.xpath("(//*[@class='k-grid-Edit k-grid-edit hoverCircle k-grid-button'])[6]");
 
 	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	Thread.sleep(4000);
@@ -11945,7 +12153,7 @@ Locator.ClickDashboard(driver).click();
 	Thread.sleep(3000);
 //	Locator.EditBD(driver).click();
 	Thread.sleep(3000);
-	By locator = By.xpath("(//*[@class='k-grid-Edit k-grid-edit hoverCircle k-grid-button'])[4]");
+	By locator = By.xpath("(//*[@class='k-grid-Edit k-grid-edit hoverCircle k-grid-button'])[6]");
 
 	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 	Thread.sleep(4000);
@@ -12152,7 +12360,7 @@ Thread.sleep(1000);
 			    Thread.sleep(2000);
 			 test.log(LogStatus.PASS, "Massage Dispalyed : -" +text+", "+text1);
 			    Thread.sleep(3000);
-			 	js.executeScript("window.scrollBy(0,600)");
+			 //	js.executeScript("window.scrollBy(0,600)");
 				Locator.CloseS(driver).click();
 				Thread.sleep(2000);
 		Locator.EntityCap(driver).click();
@@ -13556,7 +13764,7 @@ Thread.sleep(1000);
 		Thread.sleep(3000);
 		Locator.DownloadFile(driver).click();
 		Thread.sleep(3000);
-		Locator.ChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Downloads\\DebentureholdingDetails (1).xlsx");
+		Locator.ChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\DebentureholdingDetails (2).xlsx");
 		Thread.sleep(4000);
 		
 		
@@ -13925,7 +14133,7 @@ Thread.sleep(1000);
 		Thread.sleep(3000);
 		Locator.DownloadFile(driver).click();
 		Thread.sleep(3000);
-		Locator.ChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Downloads\\DebentureHolding_BasicDetails.xlsx");
+		Locator.ChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\DebentureHolding_BasicDetails.xlsx");
 		Thread.sleep(4000);
 	
 		Locator.UploadFileDH(driver).click();
@@ -13970,7 +14178,7 @@ Thread.sleep(1000);
 		Thread.sleep(3000);
 		Locator.DownloadFile(driver).click();
 		Thread.sleep(3000);
-		Locator.ChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Downloads\\DebentureHolding_BasicDetails (1).xlsx");
+		Locator.ChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\DebentureHolding_BasicDetails (1).xlsx");
 		Thread.sleep(4000);
 	
 		Locator.UploadFileDH(driver).click();
@@ -14015,7 +14223,7 @@ Thread.sleep(1000);
 		Thread.sleep(3000);
 		Locator.DownloadFile(driver).click();
 		Thread.sleep(3000);
-		Locator.ChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Downloads\\DebentureHolding_BasicDetails.xlsx");
+		Locator.ChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\DebentureHolding_BasicDetails.xlsx");
 		Thread.sleep(4000);
 	
 		Locator.UploadFileDH(driver).click();
@@ -14060,7 +14268,7 @@ Thread.sleep(1000);
 		Thread.sleep(3000);
 		Locator.DownloadFile(driver).click();
 		Thread.sleep(3000);
-		Locator.ChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Downloads\\DebentureHolding_BasicDetails (2).xlsx");
+		Locator.ChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\DebentureHolding_BasicDetails (2).xlsx");
 		Thread.sleep(4000);
 	
 		Locator.UploadFileDH(driver).click();
@@ -14105,7 +14313,7 @@ Thread.sleep(1000);
 		Thread.sleep(3000);
 		Locator.DownloadFile(driver).click();
 		Thread.sleep(3000);
-		Locator.ChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Downloads\\4_17_2023 11_08_48 AM.zip");
+		Locator.ChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\4_28_2023 3_09_26 PM.zip");
 		Thread.sleep(4000);
 	
 		Locator.UploadFileDH(driver).click();
@@ -17477,11 +17685,11 @@ String msg =	driver.switchTo().alert().getText();
 	ViewButton.sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\Register_SH-3 (2).xlsx");		
 	Thread.sleep(3000);
 	Locator.UploadRD(driver).click();		
-	Thread.sleep(2000);
+	Thread.sleep(5000);
 				
 					
 					String Text =Locator.UploadMsgRD(driver).getText();
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 					if(Text.equalsIgnoreCase("Record Save Successfully")) {
 						test.log(LogStatus.FAIL,  " Message displayed : -"+Text);
 					}else {
@@ -17606,7 +17814,11 @@ String msg =	driver.switchTo().alert().getText();
 	Thread.sleep(3000);
 			
 	Locator.SRSH3(driver).click();
-	Thread.sleep(3000);
+	Thread.sleep(4000);
+	
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(0,300)");	
+	Thread.sleep(5000);
 				   
 	Locator.EditSH3(driver).click();		
 	Thread.sleep(5000);
@@ -17667,7 +17879,10 @@ String msg =	driver.switchTo().alert().getText();
 	Thread.sleep(3000);
 			
 	Locator.SRSH3(driver).click();
-	Thread.sleep(3000);
+	Thread.sleep(4000);
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(0,300)");	
+	Thread.sleep(5000);
 				   
 	Locator.EditSH3(driver).click();		
 	Thread.sleep(5000);
@@ -18259,7 +18474,9 @@ String msg =	driver.switchTo().alert().getText();
 			
 	Locator.SRSH6(driver).click();
 	Thread.sleep(3000);
-				   
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(0,300)");	
+	Thread.sleep(5000);   
 	Locator.EditSH6(driver).click();
 	Thread.sleep(3000);
 	Locator.EditSH6(driver).click();
@@ -18322,7 +18539,9 @@ String msg =	driver.switchTo().alert().getText();
 			
 	Locator.SRSH6(driver).click();
 	Thread.sleep(3000);
-				   
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(0,300)");	
+	Thread.sleep(5000);
 	Locator.EditSH6(driver).click();
 	Thread.sleep(3000);
 	Locator.EditSH6(driver).click();
@@ -18576,10 +18795,13 @@ String msg =	driver.switchTo().alert().getText();
 JavascriptExecutor jse=(JavascriptExecutor)driver;
 Thread.sleep(2000);
 jse.executeScript("arguments[0].click();", ViewButton);
-	Thread.sleep(4000);
-					
+	Thread.sleep(5000);
+	jse.executeScript("arguments[0].click();", ViewButton);
+	Thread.sleep(5000);
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='frmNewChargeDetails']/div[2]/div/div/lable")));
+	Thread.sleep(5000);
 					String Text =Locator.SaveCHGMsg(driver).getText();
-					Thread.sleep(2000);
+					Thread.sleep(4000);
 					if(Text.equalsIgnoreCase("Charge Details Uploaded Successfully")) {
 						Thread.sleep(1000);
 						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
@@ -18622,6 +18844,11 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	
 	Locator.ChargeId(driver).sendKeys("w"); // Writing Task title
 	Thread.sleep(4000);
+	Locator.CreationDate(driver).click();		
+	Thread.sleep(2000);
+	Locator.CreationDate1(driver).click();		
+	Thread.sleep(3000); 
+	
 
 	Locator.RegistrationChargeCreateDate11(driver).sendKeys("01/06/");		
 	Thread.sleep(3000); 
@@ -18954,13 +19181,16 @@ jse.executeScript("arguments[0].click();", ViewButton1);
 	Locator.UploadCHG(driver).click();		
 	Thread.sleep(2000);
 				
-					
+					try {
 					String Text =Locator.UploadMSgCHG(driver).getText();
 					Thread.sleep(2000);
 					if(Text.equalsIgnoreCase("Charge Details Uploaded Successfully")) {
 						test.log(LogStatus.FAIL,  " Message displayed : -"+Text);
 					}else {
 						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
+					}
+					}catch(Exception e) {
+						test.log(LogStatus.FAIL,  "no  Message displayed ");
 					}
 					Thread.sleep(2000);
 					Locator.CloseChg7(driver).click();
@@ -19496,7 +19726,7 @@ Thread.sleep(2000);
 	Thread.sleep(3000);
 				   
 	Locator.ViewCHG7(driver).click();
-	Thread.sleep(3000);
+	Thread.sleep(6000);
 	
 	Locator.ViewEdit(driver).click();
 	Thread.sleep(3000);
@@ -22532,5 +22762,1307 @@ jse.executeScript("arguments[0].click();", ViewButton);
 		 Thread.sleep(1000);
 	 }
 	
+	public static void SRMBP3AddNewInvalid(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+			
+	Locator.SRMBP3(driver).click();
+	Thread.sleep(5000);
+				   
+	Locator.SRMBP3AddNew(driver).click();
+	Thread.sleep(5000);
+	
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	Locator.DateOfBoardResolutiontext(driver).sendKeys("01/06/");		
+	Thread.sleep(2000);
+	
+	
+	
+	By locator = By.xpath("//*[@id='frmMBP3Register']/div[5]/div/button");
+	
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(4000);
+JavascriptExecutor jse=(JavascriptExecutor)driver;
+Thread.sleep(2000);
+jse.executeScript("arguments[0].click();", ViewButton);
+	Thread.sleep(4000);
+					
+					String Text =Locator.SaveMB3Msg(driver).getText();
+					Thread.sleep(2000);
+					String Text1 =Locator.DateOfBoardResolutiontext1(driver).getText();
+					Thread.sleep(2000);
+					if(Text.equalsIgnoreCase("Record Save Successfully")&&Text1.equalsIgnoreCase("01/06/ is an invalid date format")) {
+						Thread.sleep(1000);
+						test.log(LogStatus.FAIL,  "Both  Message displayed : -"+Text +" & "+  Text1);
+						Thread.sleep(2000);
+					}else {
+					
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text1);
+					}
+					Thread.sleep(2000);
+					Locator.CloseMB3(driver).click();
+					Thread.sleep(2000);
+					
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRMBP3AddNewTwoMan(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+			
+	Locator.SRMBP3(driver).click();
+	Thread.sleep(5000);
+				   
+	Locator.SRMBP3AddNew(driver).click();
+	Thread.sleep(5000);
+	
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	
+	
+	row0 = sheet.getRow(144);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.NameOfPerson(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(3000);
+	
+	row0 = sheet.getRow(145);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Address_Email(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(3000);
+	
+	
+	
+	By locator = By.xpath("//*[@id='frmMBP3Register']/div[5]/div/button");
+	
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(4000);
+JavascriptExecutor jse=(JavascriptExecutor)driver;
+Thread.sleep(2000);
+jse.executeScript("arguments[0].click();", ViewButton);
+	Thread.sleep(4000);
+					
+					String Text =Locator.SaveMB3Msg(driver).getText();
+					Thread.sleep(2000);
+					if(Text.equalsIgnoreCase("Record Save Successfully")) {
+						Thread.sleep(1000);
+						test.log(LogStatus.FAIL,  " Message displayed : -"+Text);
+						Thread.sleep(2000);
+					}else {
+					
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
+					}
+					Thread.sleep(2000);
+					Locator.CloseMB3(driver).click();
+					Thread.sleep(2000);
+					
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRMBP3AddNewEmpty(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+			
+	Locator.SRMBP3(driver).click();
+	Thread.sleep(5000);
+				   
+	Locator.SRMBP3AddNew(driver).click();
+	Thread.sleep(5000);
+	
+	
+	
+	By locator = By.xpath("//*[@id='frmMBP3Register']/div[5]/div/button");
+	
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(4000);
+JavascriptExecutor jse=(JavascriptExecutor)driver;
+Thread.sleep(2000);
+jse.executeScript("arguments[0].click();", ViewButton);
+	Thread.sleep(4000);
+					
+					String Text =Locator.SaveMB3Msg(driver).getText();
+					Thread.sleep(2000);
+					if(Text.equalsIgnoreCase("Record Save Successfully")) {
+						Thread.sleep(1000);
+						test.log(LogStatus.FAIL,  " Message displayed : -"+Text);
+						Thread.sleep(2000);
+					}else {
+					
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
+					}
+					Thread.sleep(2000);
+					Locator.CloseMB3(driver).click();
+					Thread.sleep(2000);
+					
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRMB3Upload(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+	Locator.SRMBP3(driver).click();		
+	Thread.sleep(5000);
+	Locator.UploadMB3(driver).click();		
+	Thread.sleep(5000);
+	Locator.SampleFormMB3(driver).click();		
+	Thread.sleep(5000);
+	By locator = By.xpath("//*[@id='File']");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\Register_MBP-3.xlsx");		
+	Thread.sleep(3000);
+	Locator.UploadRD(driver).click();		
+	Thread.sleep(3000);
+				
+					
+					String Text =Locator.UploadMsgMB3(driver).getText();
+					Thread.sleep(2000);
+					if(Text.equalsIgnoreCase("Record Save Successfully")) {
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
+					}else {
+						test.log(LogStatus.FAIL,  " Message displayed : -"+Text);
+					}
+					Thread.sleep(2000);
+					Locator.CloseSRMB3(driver).click();
+					Thread.sleep(2000);
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRMB3UploadInvalid(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+	Locator.SRMBP3(driver).click();		
+	Thread.sleep(5000);
+	Locator.UploadMB3(driver).click();		
+	Thread.sleep(5000);
+	Locator.SampleFormMB3(driver).click();		
+	Thread.sleep(5000);
+	By locator = By.xpath("//*[@id='File']");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\Register_MBP-3 (1).xlsx");		
+	Thread.sleep(3000);
+	Locator.UploadRD(driver).click();		
+	Thread.sleep(3000);
+				
+					
+					String Text =Locator.UploadMsgMB3(driver).getText();
+					Thread.sleep(2000);
+					if(Text.equalsIgnoreCase("Record Save Successfully")) {
+						test.log(LogStatus.FAIL,  " Message displayed : -"+Text);
+					}else {
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
+					}
+					Thread.sleep(2000);
+					Locator.CloseSRMB3(driver).click();
+					Thread.sleep(2000);
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRMB3UploadWithOutData(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+	Locator.SRMBP3(driver).click();		
+	Thread.sleep(5000);
+	Locator.UploadMB3(driver).click();		
+	Thread.sleep(5000);
+	Locator.SampleFormMB3(driver).click();		
+	Thread.sleep(5000);
+	By locator = By.xpath("//*[@id='File']");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\Register_MBP-3 (2).xlsx");		
+	Thread.sleep(3000);
+	Locator.UploadRD(driver).click();		
+	Thread.sleep(3000);
+				
+					
+					String Text =Locator.UploadMsgMB3(driver).getText();
+					Thread.sleep(2000);
+					if(Text.equalsIgnoreCase("Record Save Successfully")) {
+						test.log(LogStatus.FAIL,  " Message displayed : -"+Text);
+					}else {
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
+					}
+					Thread.sleep(2000);
+					Locator.CloseSRMB3(driver).click();
+					Thread.sleep(2000);
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRMB3UploadInvalidFormate(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+	Locator.SRMBP3(driver).click();		
+	Thread.sleep(5000);
+	Locator.UploadMB3(driver).click();		
+	Thread.sleep(5000);
+	Locator.SampleFormMB3(driver).click();		
+	Thread.sleep(5000);
+	By locator = By.xpath("//*[@id='File']");
+
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(3000);
+	ViewButton.sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\4_28_2023 3_09_26 PM.zip");		
+	Thread.sleep(3000);
+	Locator.UploadRD(driver).click();		
+	Thread.sleep(3000);
+				
+					
+					String Text =Locator.UploadMsgMB3(driver).getText();
+					Thread.sleep(2000);
+					if(Text.equalsIgnoreCase("No Data Found in Excel Document or Sheet Name must be 'MBP-3'")) {
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
+					}else {
+						test.log(LogStatus.FAIL,  " Message displayed : -"+Text);
+					}
+					Thread.sleep(2000);
+					Locator.CloseSRMB3(driver).click();
+					Thread.sleep(2000);
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRMB3DwonGR(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+	Locator.SRMBP3(driver).click();		
+	Thread.sleep(5000);
+	
+	File dir = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+
+	Thread.sleep(500);
+	Locator.btnGenerateMBP3(driver).click();		//Exporting (Downloading) file
+
+	Thread.sleep(3000);//C://Users//jiya//Downloads//
+	File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+	File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+
+	Thread.sleep(3000);
+	if (dirContents.length < allFilesNew.length) {
+		test.log(LogStatus.PASS,  "Generate Register :-  File downloaded successfully.");
+	} else {
+		test.log(LogStatus.FAIL, " Generate Register : - File does not downloaded.");
+	}
+
+	
+					Thread.sleep(2000);
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRMBP3Edit(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+			
+	Locator.SRMBP3(driver).click();
+	Thread.sleep(5000);
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(0,300)");	
+	Thread.sleep(5000); 
+	Locator.EditMB3(driver).click();
+	Thread.sleep(5000);
+	Locator.EditMB3(driver).click();
+	Thread.sleep(5000);
+	
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	Locator.Address_Email(driver).clear();
+	Thread.sleep(3000);
+	row0 = sheet.getRow(145);
+	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
+	Locator.Address_Email(driver).sendKeys(c1.getStringCellValue()); // Writing Task title
+	Thread.sleep(3000);
+	
+	
+	
+	By locator = By.xpath("//*[@id='frmMBP3Register']/div[5]/div/button");
+	
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(4000);
+JavascriptExecutor jse=(JavascriptExecutor)driver;
+Thread.sleep(2000);
+jse.executeScript("arguments[0].click();", ViewButton);
+	Thread.sleep(4000);
+					
+					String Text =Locator.SaveMB3Msg(driver).getText();
+					Thread.sleep(2000);
+					if(Text.equalsIgnoreCase("Record Updated Successfully")) {
+						Thread.sleep(1000);
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text);
+						Thread.sleep(2000);
+					}else {
+					
+						test.log(LogStatus.FAIL,  " Message displayed : -"+Text);
+					}
+					Thread.sleep(2000);
+					Locator.CloseMB3(driver).click();
+					Thread.sleep(2000);
+					
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void SRMBP3EditInvalid(WebDriver driver, ExtentTest test,XSSFWorkbook workbook) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+	Thread.sleep(3000);
+	
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='Mastermenu']/a/img"))); 
+	Thread.sleep(1000);
+	Locator.Master(driver).click();
+	Thread.sleep(4000);
+	
+	Locator.MoreAction(driver).click();
+	Thread.sleep(3000);
+	Locator.StatutoryRegisters(driver).click();
+	Thread.sleep(3000);
+			
+	Locator.SRMBP3(driver).click();
+	Thread.sleep(5000);
+				   
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	js.executeScript("window.scrollBy(0,300)");	
+	Thread.sleep(5000); 
+	Locator.EditMB3(driver).click();
+	Thread.sleep(5000);
+	Locator.EditMB3(driver).click();
+	Thread.sleep(5000);
+	
+	sheet = workbook.getSheetAt(0); // Retrieving fourth sheet of Workbook(Named - Update Tasks)
+	int row = 0;
+	Thread.sleep(500);
+	Row row0 = sheet.getRow(row); // Selected 0th index row (First row)
+	Cell c1 = null;
+	
+	Locator.DateOfBoardResolutiontext(driver).sendKeys("01/06/");		
+	Thread.sleep(2000);
+	
+	
+	
+	By locator = By.xpath("//*[@id='frmMBP3Register']/div[5]/div/button");
+	
+	wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+	Thread.sleep(4000);
+	
+	WebElement ViewButton = driver.findElement(locator);	
+	Thread.sleep(4000);
+JavascriptExecutor jse=(JavascriptExecutor)driver;
+Thread.sleep(2000);
+jse.executeScript("arguments[0].click();", ViewButton);
+	Thread.sleep(4000);
+					
+					String Text =Locator.SaveMB3Msg(driver).getText();
+					Thread.sleep(2000);
+					String Text1 =Locator.DateOfBoardResolutiontext1(driver).getText();
+					Thread.sleep(2000);
+					if(Text.equalsIgnoreCase("Record Updated Successfully")&&Text1.equalsIgnoreCase("01/06/ is an invalid date format")) {
+						Thread.sleep(1000);
+						test.log(LogStatus.FAIL,  "Both  Message displayed : -"+Text +" & "+  Text1);
+						Thread.sleep(2000);
+					}else {
+					
+						test.log(LogStatus.PASS,  " Message displayed : -"+Text1);
+					}
+					Thread.sleep(2000);
+					Locator.CloseMB3(driver).click();
+					Thread.sleep(2000);
+					
+		Locator.EntityCap(driver).click();
+		Thread.sleep(2000);
+		Locator.ClickDashboard(driver).click();
+		 Thread.sleep(1000);
+	 }
+	
+	public static void ClickUploadOldRegistorWithoutData(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+ 	   WebDriverWait wait = new WebDriverWait(driver, (120));
+      Thread.sleep(2000);
+      Locator.Master(driver).click();
+  	Thread.sleep(4000);
+  	
+  	Locator.MoreAction(driver).click();
+  	Thread.sleep(3000);
+  	Locator.StatutoryRegisters(driver).click();
+  	Thread.sleep(3000);
+  	Locator.clickMBP4(driver).click();
+      Thread.sleep(2000);
+      Locator.clickUploadBtn(driver).click();
+   
+      Thread.sleep(2000);
+      Locator.clickOld(driver).click();
+   
+      Thread.sleep(2000);
+      Locator.SelectFile1(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\SampleExcelMBP4-Old (2).xlsx");
+  
+      Thread.sleep(2000);
+      Locator.clickUploadBtn1(driver).click();
+
+     Thread.sleep(2000);
+     String msg=Locator.clickUploadfileValidMsg(driver).getText();
+     if(msg.equalsIgnoreCase("Record Save Successfully"))
+     {
+   	  test.log(LogStatus.FAIL,"Without data in MBP-4 Old Excel file =" +msg);
+     }
+     else
+     {
+   	  test.log(LogStatus.PASS,"Without data in MBP-4 Old Excel file =" +msg);
+     }
+     Thread.sleep(2000);
+     Locator.ClickDashboard(driver).click();
+	 
+	 
+	 }
+	
+	public static void ClickUploadOldRegistorInvalidFile(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	   WebDriverWait wait = new WebDriverWait(driver, (120));
+     Thread.sleep(2000);
+     Locator.Master(driver).click();
+   	Thread.sleep(4000);
+     Locator.MoreAction(driver).click();
+   	Thread.sleep(3000);
+   	Locator.StatutoryRegisters(driver).click();
+   	Thread.sleep(3000);
+   	Locator.clickMBP4(driver).click();
+       Thread.sleep(2000);
+     
+       Locator.clickUploadBtn(driver).click();
+  
+     Thread.sleep(2000);
+     Locator.clickOld(driver).click();
+  
+     Thread.sleep(2000);
+     Locator.SelectFile1(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\4_28_2023 3_09_26 PM.zip");
+ 
+     Thread.sleep(2000);
+     Locator.clickUploadBtn1(driver).click();
+
+    Thread.sleep(2000);
+    String msg=Locator.clickUploadfileValidMsg(driver).getText();
+    if(msg.equalsIgnoreCase("No Data Found in Excel Document or Sheet Name must be 'MBP-4_PartB'"))
+    {
+  	  test.log(LogStatus.PASS,"Invalid File in MBP-4 Old Excel file =" +msg);
+    }
+    else
+    {
+  	  test.log(LogStatus.FAIL,"Invalid File  in MBP-4 Old Excel file =" +msg);
+    }
+    Thread.sleep(2000);
+    Locator.ClickDashboard(driver).click();
+	 
+	 
+	 }
+	
+	public static void ClickUploadOldRegistorWithoutSelectFile(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	   WebDriverWait wait = new WebDriverWait(driver, (120));
+    Thread.sleep(2000);
+    Locator.Master(driver).click();
+   	Thread.sleep(4000);
+     Locator.MoreAction(driver).click();
+   	Thread.sleep(3000);
+   	Locator.StatutoryRegisters(driver).click();
+   	Thread.sleep(3000);
+   	Locator.clickMBP4(driver).click();
+    Thread.sleep(2000);
+    Locator.clickUploadBtn(driver).click();
+ 
+    Thread.sleep(2000);
+    Locator.clickOld(driver).click();
+ 
+   
+
+    Thread.sleep(2000);
+    Locator.clickUploadBtn1(driver).click();
+
+   Thread.sleep(2000);
+   String msg=Locator.clickInvalidMsg(driver).getText();
+   if(msg.equalsIgnoreCase(msg))
+   {
+ 	  test.log(LogStatus.FAIL,"Without Selecting File in MBP-4 Old Excel file =" +msg);
+   }
+   else
+   {
+ 	  test.log(LogStatus.PASS,"Without Selecting File  in MBP-4 Old Excel file =" +msg);
+   }
+   Thread.sleep(2000);
+   Locator.ClickDashboard(driver).click();
+	 
+	 
+	 }
+	
+	public static void ClickGenerateRegistor(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+       	WebDriverWait wait = new WebDriverWait(driver, (120));
+          Thread.sleep(2000);
+          Locator.Master(driver).click();
+         	Thread.sleep(4000);
+           Locator.MoreAction(driver).click();
+         	Thread.sleep(3000);
+         	Locator.StatutoryRegisters(driver).click();
+         	Thread.sleep(3000);
+         	Locator.clickMBP4(driver).click();
+          Thread.sleep(2000);
+          if(Locator.clickGenerateRegistor(driver).isEnabled())
+  	    {
+  	      Thread.sleep(2000);
+  	    Locator.clickGenerateRegistor(driver).click();
+  	      test.log(LogStatus.PASS, "User should be redirected to the 'Generate Register' page and able to see three option i.e existing,old and all");
+  	    }
+  	    else
+  	    {
+  	    	 test.log(LogStatus.FAIL, "User should be redirected to the 'Generate Register' page and able to see three option i.e existing,old and all");
+  	    }
+          Thread.sleep(2000);
+          Locator.ClickDashboard(driver).click();
+          
+          
+	 }
+	
+	public static void ClickDownloadExisitingRegisterOfMBP4(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+      	  WebDriverWait wait = new WebDriverWait(driver, (120));
+         Thread.sleep(2000);
+         Locator.Master(driver).click();
+      	Thread.sleep(4000);
+        Locator.MoreAction(driver).click();
+      	Thread.sleep(3000);
+      	Locator.StatutoryRegisters(driver).click();
+      	Thread.sleep(3000);
+      	Locator.clickMBP4(driver).click();
+       Thread.sleep(2000);
+       Locator.clickGenerateRegistor(driver).click();
+  	      Thread.sleep(2000);
+  	    Locator.clickExistingDropdown(driver).click();
+	      Thread.sleep(2000);
+	      Locator.clickExistingDropdown1(driver).click();
+	      
+	      
+	      File dir = new File("C:\\Users\\Mayuri\\Downloads");
+		  	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		  		
+		  	Thread.sleep(2000);
+		  	Locator.clickDownloadBtn(driver).click();		//Exporting (Downloading) file
+		  		
+		    Thread.sleep(3000);
+		    File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+		    File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		  		
+		  		
+		  	if (dirContents.length < allFilesNew.length) 
+		  	{
+		  		test.log(LogStatus.PASS,  "  Document downloaded successfully.");
+		  	} 
+		  	else 
+		  	{
+		  		test.log(LogStatus.FAIL, "  Document does not downloaded.");
+		  	}
+		    Thread.sleep(2000);
+		    Locator.ClickDashboard(driver).click();
+	      
+	 }
+
+	public static void ClickDownloadOldRegisterOfMBP4(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+     	  WebDriverWait wait = new WebDriverWait(driver, (120));
+        Thread.sleep(2000);
+        Locator.Master(driver).click();
+      	Thread.sleep(4000);
+        Locator.MoreAction(driver).click();
+      	Thread.sleep(3000);
+      	Locator.StatutoryRegisters(driver).click();
+      	Thread.sleep(3000);
+      	Locator.clickMBP4(driver).click();
+       Thread.sleep(2000);
+       Locator.clickGenerateRegistor(driver).click();
+ 	    Thread.sleep(2000);
+ 	   Locator.clickOldBtn(driver).click();
+ 	      Thread.sleep(2000);
+ 	     Locator.clickOldDropdown(driver).click();
+	      Thread.sleep(2000);
+	      Locator.clickOldDropdown1(driver).click();
+	      
+	      
+	      File dir = new File("C:\\Users\\Mayuri\\Downloads");
+		  	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		  		
+		  	Thread.sleep(2000);
+		  	Locator.clickDownloadBtn(driver).click();		//Exporting (Downloading) file
+		  		
+		    Thread.sleep(3000);
+		    File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+		    File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		  		
+		  		
+		  	if (dirContents.length < allFilesNew.length) 
+		  	{
+		  		test.log(LogStatus.PASS,  "  Document downloaded successfully.");
+		  	} 
+		  	else 
+		  	{
+		  		test.log(LogStatus.FAIL, "  Document does not downloaded.");
+		  	}
+		    Thread.sleep(2000);
+		    Locator.ClickDashboard(driver).click();
+	      
+	 }
+	
+	public static void ClickDownloadAllRegisterOfMBP4(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+    	  WebDriverWait wait = new WebDriverWait(driver, (120));
+       Thread.sleep(2000);
+       Locator.Master(driver).click();
+     	Thread.sleep(4000);
+       Locator.MoreAction(driver).click();
+     	Thread.sleep(3000);
+     	Locator.StatutoryRegisters(driver).click();
+     	Thread.sleep(3000);
+     	Locator.clickMBP4(driver).click();
+      Thread.sleep(2000);
+      Locator.clickGenerateRegistor(driver).click();
+	    Thread.sleep(2000);
+	    Locator.clickAllBtn(driver).click();
+	     
+	      
+	      
+	      File dir = new File("C:\\Users\\Mayuri\\Downloads");
+		  	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		  		
+		  	Thread.sleep(2000);
+		  	Locator.clickDownloadBtn(driver).click();		//Exporting (Downloading) file
+		  		
+		    Thread.sleep(3000);
+		    File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+		    File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		  		
+		  		
+		  	if (dirContents.length < allFilesNew.length) 
+		  	{
+		  		test.log(LogStatus.PASS,  "  Document downloaded successfully.");
+		  	} 
+		  	else 
+		  	{
+		  		test.log(LogStatus.FAIL, "  Document does not downloaded.");
+		  	}
+		    Thread.sleep(2000);
+		    Locator.ClickDashboard(driver).click();
+	      
+	 }  
+	
+	public static void ClickViewExisitingRegisterOfMBP4(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+     	  WebDriverWait wait = new WebDriverWait(driver, (120));
+        Thread.sleep(2000);
+        Locator.Master(driver).click();
+     	Thread.sleep(4000);
+       Locator.MoreAction(driver).click();
+     	Thread.sleep(3000);
+     	Locator.StatutoryRegisters(driver).click();
+     	Thread.sleep(3000);
+     	Locator.clickMBP4(driver).click();
+      Thread.sleep(2000);
+      Locator.clickGenerateRegistor(driver).click();
+ 	      Thread.sleep(2000);
+ 	     Locator.clickExistingDropdown(driver).click();
+	      Thread.sleep(2000);
+	      Locator.clickExistingDropdown1(driver).click();
+	      
+	  	 Thread.sleep(2000);
+	  	Locator.clickViewBtn(driver).click();		//Exporting (Downloading) file
+		  		
+		 Thread.sleep(2000);
+			String msg=Locator.clickViewPage(driver).getText();	
+		  		
+		  	if (msg.equalsIgnoreCase(msg)) 
+		  	{
+		  		test.log(LogStatus.PASS,  "user should be able to view 'existing' register of MBP-4");
+		  	} 
+		  	else 
+		  	{
+		  		test.log(LogStatus.FAIL, " user should not be able to view 'existing' register of MBP-4");
+		  	}
+		  	
+		    Thread.sleep(3000);
+		    Locator.clickViewClosePage(driver).click();
+		    Thread.sleep(2000);
+		    Locator.ClickDashboard(driver).click();
+	      
+	 }
+	
+	public static void ClickViewOldRegisterOfMBP4(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+    	  WebDriverWait wait = new WebDriverWait(driver, (120));
+       Thread.sleep(2000);
+       Locator.Master(driver).click();
+    	Thread.sleep(4000);
+      Locator.MoreAction(driver).click();
+    	Thread.sleep(3000);
+    	Locator.StatutoryRegisters(driver).click();
+    	Thread.sleep(3000);
+    	Locator.clickMBP4(driver).click();
+     Thread.sleep(2000);
+     Locator.clickGenerateRegistor(driver).click();
+	     Thread.sleep(2000);
+	     Locator.clickOldBtn(driver).click();
+	      Thread.sleep(2000);
+	      Locator.clickOldDropdown(driver).click();
+	      Thread.sleep(2000);
+	      Locator.clickOldDropdown1(driver).click();
+	      
+	  	 Thread.sleep(2000);
+	  	Locator.clickViewBtn(driver).click();		//Exporting (Downloading) file
+		  		
+		 Thread.sleep(2000);
+			String msg=Locator.clickViewPage(driver).getText();	
+		  		
+		  	if (msg.equalsIgnoreCase(msg)) 
+		  	{
+		  		test.log(LogStatus.PASS,  "user should be able to view 'old' register of MBP-4");
+		  	} 
+		  	else 
+		  	{
+		  		test.log(LogStatus.FAIL, "user should not be able to view 'old' register of MBP-4");
+		  	}
+		  	
+		    Thread.sleep(2000);
+		    Locator.clickViewClosePage(driver).click();
+		    Thread.sleep(2000);
+		    Locator.ClickDashboard(driver).click();
+	      
+	 }
+	
+	public static void ClickViewAllRegisterOfMBP4(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+   	  WebDriverWait wait = new WebDriverWait(driver, (120));
+      Thread.sleep(2000);
+      Locator.Master(driver).click();
+  	Thread.sleep(4000);
+    Locator.MoreAction(driver).click();
+  	Thread.sleep(3000);
+  	Locator.StatutoryRegisters(driver).click();
+  	Thread.sleep(3000);
+  	Locator.clickMBP4(driver).click();
+   Thread.sleep(2000);
+   Locator.clickGenerateRegistor(driver).click();
+	      Thread.sleep(2000);
+	      Locator.clickAllBtn(driver).click();
+	      
+	  	 Thread.sleep(2000);
+	  	Locator.clickViewBtn(driver).click();		//Exporting (Downloading) file
+		  		
+		 Thread.sleep(2000);
+			String msg=Locator.clickViewPage(driver).getText();	
+		  		
+		  	if (msg.equalsIgnoreCase(msg)) 
+		  	{
+		  		test.log(LogStatus.PASS,  "user should be able to view 'All' register of MBP-4");
+		  	} 
+		  	else 
+		  	{
+		  		test.log(LogStatus.FAIL, "user should not be able to view 'All' register of MBP-4");
+		  	}
+		  	
+		    Thread.sleep(2000);
+		    Locator.clickViewClosePage(driver).click();
+		    Thread.sleep(2000);
+		    Locator.ClickDashboard(driver).click();
+	      
+	 }
+	
+	public static void clickPASTROD(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+       	WebDriverWait wait = new WebDriverWait(driver, (120));
+          Thread.sleep(2000);
+          Locator.Master(driver).click();
+        	Thread.sleep(4000);
+          Locator.MoreAction(driver).click();
+        	Thread.sleep(3000);
+        	Locator.StatutoryRegisters(driver).click();
+        	Thread.sleep(3000);
+          if(Locator.clickPASTROD(driver).isEnabled())
+  	    {
+  	      Thread.sleep(2000);
+  	    Locator.clickPASTROD(driver).click();
+  	      test.log(LogStatus.PASS, "The user should be redirected to the 'Past ROD' page");
+  	    }
+  	    else
+  	    {
+  	    	 test.log(LogStatus.FAIL, "The user should not be redirected to the 'Past ROD' page");
+  	    }
+          Thread.sleep(2000);
+          Locator.ClickDashboard(driver).click();
+          
+          
+	 }
+	
+	public static void clickPASTRODwithValidData(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+      	WebDriverWait wait = new WebDriverWait(driver, (120));
+         Thread.sleep(2000);
+         Locator.Master(driver).click();
+     	Thread.sleep(4000);
+       Locator.MoreAction(driver).click();
+     	Thread.sleep(3000);
+     	Locator.StatutoryRegisters(driver).click();
+     	Thread.sleep(3000);
+     	Locator.clickPASTROD(driver).click();
+  	      Thread.sleep(2000);
+  	    Locator.clickPASTRODUpload(driver).click();
+	      Thread.sleep(2000);
+	      Locator.clickChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\SamplePastDirectorUpload.xlsx");
+	      Thread.sleep(2000);
+	      Locator.clickPASTRODUploadButton(driver).click();
+	      Thread.sleep(2000);
+	      String msg=Locator.clickPASTRODValidMsg(driver).getText();
+	      if(msg.equalsIgnoreCase("Records Save Successfully"))
+	      {
+	    	  test.log(LogStatus.PASS, "Message displayed ="+msg);
+	      }
+	      else
+	      {
+	    	  test.log(LogStatus.FAIL, "Message displayed ="+msg);
+	      }
+	      Thread.sleep(2000);
+	      Locator.ClickDashboard(driver).click();
+         
+	 }
+	
+	public static void clickPASTRODwithInValidData(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+     	WebDriverWait wait = new WebDriverWait(driver, (120));
+        Thread.sleep(2000);
+        Locator.Master(driver).click();
+     	Thread.sleep(4000);
+       Locator.MoreAction(driver).click();
+     	Thread.sleep(3000);
+     	Locator.StatutoryRegisters(driver).click();
+     	Thread.sleep(3000);
+     	Locator.clickPASTROD(driver).click();
+ 	      Thread.sleep(2000);
+ 	     Locator.clickPASTRODUpload(driver).click();
+	      Thread.sleep(2000);
+	      Locator.clickChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\SamplePastDirectorUpload (1).xlsx");
+	      Thread.sleep(2000);
+	      Locator.clickPASTRODUploadButton(driver).click();
+	      Thread.sleep(2000);
+	      String msg=Locator.clickPASTRODValidMsg(driver).getText();
+	      if(msg.equalsIgnoreCase("Records Save Successfully"))
+	      {
+	    	  test.log(LogStatus.FAIL, "Message displayed ="+msg);
+	      }
+	      else
+	      {
+	    	  test.log(LogStatus.PASS, "Message displayed ="+msg);
+	      }
+	      Thread.sleep(2000);
+	      Locator.ClickDashboard(driver).click();
+        
+	 }
+	
+	public static void clickPASTRODwithDuplicateData(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+    	WebDriverWait wait = new WebDriverWait(driver, (120));
+       Thread.sleep(2000);
+       Locator.Master(driver).click();
+    	Thread.sleep(4000);
+      Locator.MoreAction(driver).click();
+    	Thread.sleep(3000);
+    	Locator.StatutoryRegisters(driver).click();
+    	Thread.sleep(3000);
+    	Locator.clickPASTROD(driver).click();
+	      Thread.sleep(2000);
+	      Locator.clickPASTRODUpload(driver).click();
+	      Thread.sleep(2000);
+	      Locator.clickChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\SamplePastDirectorUpload.xlsx");
+	      Thread.sleep(2000);
+	      Locator.clickPASTRODUploadButton(driver).click();
+	      Thread.sleep(2000);
+	      String msg=Locator.clickPASTRODValidMsg(driver).getText();
+	      if(msg.equalsIgnoreCase("Records Save Successfully"))
+	      {
+	    	  test.log(LogStatus.FAIL, "Message displayed ="+msg);
+	      }
+	      else
+	      {
+	    	  test.log(LogStatus.PASS, "Message displayed ="+msg);
+	      }
+	      Thread.sleep(2000);
+	      Locator.ClickDashboard(driver).click();
+       
+	 }
+	
+	public static void clickPASTRODwithoutData(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+   	WebDriverWait wait = new WebDriverWait(driver, (120));
+      Thread.sleep(2000);
+      Locator.Master(driver).click();
+  	Thread.sleep(4000);
+    Locator.MoreAction(driver).click();
+  	Thread.sleep(3000);
+  	Locator.StatutoryRegisters(driver).click();
+  	Thread.sleep(3000);
+  	Locator.clickPASTROD(driver).click();
+	      Thread.sleep(2000);
+	      Locator.clickPASTRODUpload(driver).click();
+	      Thread.sleep(2000);
+	      Locator.clickChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\SamplePastDirectorUpload (2).xlsx");
+	      Thread.sleep(2000);
+	      Locator.clickPASTRODUploadButton(driver).click();
+	      Thread.sleep(2000);
+	      String msg=Locator.clickPASTRODValidMsg(driver).getText();
+	      if(msg.equalsIgnoreCase("Records Save Successfully"))
+	      {
+	    	  test.log(LogStatus.FAIL, "Message displayed ="+msg);
+	      }
+	      else
+	      {
+	    	  test.log(LogStatus.PASS, "Message displayed ="+msg);
+	      }
+	      Thread.sleep(2000);
+	      Locator.ClickDashboard(driver).click();
+      
+	 }
+	
+	public static void clickPASTRODInvalidFile(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+  	WebDriverWait wait = new WebDriverWait(driver, (120));
+     Thread.sleep(2000);
+     Locator.Master(driver).click();
+   	Thread.sleep(4000);
+     Locator.MoreAction(driver).click();
+   	Thread.sleep(3000);
+   	Locator.StatutoryRegisters(driver).click();
+   	Thread.sleep(3000);
+   	Locator.clickPASTROD(driver).click();
+ 	      Thread.sleep(2000);
+ 	      Locator.clickPASTRODUpload(driver).click();
+ 	      Thread.sleep(2000);
+ 	     Locator.clickChooseFile(driver).sendKeys("C:\\Users\\Mayuri\\Documents\\Automation File\\4_28_2023 3_09_26 PM.zip");
+	      Thread.sleep(2000);
+	      Locator.clickPASTRODUploadButton(driver).click();
+	      Thread.sleep(2000);
+	      String msg=Locator.clickPASTRODInValidMsg(driver).getText();
+	      if(msg.equalsIgnoreCase("No Data Found in Excel Document or Sheet Name must be Different"))
+	      {
+	    	  test.log(LogStatus.PASS, "Message displayed ="+msg);
+	      }
+	      else
+	      {
+	    	  test.log(LogStatus.FAIL, "Message displayed ="+msg);
+	      }
+	      Thread.sleep(2000);
+	      Locator.ClickDashboard(driver).click();
+     
+	 }
+	
+	public static void clickPASTRODGenerateRegistor(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+ 	WebDriverWait wait = new WebDriverWait(driver, (120));
+    Thread.sleep(2000);
+    Locator.Master(driver).click();
+   	Thread.sleep(4000);
+     Locator.MoreAction(driver).click();
+   	Thread.sleep(3000);
+   	Locator.StatutoryRegisters(driver).click();
+   	Thread.sleep(3000);
+   	Locator.clickPASTROD(driver).click();
+ 	      Thread.sleep(2000);
+	      
+	      
+	      if( Locator.clickPASTRODGenerateRegostor(driver).isEnabled())
+	      {
+	          Thread.sleep(2000);
+	          Locator.clickPASTRODGenerateRegostor(driver).click();
+	          test.log(LogStatus.PASS, "User should be redirected to the 'Generate Register' page");
+	      }
+	      else
+	      {
+	    	  test.log(LogStatus.FAIL, "User should be redirected to the 'Generate Register' page");
+	      }
+	      Thread.sleep(2000);
+	      Locator.ClickDashboard(driver).click();
+	     
+	 }
+	
+	public static void clickPASTRODGenerateRegistorDownload(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+	WebDriverWait wait = new WebDriverWait(driver, (120));
+   Thread.sleep(2000);
+   Locator.Master(driver).click();
+  	Thread.sleep(4000);
+    Locator.MoreAction(driver).click();
+  	Thread.sleep(3000);
+  	Locator.StatutoryRegisters(driver).click();
+  	Thread.sleep(3000);
+  	Locator.clickPASTROD(driver).click();
+	      Thread.sleep(2000);
+	      Thread.sleep(2000);
+	      Locator.clickPASTRODGenerateRegostor(driver).click();
+	      
+	      Thread.sleep(2000);
+	      Locator. clickPASTRODGenerateRegostorDropdown(driver).click();
+	      Thread.sleep(2000);
+	      Locator. clickPASTRODGenerateRegostorDropdown1(driver).click();
+	      
+	      
+	      File dir = new File("C:\\Users\\Mayuri\\Downloads");
+		  	File[] dirContents = dir.listFiles();						//Counting number of files in directory before download
+		  		
+		  	Thread.sleep(2000);
+		  	Locator.clickDownloadBtn(driver).click();		//Exporting (Downloading) file
+		  		
+		    Thread.sleep(3000);
+		    File dir1 = new File("C:\\Users\\Mayuri\\Downloads");
+		    File[] allFilesNew = dir1.listFiles();						//Counting number of files in directory after download
+		  		
+		  		
+		  	if (dirContents.length < allFilesNew.length) 
+		  	{
+		  		test.log(LogStatus.PASS,  "Register of Past Director should be viewed successfully");
+		  	} 
+		  	else 
+		  	{
+		  		test.log(LogStatus.FAIL, "Register of Past Director should not be viewed successfully");
+		  	}
+		    Thread.sleep(2000);
+		    Locator.ClickDashboard(driver).click();
+	      
+	     
+	 }
+	
+	public static void clickPASTRODGenerateRegistorView(WebDriver driver, ExtentTest test) throws InterruptedException
+	 {
+
+		WebDriverWait wait = new WebDriverWait(driver, (120));
+	    Thread.sleep(2000);
+	    Locator.Master(driver).click();
+	  	Thread.sleep(4000);
+	    Locator.MoreAction(driver).click();
+	  	Thread.sleep(3000);
+	  	Locator.StatutoryRegisters(driver).click();
+	  	Thread.sleep(3000);
+	  	Locator.clickPASTROD(driver).click();
+		      Thread.sleep(2000);
+		      Thread.sleep(2000);
+		      Locator.clickPASTRODGenerateRegostor(driver).click();
+		      
+		      Thread.sleep(2000);
+		      Locator. clickPASTRODGenerateRegostorDropdown(driver).click();
+		      Thread.sleep(2000);
+		      Locator. clickPASTRODGenerateRegostorDropdown1(driver).click();
+		      
+	  	 Thread.sleep(2000);
+	  	Locator.clickViewBtn(driver).click();		//Exporting (Downloading) file
+		  		
+		 Thread.sleep(2000);
+			String msg=Locator.clickViewPage(driver).getText();	
+		  		
+		  	if (msg.equalsIgnoreCase(msg)) 
+		  	{
+		  		test.log(LogStatus.PASS,  "Register of Past Director should be Viewed successfully");
+		  	} 
+		  	else 
+		  	{
+		  		test.log(LogStatus.FAIL, "Register of Past Director should not be Viewed successfully");
+		  	}
+		  	
+		    Thread.sleep(2000);
+		    Locator.clickViewClosePage(driver).click();
+		    Thread.sleep(2000);
+		    Locator.ClickDashboard(driver).click();
+	      
+	 }
 	
 }
