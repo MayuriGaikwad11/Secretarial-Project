@@ -8,7 +8,7 @@
           <include name="Closing"/>
           <include name="Login"/>
           <include name="setBrowser"/>
-          <include name="DirectorEdit"/>
+          <include name="DirectorProfileAdd"/>
           <include name="browserClosing"/>
         </methods>
       </class> <!-- secretrialTestCase.DirectorTest -->

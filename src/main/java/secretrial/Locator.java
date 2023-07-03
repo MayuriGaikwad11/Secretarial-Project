@@ -4198,7 +4198,7 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	
 	public static WebElement DateOfPassingResolutionAE1(WebDriver driver)		
 	{
-		secretrial = driver.findElement(By.linkText("4"));
+		secretrial = driver.findElement(By.linkText("2"));
 		return secretrial;                     
 	}
 	
@@ -4499,7 +4499,7 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 	
 	public static WebElement EditMB3(WebDriver driver)
 	{
-		secretrial=driver.findElement(By.xpath("(//*[@class='k-grid-Edit k-grid-edit hoverCircle k-grid-button'])[31]"));
+		secretrial=driver.findElement(By.xpath("(//*[@class='k-grid-Edit k-grid-edit hoverCircle k-grid-button'])[38]"));
 		return secretrial;
 	}
 	
@@ -4583,6 +4583,13 @@ private static WebElement secretrial = null;				//WebElement variable created fo
 		secretrial = driver.findElement(By.xpath("//*[@id='frmUpdateUploadEntity']/div[1]/div[2]/div/lable"));
 		return secretrial;
 	}
+	
+	public static WebElement  clickPASTRODInValidMsg1(WebDriver driver)		//Method for closing Message Popup
+	{
+		secretrial = driver.findElement(By.xpath("//*[@id='frmUpdateUploadEntity']/div[1]/ul/li/label"));
+		return secretrial;
+	}
+	
 	public static WebElement  clickPASTRODGenerateRegostor(WebDriver driver)		//Method for closing Message Popup
 	{
 		secretrial = driver.findElement(By.xpath("//*[@id='btnGeneratePastdirector']"));

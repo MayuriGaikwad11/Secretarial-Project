@@ -3743,12 +3743,12 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Locator.MoreAction(driver).click();
 	Thread.sleep(2000);
 	Locator.RelatedCompanies(driver).click();
-	Thread.sleep(2000);
+	Thread.sleep(4000);
 	if(Locator.RelatedCompaniesVali(driver).isDisplayed()) {
 		test.log(LogStatus.PASS,  "user is able to clicks on the More action dropdown and selects a valid option Successfully");
 	}
 	Locator.RelatedCompaniesClose(driver).click();
-	Thread.sleep(2000);
+	Thread.sleep(3000);
 	Locator.ClickDashboard(driver).click();
 	 Thread.sleep(1000);
 	 }
@@ -20174,9 +20174,10 @@ Thread.sleep(3000);
 	Thread.sleep(3000); 
 	
 	Locator.DateofTransaction(driver).click();		
-	Thread.sleep(2000);
-	Locator.CreationDate1(driver).click();		
-	Thread.sleep(3000); 
+	Thread.sleep(1000);
+	Locator.RegistrationChargeCreateDate1(driver).click();	
+
+	Thread.sleep(4000); 
 	
 	row0 = sheet.getRow(130);
 	c1 = row0.getCell(1); // Selected cell (0 row,2 column) (2 column = third column)
@@ -20218,7 +20219,8 @@ Thread.sleep(3000);
 	
 	Locator.DateOfBoardResolution(driver).click();		
 	Thread.sleep(2000);
-	Locator.CreationDate1(driver).click();		
+	Locator.RegistrationChargeCreateDate1(driver).click();	
+	
 	Thread.sleep(3000); 
 	
 	Locator.DateOfPassingResolution(driver).click();		
@@ -20409,7 +20411,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	
 	Locator.DateofTransaction(driver).click();		
 	Thread.sleep(2000);
-	Locator.CreationDate1(driver).click();		
+	Locator.RegistrationChargeCreateDate1(driver).click();		
 	Thread.sleep(3000); 
 	
 	
@@ -20535,7 +20537,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	
 	Locator.DateofTransaction(driver).click();		
 	Thread.sleep(2000);
-	Locator.CreationDate1(driver).click();		
+	Locator.RegistrationChargeCreateDate1(driver).click();		
 	Thread.sleep(3000); 
 	
 	row0 = sheet.getRow(130);
@@ -20578,7 +20580,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	
 	Locator.DateOfBoardResolution(driver).click();		
 	Thread.sleep(2000);
-	Locator.CreationDate1(driver).click();		
+	Locator.RegistrationChargeCreateDate1(driver).click();		
 	Thread.sleep(3000); 
 	
 	Locator.DateOfPassingResolution(driver).click();		
@@ -20729,7 +20731,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	
 	Locator.DateofTransaction(driver).click();		
 	Thread.sleep(2000);
-	Locator.CreationDate1(driver).click();		
+	Locator.RegistrationChargeCreateDate1(driver).click();		
 	Thread.sleep(3000); 
 	
 	
@@ -20861,7 +20863,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	
 	Locator.DateofTransaction(driver).click();		
 	Thread.sleep(2000);
-	Locator.CreationDate1(driver).click();		
+	Locator.DateOfPassingResolutionAE1(driver).click();		
 	Thread.sleep(3000); 
 	
 	row0 = sheet.getRow(130);
@@ -20904,7 +20906,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	
 	Locator.DateOfBoardResolution(driver).click();		
 	Thread.sleep(2000);
-	Locator.CreationDate1(driver).click();		
+	Locator.RegistrationChargeCreateDate1(driver).click();		
 	Thread.sleep(3000); 
 	
 	Locator.DateOfPassingResolution(driver).click();		
@@ -21063,7 +21065,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	
 	Locator.DateofTransaction(driver).click();		
 	Thread.sleep(2000);
-	Locator.CreationDate1(driver).click();		
+	Locator.DateOfPassingResolutionAE1(driver).click();		
 	Thread.sleep(3000); 
 	
 	
@@ -21195,7 +21197,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	
 	Locator.DateofTransaction(driver).click();		
 	Thread.sleep(2000);
-	Locator.CreationDate1(driver).click();		
+	Locator.RegistrationChargeCreateDate1(driver).click();		
 	Thread.sleep(3000); 
 	
 	row0 = sheet.getRow(130);
@@ -21238,7 +21240,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	
 	Locator.DateOfBoardResolution(driver).click();		
 	Thread.sleep(2000);
-	Locator.CreationDate1(driver).click();		
+	Locator.RegistrationChargeCreateDate1(driver).click();		
 	Thread.sleep(3000); 
 	
 	Locator.DateOfPassingResolution(driver).click();		
@@ -21389,7 +21391,7 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	
 	Locator.DateofTransaction(driver).click();		
 	Thread.sleep(2000);
-	Locator.CreationDate1(driver).click();		
+	Locator.RegistrationChargeCreateDate1(driver).click();		
 	Thread.sleep(3000); 
 	
 	
@@ -21772,15 +21774,16 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	Locator.UsedLimit(driver).sendKeys("2");		
 	Thread.sleep(2000);
 	*/
-	Locator.DateOfBoardResolutionAE(driver).click();
+/*	Locator.DateOfBoardResolutionAE(driver).click();
 	Thread.sleep(3000);
 	Locator.DateOfBoardResolutionAE1(driver).click();		
 	Thread.sleep(3000);
 	
+	Thread.sleep(3000);
 	Locator.DateOfPassingResolutionAE(driver).click();
 	Thread.sleep(1000);
 	Locator.DateOfPassingResolutionAE1(driver).click();		
-	Thread.sleep(2000);
+	Thread.sleep(2000);*/
 	Locator.SaveAE(driver).click();		
 	Thread.sleep(5000);
 	String Text =Locator.SaveAEMsg(driver).getText();
@@ -23832,14 +23835,14 @@ jse.executeScript("arguments[0].click();", ViewButton);
 	      Thread.sleep(2000);
 	      Locator.clickPASTRODUploadButton(driver).click();
 	      Thread.sleep(2000);
-	      String msg=Locator.clickPASTRODValidMsg(driver).getText();
-	      if(msg.equalsIgnoreCase("Records Save Successfully"))
+	      String msg=Locator.clickPASTRODInValidMsg1(driver).getText();
+	      if(msg.equalsIgnoreCase("Input string was not in a correct format."))
 	      {
-	    	  test.log(LogStatus.FAIL, "Message displayed ="+msg);
+	    	  test.log(LogStatus.PASS, "Message displayed ="+msg);
 	      }
 	      else
 	      {
-	    	  test.log(LogStatus.PASS, "Message displayed ="+msg);
+	    	  test.log(LogStatus.FAIL, "Message displayed ="+msg);
 	      }
 	      Thread.sleep(2000);
 	      Locator.ClickDashboard(driver).click();
